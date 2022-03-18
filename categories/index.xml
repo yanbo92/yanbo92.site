@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 茅测顿开</title>
+    <link>https://yanbo92.github.io/categories/</link>
+    <description>Recent content in Categories on 茅测顿开</description>
+    <image>
+      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yanbo92.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android</title>
+      <link>https://yanbo92.github.io/categories/android/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/categories/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://yanbo92.github.io/categories/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iOS</title>
+      <link>https://yanbo92.github.io/categories/ios/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/categories/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jenkins</title>
+      <link>https://yanbo92.github.io/categories/jenkins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/categories/jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>https://yanbo92.github.io/categories/mac/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/categories/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>建站</title>
+      <link>https://yanbo92.github.io/categories/%E5%BB%BA%E7%AB%99/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/categories/%E5%BB%BA%E7%AB%99/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>逆向</title>
+      <link>https://yanbo92.github.io/categories/%E9%80%86%E5%90%91/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/categories/%E9%80%86%E5%90%91/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

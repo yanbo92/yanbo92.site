@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bark on 茅测顿开</title>
+    <link>https://yanbo92.github.io/tags/bark/</link>
+    <description>Recent content in bark on 茅测顿开</description>
+    <image>
+      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yanbo92.github.io/tags/bark/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>调用接口推送消息到你iPhone——iOS开源项目Bark</title>
+      <link>https://yanbo92.github.io/bark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/bark/</guid>
+      <description>最终效果  通过特定的接口直接往iPhone上发送通知 支持链接转跳 支持一键复制 支持自定义图标  项目介绍  传统通知方式例如邮件、聊天软件来做自动提醒还是略微麻烦。
+Bark提供http接口，简单调用即可给自己的iPhone发送推送。
+可以为你带来非常及时、稳定可靠、隐私安全的推送服务。
+Bark不会消耗设备的电量， 核心功能是基于系统推送服务与推送扩展，APP本体并不需要运行。
+Bark可以非常可靠的保证你的隐私安全。
+你可以手动或通过docker在自己的服务器上运行Bark服务端，或者自行实现服务端。
+数据将在 你的服务器-系统推送服务器-你的设备 之间传输，确保任何推送信息都不会被泄漏。
+APP 是通过 Github Action 编译上传，保证你使用的APP版本是由开源代码编译，未经任何人修改（验证方法请在 APP 内查看)。
+Bark保存在本地的通知消息历史也非常安全。
+通过 NotificationServiceExtension 扩展，在收到推送时将推送信息保存在本地，不会经过其他任何设备。
+历史记录仅由个人iCloud私有库进行同步，可以确保你产生的任何通知，将只留在你的设备与你的iCloud中
+ 相关链接 项目主页
+作者博客
+App Store
+使用说明 内容推送  打开APP，复制测试URL  修改内容，请求这个URL  可以发 get 或者 post 请求 ，请求成功会立即收到推送 URL 组成: 第一个部分是 key , 之后有三个匹配 /:key/:body /:key/:title/:body /:key/:category/:title/:body title 推送标题 比 body 字号粗一点 body 推送内容 换行请使用换行符 &amp;#39;\n&amp;#39; category 另外的功能占用的字段，还没开放 忽略就行 post 请求 参数名也是上面这些 复制参数 收到推送时下拉推送（或在通知中心左滑查看推送）有一个复制按钮，点击即可复制推送内容。</description>
+    </item>
+    
+  </channel>
+</rss>

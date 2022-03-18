@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>osxfuse on 茅测顿开</title>
+    <link>https://yanbo92.github.io/tags/osxfuse/</link>
+    <description>Recent content in osxfuse on 茅测顿开</description>
+    <image>
+      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yanbo92.github.io/tags/osxfuse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>通过ifuse/tidevice库读写iPhone手机硬盘</title>
+      <link>https://yanbo92.github.io/read-write-iphone-disk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/read-write-iphone-disk/</guid>
+      <description>背景 在自动化测试的交付、执行过程中，偶尔需要对iPhone手机的硬盘进行读写操作，比如删除相册，拷贝素材等等。本文介绍两个通过命令行操作iPhone手机硬盘的工具，分别是ifuse和tidevice。
+工具介绍 MacFuse  What is macFUSE? macFUSE allows you to extend macOS&amp;rsquo;s native file handling capabilities via third-party file systems.
+macFUSE允许你通过第三方文件系统扩展macOS的本地文件处理能力。
+Features As a user, installing the macFUSE software package will let you use any third-party FUSE file system. Legacy MacFUSE file systems are supported through the optional MacFUSE compatibility layer.
+As a developer, you can use the FUSE SDK to write numerous types of new file systems as regular user space programs.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>砸壳 on 茅测顿开</title>
+    <link>https://yanbo92.github.io/tags/%E7%A0%B8%E5%A3%B3/</link>
+    <description>Recent content in 砸壳 on 茅测顿开</description>
+    <image>
+      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yanbo92.github.io/tags/%E7%A0%B8%E5%A3%B3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用yololib注入fastbot-stub并重签名运行测试</title>
+      <link>https://yanbo92.github.io/fastbot-stub-inject/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/fastbot-stub-inject/</guid>
+      <description>背景 Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具bytedance/Fastbot_iOS，效果非常好。但默认实现是基于纯图像识别的，有时候难免遇到一些靠图像不好处理的地方，陷入覆盖率较低的境地。但好在项目也提供了stub模式，只是上手有一定的技术门槛。刷了一下Github的issue，在开发者geron-cn的启发下了解到了yololib，本文将提供一种通过yololib注入方式使用fastbot-stub的方案。
+相关项目介绍 Fastbot_iOS  2019 年字节跳动 Quality Lab 在自动测试生成方面进行了比较深入的探索，并研发了针对 Android、iOS 的稳定性测试工具 Fastbot。Fastbot 的核心技术主要包括：
+智能遍历：使用基于模型的测试生成（MBT），并提供多种算法策略，以获得较高的 Activity 覆盖率及问题发现能力； 多机协同：最高支持数百台长时间多机协同遍历，同一个目标彼此协作； 个性化的专家系统：业务方可以进行多种个性化配置，比如：限定测试在指定的 Activity 运行，屏蔽测试某些场景； 模型复用：基于强化学习利用历史测试经验数据学习改进当次测试策略； 复杂用例生成：对人工用例进行模仿学习，遍历过程中混合复杂用例的组合生成； 精准定向：根据代码调用链变更自动生成针对变更场景的定向测试。
+ yololib  yololib是Kim Jong Cracks（Clutch 砸壳的作者）小组搞出来的一个dylib注入工具，利用这个工具，大大方便我们修改Mach-O 文件的 Load Command。以达到注入动态库的目的。用法如下
+ yololib [binary] [dylib file]
+  LTResign  LTResign是一个用Python编写的重签名工具，这是iOS逆向绕不开的东西，但同类脚本有很多，作者通常用这个以及GQResign。
+ Swift-30-Projects  这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。
+ 实现原理 注入和重签名都是iOS逆向老生常谈的话题，基于这两个技术也产生了大量围绕iOS开发者证书的黑灰产，例如光环助手等。Fastbot-stub要求在App中加入fastbot-stub.framework，合入依赖重新编译打包，就是注入动态库重签名这样的方案了。
+ 注入：逆向修改三方应用,让三方应用执行我们的代码，这就是代码注入，动态库注入是一种方式。其中动态库注入分为framework注入与dylib注入。此处fastbot-stub编译产物为.framework。 重签名：说白了重签名是一个偷天换日的过程，需要真机编译一个别的工程得到一份描述文件，再把需要重签名app的MachO以及frameworks都重新上一遍签名，当然，成熟的重签名脚本Github上有很多了，原理什么的有兴趣可以细看。  具体步骤 环境准备 此处需要准备好的东西：
+ 一台Mac 一个砸壳后的ipa包 开发者证书，以及可用的描述文件 yololib可执行文件 LTResign可执行文件 fastbot-stub.framework  砸壳的ipa： 建议找你家开发直接打一个adhoc包，顺便要一份开发者证书，以及可用的描述文件。或者有代码权限的测试老哥们自己动手打一个，实在想用线上APP的需要砸壳，可以看看这个工具iOS App 自动砸壳平台，或者通过第三方平台下ipa包，比如爱思助手、PP助手，最折腾但能学到东西的方案：搞一台越狱的iPhone用clutch自己砸</description>
+    </item>
+    
+    <item>
+      <title>重签名解决光环助手频繁掉签问题</title>
+      <link>https://yanbo92.github.io/halo-ipa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/halo-ipa/</guid>
+      <description>最终效果  付费证书只要仍在有效期内，账号内的设备都能不掉签使用游戏的ipa包 免费证书七天一次签名，可以用爱思助手之类的工具完成这个过程。  背景介绍  光环助手，隶属于广州加兔网络科技有限公司，是一款基于Android平台的多功能卡牌游戏助手，由光环团队制作，致力于为众手游玩家打造最优质的游戏氛围，成就最强卡牌管家。光环助手不但能节省手游玩家繁杂的游戏时间，带来更好更畅快的游戏体验；更会为玩家实时更新最新游戏资讯，搜罗大量游戏攻略以及“小编带你玩”等诸多精品栏目。
+光环修改版的游戏提供以下悬浮窗功能
+ 内置攻略 内置15倍可调节加速 内置连点器，支持调节频率，次数以及保存脚本功能   操作教程 手动找出ipa地址   使用电脑或者将手机浏览器UA设置为PC进入iOS光环助手下载页
+  找到想要下载的游戏，点击下载
+  此时地址栏会暴露一个itms-services的url，这是一种无需经过App Store来分发ipa的服务
+  比如url为
+  itms-services://?action=download-manifest&amp;amp;url=https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist 取参数中的url部分，也就是这个plist文件的地址  https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist 直接用浏览器访问，将得到一个xml页面  This XML file does not appear to have any style information associated with it. The document tree is shown below. &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;items&amp;lt;/key&amp;gt; &amp;lt;array&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;assets&amp;lt;/key&amp;gt; &amp;lt;array&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;kind&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;software-package&amp;lt;/string&amp;gt; &amp;lt;key&amp;gt;url&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;https://ios-d.</description>
+    </item>
+    
+  </channel>
+</rss>
