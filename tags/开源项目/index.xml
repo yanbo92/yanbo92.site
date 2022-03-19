@@ -59,27 +59,9 @@ docker-compose up -d 提示：初次打开Grafana时，系统会提示你修改�
     </item>
     
     <item>
-      <title>使用pbxproj添加fastbot-stub.framework并运行测试</title>
-      <link>https://yanbo92.github.io/fastbot-stub-pbxproj/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/fastbot-stub-pbxproj/</guid>
-      <description>背景 Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具bytedance/Fastbot_iOS，效果非常好。但默认实现是基于纯图像识别的，有时候难免遇到一些靠图像不好处理的地方，陷入覆盖率较低的境地。但好在项目也提供了stub模式，只是上手有一定的技术门槛。之前的文章使用yololib注入fastbot-stub并重签名运行测试介绍了一种逆向手法使用fastbot-stub。本文将介绍一种从Xcode编译角度加入fastbot-stub的方法，当然，这需要app的完整代码。
-相关项目介绍 Fastbot_iOS  Jenkins是一个开源的、提供友好操作界面的持续集成(CI)工具，起源于Hudson（Hudson是商用的），主要用于持续、自动的构建/测试软件项目、监控外部任务的运行（这个比较抽象，暂且写上，不做解释）。Jenkins用Java语言编写，可在Tomcat等流行的servlet容器中运行，也可独立运行。通常与版本管理工具(SCM)、构建工具结合使用。常用的版本控制工具有SVN、GIT，构建工具有Maven、Ant、Gradle。
- mod-pbxproj  这是一个可以通过命令行修改Xcode项目依赖的python模块，便于在不使用界面的情况下增加或者删除库。
- Swift-30-Projects  这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。
- 实现原理 通过pbxproj工具向Xcode项目中添加fasbot-stub.framework动态库，并重新编译，达到让APP支持stub模式的效果。
-具体步骤 环境准备 此处需要准备好的东西：
- 一台Mac 测试APP的代码 开发者证书，以及可用的描述文件 Python环境 fastbot-stub.framework  Python环境安装pbxproj sudo pip install pbxproj fastbot-stub.framework 按照Fastbot-iOS项目的Readme打开Fastbot-iOS.xcworkspace，编译即可，完整命令：
-git clone git@github.com:bytedance/Fastbot_iOS.git cd Fastbot-iOS &amp;amp;&amp;amp; pod install --repo-update open Fastbot-iOS.xcworkspace 然后target选择fastbot-stub，连一台真机编译，得到产物fastbot-stub.framework
-添加动态库 同样的，我们用上一篇文章的todo项目，编写python文件如下：
-from pbxproj import XcodeProject from pbxproj.pbxextensions.ProjectFiles import FileOptions import time project = XcodeProject.load(&amp;#39;Swift-30-Projects/Project 04 - TodoTDD/ToDo.xcodeproj/project.pbxproj&amp;#39;) file_options = FileOptions(weak=True) project.add_file(&amp;#39;fastbot_stub.framework&amp;#39;, force=False, file_options=file_options) project.</description>
-    </item>
-    
-    <item>
       <title>调用接口推送消息到你iPhone——iOS开源项目Bark</title>
       <link>https://yanbo92.github.io/bark/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://yanbo92.github.io/bark/</guid>
       <description>最终效果  通过特定的接口直接往iPhone上发送通知 支持链接转跳 支持一键复制 支持自定义图标  项目介绍  传统通知方式例如邮件、聊天软件来做自动提醒还是略微麻烦。
@@ -97,6 +79,24 @@ Bark保存在本地的通知消息历史也非常安全。
 作者博客
 App Store
 使用说明 内容推送  打开APP，复制测试URL  修改内容，请求这个URL  可以发 get 或者 post 请求 ，请求成功会立即收到推送 URL 组成: 第一个部分是 key , 之后有三个匹配 /:key/:body /:key/:title/:body /:key/:category/:title/:body title 推送标题 比 body 字号粗一点 body 推送内容 换行请使用换行符 &amp;#39;\n&amp;#39; category 另外的功能占用的字段，还没开放 忽略就行 post 请求 参数名也是上面这些 复制参数 收到推送时下拉推送（或在通知中心左滑查看推送）有一个复制按钮，点击即可复制推送内容。</description>
+    </item>
+    
+    <item>
+      <title>使用pbxproj添加fastbot-stub.framework并运行测试</title>
+      <link>https://yanbo92.github.io/fastbot-stub-pbxproj/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanbo92.github.io/fastbot-stub-pbxproj/</guid>
+      <description>背景 Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具bytedance/Fastbot_iOS，效果非常好。但默认实现是基于纯图像识别的，有时候难免遇到一些靠图像不好处理的地方，陷入覆盖率较低的境地。但好在项目也提供了stub模式，只是上手有一定的技术门槛。之前的文章使用yololib注入fastbot-stub并重签名运行测试介绍了一种逆向手法使用fastbot-stub。本文将介绍一种从Xcode编译角度加入fastbot-stub的方法，当然，这需要app的完整代码。
+相关项目介绍 Fastbot_iOS  Jenkins是一个开源的、提供友好操作界面的持续集成(CI)工具，起源于Hudson（Hudson是商用的），主要用于持续、自动的构建/测试软件项目、监控外部任务的运行（这个比较抽象，暂且写上，不做解释）。Jenkins用Java语言编写，可在Tomcat等流行的servlet容器中运行，也可独立运行。通常与版本管理工具(SCM)、构建工具结合使用。常用的版本控制工具有SVN、GIT，构建工具有Maven、Ant、Gradle。
+ mod-pbxproj  这是一个可以通过命令行修改Xcode项目依赖的python模块，便于在不使用界面的情况下增加或者删除库。
+ Swift-30-Projects  这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。
+ 实现原理 通过pbxproj工具向Xcode项目中添加fasbot-stub.framework动态库，并重新编译，达到让APP支持stub模式的效果。
+具体步骤 环境准备 此处需要准备好的东西：
+ 一台Mac 测试APP的代码 开发者证书，以及可用的描述文件 Python环境 fastbot-stub.framework  Python环境安装pbxproj sudo pip install pbxproj fastbot-stub.framework 按照Fastbot-iOS项目的Readme打开Fastbot-iOS.xcworkspace，编译即可，完整命令：
+git clone git@github.com:bytedance/Fastbot_iOS.git cd Fastbot-iOS &amp;amp;&amp;amp; pod install --repo-update open Fastbot-iOS.xcworkspace 然后target选择fastbot-stub，连一台真机编译，得到产物fastbot-stub.framework
+添加动态库 同样的，我们用上一篇文章的todo项目，编写python文件如下：
+from pbxproj import XcodeProject from pbxproj.pbxextensions.ProjectFiles import FileOptions import time project = XcodeProject.load(&amp;#39;Swift-30-Projects/Project 04 - TodoTDD/ToDo.xcodeproj/project.pbxproj&amp;#39;) file_options = FileOptions(weak=True) project.add_file(&amp;#39;fastbot_stub.framework&amp;#39;, force=False, file_options=file_options) project.</description>
     </item>
     
     <item>

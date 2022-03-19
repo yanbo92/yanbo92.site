@@ -29,7 +29,21 @@ LTResign LTResign是一个用Python编写的重签名工具，这是iOS逆向绕
 Swift-30-Projects 这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。
 实现原理 注入和重签名都是iOS逆向老生常谈的话题，基于这两个技术也产生了大量围绕iOS开发者证书的黑灰产，例如光环助手等。Fastbot-stub要求在App中加入fastbot-stub.framework，合入依赖重新编译打包，就是注入动态库重签名这样的方案了。
 注入：逆向修改三方应用,让三方应用执行我们的代码，这就是代码注入，动态库注入是一种方式。其中动态库注入分为framework注入与dylib注入。此处fastbot-stub编译产物为.framework。 重签名：说白了重签名是一个偷天换日的过程，需要真机编译一个别的工程得到一份描述文件，再把需要重签名app的MachO以及frameworks都重新上一遍签名，当然，成熟的重签名脚本Github上有很多了，原理什么的有兴趣可以细看。 具体步骤 环境准备 此处需要准备好的东西：
-一台Mac 一个砸壳后的ipa包 开发者证书，以及可用的描述文件 yololib可执行文件 LTResign可执行文件 fastbot-stub.framework 砸壳的ipa： 建议找你家开发直接打一个adhoc包，顺便要一份开发者证书，以及可用的描述文件。或者有代码权限的测试老哥们自己动手打一个，实在想用线上APP的需要砸壳，可以看看这个工具iOS App 自动砸壳平台，或者通过第三方平台下ipa包，比如爱思助手、PP助手，最折腾但能学到东西的方案：搞一台越狱的iPhone用clutch自己砸...</p></section><footer class=entry-footer>yanbo92</footer><a class=entry-link aria-label="post link to 使用yololib注入fastbot-stub并重签名运行测试" href=https://yanbo92.github.io/fastbot-stub-inject/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>Mac电脑使用FastGithub加速并配置命令行代理、开机自动启动</h2></header><section class=entry-content><p>最终效果 浏览器、命令行低延迟访问github，刷项目、拉依赖访问正常
+一台Mac 一个砸壳后的ipa包 开发者证书，以及可用的描述文件 yololib可执行文件 LTResign可执行文件 fastbot-stub.framework 砸壳的ipa： 建议找你家开发直接打一个adhoc包，顺便要一份开发者证书，以及可用的描述文件。或者有代码权限的测试老哥们自己动手打一个，实在想用线上APP的需要砸壳，可以看看这个工具iOS App 自动砸壳平台，或者通过第三方平台下ipa包，比如爱思助手、PP助手，最折腾但能学到东西的方案：搞一台越狱的iPhone用clutch自己砸...</p></section><footer class=entry-footer>yanbo92</footer><a class=entry-link aria-label="post link to 使用yololib注入fastbot-stub并重签名运行测试" href=https://yanbo92.github.io/fastbot-stub-inject/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>调用接口推送消息到你iPhone——iOS开源项目Bark</h2></header><section class=entry-content><p>最终效果 通过特定的接口直接往iPhone上发送通知 支持链接转跳 支持一键复制 支持自定义图标 项目介绍 传统通知方式例如邮件、聊天软件来做自动提醒还是略微麻烦。
+Bark提供http接口，简单调用即可给自己的iPhone发送推送。
+可以为你带来非常及时、稳定可靠、隐私安全的推送服务。
+Bark不会消耗设备的电量， 核心功能是基于系统推送服务与推送扩展，APP本体并不需要运行。
+Bark可以非常可靠的保证你的隐私安全。
+你可以手动或通过docker在自己的服务器上运行Bark服务端，或者自行实现服务端。
+数据将在 你的服务器-系统推送服务器-你的设备 之间传输，确保任何推送信息都不会被泄漏。
+APP 是通过 Github Action 编译上传，保证你使用的APP版本是由开源代码编译，未经任何人修改（验证方法请在 APP 内查看)。
+Bark保存在本地的通知消息历史也非常安全。
+通过 NotificationServiceExtension 扩展，在收到推送时将推送信息保存在本地，不会经过其他任何设备。
+历史记录仅由个人iCloud私有库进行同步，可以确保你产生的任何通知，将只留在你的设备与你的iCloud中
+相关链接 项目主页
+作者博客
+App Store
+使用说明 内容推送 打开APP，复制测试URL 修改内容，请求这个URL 可以发 get 或者 post 请求 ，请求成功会立即收到推送 URL 组成: 第一个部分是 key , 之后有三个匹配 /:key/:body /:key/:title/:body /:key/:category/:title/:body title 推送标题 比 body 字号粗一点 body 推送内容 换行请使用换行符 '\n' category 另外的功能占用的字段，还没开放 忽略就行 post 请求 参数名也是上面这些 复制参数 收到推送时下拉推送（或在通知中心左滑查看推送）有一个复制按钮，点击即可复制推送内容。...</p></section><footer class=entry-footer>2021-10-31&nbsp;·&nbsp;yanbo92</footer><a class=entry-link aria-label="post link to 调用接口推送消息到你iPhone——iOS开源项目Bark" href=https://yanbo92.github.io/bark/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>Mac电脑使用FastGithub加速并配置命令行代理、开机自动启动</h2></header><section class=entry-content><p>最终效果 浏览器、命令行低延迟访问github，刷项目、拉依赖访问正常
 项目介绍 FastGithub是一款github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题。
 项目主页 FastGithub
 加速实现原理 windows 客户端访问https://github.com 客户端向dns查询github.com的ip，FastGithub拦截dns数据包并伪造解析结果为127.0.0.1 客户端请求到FastGithub的https://127.0.0.1:443 FastGithub使用fastgithub.cer颁发服务器证书给客户端 FastGithub查询和计算github.com最快的ip FastGithub与github.com进行无sni的tls连接 FastGithub将请求反向代理到https://github.com linux/osx 客户端访问https://github.com 客户端使用fagithub的代理端口38457代理请求 FastGithub将代理的流量请求到自身的反向代理服务 FastGithub使用fastgithub.cer颁发服务器证书给客户端 FastGithub查询和计算github.com最快的ip FastGithub与github.com进行无sni的tls连接 FastGithub将请求反向代理到https://github.com 配置步骤 下载、解压文件 下载链接中的最新osx压缩包，命名类似fastgithub_osx-x64.zip
@@ -50,21 +64,7 @@ Swift-30-Projects 这个项目是一个由30个iOS小项目组成的合集，本
 一台Mac 测试APP的代码 开发者证书，以及可用的描述文件 Python环境 fastbot-stub.framework Python环境安装pbxproj sudo pip install pbxproj fastbot-stub.framework 按照Fastbot-iOS项目的Readme打开Fastbot-iOS.xcworkspace，编译即可，完整命令：
 git clone git@github.com:bytedance/Fastbot_iOS.git cd Fastbot-iOS && pod install --repo-update open Fastbot-iOS.xcworkspace 然后target选择fastbot-stub，连一台真机编译，得到产物fastbot-stub.framework
 添加动态库 同样的，我们用上一篇文章的todo项目，编写python文件如下：
-from pbxproj import XcodeProject from pbxproj.pbxextensions.ProjectFiles import FileOptions import time project = XcodeProject.load('Swift-30-Projects/Project 04 - TodoTDD/ToDo.xcodeproj/project.pbxproj') file_options = FileOptions(weak=True) project.add_file('fastbot_stub.framework', force=False, file_options=file_options) project....</p></section><footer class=entry-footer>yanbo92</footer><a class=entry-link aria-label="post link to 使用pbxproj添加fastbot-stub.framework并运行测试" href=https://yanbo92.github.io/fastbot-stub-pbxproj/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>调用接口推送消息到你iPhone——iOS开源项目Bark</h2></header><section class=entry-content><p>最终效果 通过特定的接口直接往iPhone上发送通知 支持链接转跳 支持一键复制 支持自定义图标 项目介绍 传统通知方式例如邮件、聊天软件来做自动提醒还是略微麻烦。
-Bark提供http接口，简单调用即可给自己的iPhone发送推送。
-可以为你带来非常及时、稳定可靠、隐私安全的推送服务。
-Bark不会消耗设备的电量， 核心功能是基于系统推送服务与推送扩展，APP本体并不需要运行。
-Bark可以非常可靠的保证你的隐私安全。
-你可以手动或通过docker在自己的服务器上运行Bark服务端，或者自行实现服务端。
-数据将在 你的服务器-系统推送服务器-你的设备 之间传输，确保任何推送信息都不会被泄漏。
-APP 是通过 Github Action 编译上传，保证你使用的APP版本是由开源代码编译，未经任何人修改（验证方法请在 APP 内查看)。
-Bark保存在本地的通知消息历史也非常安全。
-通过 NotificationServiceExtension 扩展，在收到推送时将推送信息保存在本地，不会经过其他任何设备。
-历史记录仅由个人iCloud私有库进行同步，可以确保你产生的任何通知，将只留在你的设备与你的iCloud中
-相关链接 项目主页
-作者博客
-App Store
-使用说明 内容推送 打开APP，复制测试URL 修改内容，请求这个URL 可以发 get 或者 post 请求 ，请求成功会立即收到推送 URL 组成: 第一个部分是 key , 之后有三个匹配 /:key/:body /:key/:title/:body /:key/:category/:title/:body title 推送标题 比 body 字号粗一点 body 推送内容 换行请使用换行符 '\n' category 另外的功能占用的字段，还没开放 忽略就行 post 请求 参数名也是上面这些 复制参数 收到推送时下拉推送（或在通知中心左滑查看推送）有一个复制按钮，点击即可复制推送内容。...</p></section><footer class=entry-footer>yanbo92</footer><a class=entry-link aria-label="post link to 调用接口推送消息到你iPhone——iOS开源项目Bark" href=https://yanbo92.github.io/bark/></a></article><footer class=page-footer><nav class=pagination><a class=next href=https://yanbo92.github.io/tags/github/page/2/>下一页 »</a></nav></footer></main><footer class=footer><span>&copy; 2022 <a href=https://yanbo92.github.io/>茅测顿开</a></span>
+from pbxproj import XcodeProject from pbxproj.pbxextensions.ProjectFiles import FileOptions import time project = XcodeProject.load('Swift-30-Projects/Project 04 - TodoTDD/ToDo.xcodeproj/project.pbxproj') file_options = FileOptions(weak=True) project.add_file('fastbot_stub.framework', force=False, file_options=file_options) project....</p></section><footer class=entry-footer>yanbo92</footer><a class=entry-link aria-label="post link to 使用pbxproj添加fastbot-stub.framework并运行测试" href=https://yanbo92.github.io/fastbot-stub-pbxproj/></a></article><footer class=page-footer><nav class=pagination><a class=next href=https://yanbo92.github.io/tags/github/page/2/>下一页 »</a></nav></footer></main><footer class=footer><span>&copy; 2022 <a href=https://yanbo92.github.io/>茅测顿开</a></span>
 <span>&#183;</span>
 <span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
 <span>&#183;</span>
