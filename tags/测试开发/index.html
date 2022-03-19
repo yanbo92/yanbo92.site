@@ -5,7 +5,7 @@ Auto.js Pro能做什么 创建自动化工具、效率工具、优美界面、�
 注：Auto.JS与Auto.JS Pro的区别在于，前者是免费、开源的，但是已经停更多年，后者需要付费，但仍在持续更新，提供更多的功能。Auto.js 开源版本已不再维护(原因参见Auto.js Pro FAQ)，后续将只维护Auto.js Pro专业版。
 官网链接 Auto.JS
 Auto.JS Pro
-杀死APP具体实现 实现原理 调用engines.all()方法获取当前正在运行的所有引擎对象（返回对象数组） 再调用engines.myEngine()方法获取当前正在前台运行这个方法的对象（返回单个对象） 进行对象比对后再调用engine.forceStop()方法杀死非当前引擎对象 该方法能避免用户反复运行脚本，导致脚本互相干扰、资源占用等情况 完整代码 function kill_scripts() { allNgs = engines.all() myNg = engines.myEngine() for (var i = 0; i &lt; allNgs.length; ++i) { if (!(allNgs[i] === myNg)) { allNgs[i].forceStop() } } } kill_scripts()</p></section><footer class=entry-footer>yanbo92</footer><a class=entry-link aria-label="post link to Auto.JS中杀死其他脚本的方法" href=https://yanbo92.github.io/autojs-kill-scripts/></a></article></main><footer class=footer><span>&copy; 2022 <a href=https://yanbo92.github.io/>茅测顿开</a></span>
+杀死APP具体实现 实现原理 调用engines.all()方法获取当前正在运行的所有引擎对象（返回对象数组） 再调用engines.myEngine()方法获取当前正在前台运行这个方法的对象（返回单个对象） 进行对象比对后再调用engine.forceStop()方法杀死非当前引擎对象 该方法能避免用户反复运行脚本，导致脚本互相干扰、资源占用等情况 完整代码 function kill_scripts() { allNgs = engines.all() myNg = engines.myEngine() for (var i = 0; i &lt; allNgs.length; ++i) { if (!(allNgs[i] === myNg)) { allNgs[i].forceStop() } } } kill_scripts()</p></section><footer class=entry-footer>2021-10-28&nbsp;·&nbsp;yanbo92</footer><a class=entry-link aria-label="post link to Auto.JS中杀死其他脚本的方法" href=https://yanbo92.github.io/autojs-kill-scripts/></a></article></main><footer class=footer><span>&copy; 2022 <a href=https://yanbo92.github.io/>茅测顿开</a></span>
 <span>&#183;</span>
 <span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
 <span>&#183;</span>
