@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>茅测顿开</title>
+    <title>重签名解决光环助手频繁掉签问题 on 茅测顿开</title>
     <link>https://yanbo92.github.io/</link>
-    <description>Recent content on 茅测顿开</description>
+    <description>Recent content in 重签名解决光环助手频繁掉签问题 on 茅测顿开</description>
     <image>
       <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
@@ -108,7 +108,6 @@ Releases
   命令行代理环境变量
  编辑~/.zshrc或者~/.bashrc，这取决于你的shell用哪种 加入一行：  export https_proxy=http://127.0.0.1:38457 http_proxy=http://127.0.0.1:38457  保存，并运行source ~/.zshrc或者source ~/.</description>
     </item>
-    
     
     <item>
       <title>使用crash2json库将iOS崩溃日志解析成json文件</title>
