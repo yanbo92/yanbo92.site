@@ -8,11 +8,12 @@
       <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yanbo92.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 06 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>腾讯性能狗收费之后，我写了一款iOS性能测试工具</title>
       <link>https://yanbo92.github.io/ios-perf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://yanbo92.github.io/ios-perf/</guid>
       <description>运行效果 项目介绍 项目地址：yanbo92/iOS-perf
