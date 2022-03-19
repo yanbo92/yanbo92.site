@@ -8,11 +8,12 @@
       <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yanbo92.github.io/tags/fastgithub/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/fastgithub/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac电脑使用FastGithub加速并配置命令行代理、开机自动启动</title>
       <link>https://yanbo92.github.io/fastgithub/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://yanbo92.github.io/fastgithub/</guid>
       <description>最终效果 浏览器、命令行低延迟访问github，刷项目、拉依赖访问正常

@@ -8,11 +8,12 @@
       <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yanbo92.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用Dockerfile和docker-compose搭建Sonar&#43;PostgreSQL代码扫描服务</title>
       <link>https://yanbo92.github.io/sonar-docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://yanbo92.github.io/sonar-docker/</guid>
       <description>项目背景  由于调试插件冲突需要，经常重装Sonar，但插件又要重新安装，于是自定义一个Dockerfile来预装我需要的插件，做成镜像 另外，Sonar自带的数据库较弱，官方只建议调试使用，并且会永远有一个Banner提示你更换数据库，所以使用docker-compose把Sonar和PostgreSQL数据库的镜像编排起来，一起搭建 默认环境：已安装docker和docker-compose  操作步骤 新建项目目录 mkdir sonar_postgres &amp;amp;&amp;amp; cd sonar_postgres 新建Dockerfile文件和docker-compose文件 touch Dockerfile &amp;amp;&amp;amp; touch docker-compose-yml 编辑Dockerfile，预装Sonar插件 Dockerfile文件内容：

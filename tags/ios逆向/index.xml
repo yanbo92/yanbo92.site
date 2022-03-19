@@ -8,11 +8,12 @@
       <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yanbo92.github.io/tags/ios%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 11 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/ios%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用yololib注入fastbot-stub并重签名运行测试</title>
       <link>https://yanbo92.github.io/fastbot-stub-inject/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 11 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://yanbo92.github.io/fastbot-stub-inject/</guid>
       <description>背景 Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具bytedance/Fastbot_iOS，效果非常好。但默认实现是基于纯图像识别的，有时候难免遇到一些靠图像不好处理的地方，陷入覆盖率较低的境地。但好在项目也提供了stub模式，只是上手有一定的技术门槛。刷了一下Github的issue，在开发者geron-cn的启发下了解到了yololib，本文将提供一种通过yololib注入方式使用fastbot-stub的方案。
