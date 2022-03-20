@@ -1,28 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>web on 茅测顿开</title>
-    <link>https://yanbo92.github.io/tags/web/</link>
-    <description>Recent content in web on 茅测顿开</description>
-    <image>
-      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 11 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>使用Heroku免费搭建的Miniflux RSS服务</title>
-      <link>https://yanbo92.github.io/miniflux-heroku/</link>
-      <pubDate>Fri, 11 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/miniflux-heroku/</guid>
-      <description>何为RSS  RSS（简易信息聚合，也叫Really Simple Syndication、聚合RSS、聚合内容），是一种消息来源格式规范，用以聚合经常发布更新数据的网站，例如博客文章、新闻、音频或视频的网摘。RSS文件（或称做摘要、网络摘要、或频更新，提供到频道）包含了全文或是节录的文字，再加上发用者所订阅之网摘布数据和授权的元数据。通常在时效性比较强的内容上使用RSS订阅能更快速获取信息，网站提供RSS输出，有利于让用户获取网站内容的最新更新。网络用户可以在客户端借助于支持RSS的聚合工具软件（例如SharpReader、NewzCrawler、FeedDemon），在不打开网站内容页面的情况下阅读支持RSS输出的网站内容。
- 在信息碎片化严重的今天，内容平台连网页版都想砍掉，强制用户安装APP。拥有一套自己的RSS方案能让你更轻松的获得关注的信息，逃离推荐算法带来的信息茧房。
-何为Miniflux Miniflux是一个极简、快速、轻便且易于安装的Feed订阅器，有如下特性
- 支持自定义刷新和拉取时间，避免打开 RSS 时浏览过时（半小时、几个小时前）的信息 极简&amp;amp;纯粹，FreshRSS 、Tiny Tiny RSS 无论从界面还是功能，都太重了。 支持图片代理，即服务器缓存图片，默认情况下，客户端是从 RSS 源头拉取的图片，这个有特殊的场景。 支持 Fever API ，可以跨平台。 使用 WatchTower 实现 Miniflux docker 自动更新。 Web 端支持快捷键。  搭建教程  前往Heroku注册一个账号 访问anyuzu99/heroku-miniflux at main 注意确认切换到了main分支，下拉到底，点击heroku button超链接 填入APP_NAME以及ADMIN_PASSWORD等等环境变量，点击Deploy 稍等几分钟，你的域名就可以访问啦 附一份Miniflux的环境变量详解  参考 Miniflux - Minimalist and Opinionated Feed Reader
-Cloud Application Platform | Heroku
-anyuzu99/heroku-miniflux: one click to deploy miniflux on heroku</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>web on yanbo92.site</title><link>https://yanbo92.site/tags/web/</link><description>Recent content in web on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 11 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>使用Heroku免费搭建的Miniflux RSS服务</title><link>https://yanbo92.site/miniflux-heroku/</link><pubDate>Fri, 11 Mar 2022 00:00:00 +0000</pubDate><guid>https://yanbo92.site/miniflux-heroku/</guid><description>&lt;img src="https://yanbo92.site/miniflux-heroku/cover.png" alt="Featured image of post 使用Heroku免费搭建的Miniflux RSS服务" />&lt;h2 id="何为rss">何为RSS&lt;/h2>
+&lt;blockquote>
+&lt;p>RSS（简易信息聚合，也叫Really Simple Syndication、聚合RSS、聚合内容），是一种消息来源格式规范，用以聚合经常发布更新数据的网站，例如博客文章、新闻、音频或视频的网摘。RSS文件（或称做摘要、网络摘要、或频更新，提供到频道）包含了全文或是节录的文字，再加上发用者所订阅之网摘布数据和授权的元数据。通常在时效性比较强的内容上使用RSS订阅能更快速获取信息，网站提供RSS输出，有利于让用户获取网站内容的最新更新。网络用户可以在客户端借助于支持RSS的聚合工具软件（例如SharpReader、NewzCrawler、FeedDemon），在不打开网站内容页面的情况下阅读支持RSS输出的网站内容。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://yanbo92.site/miniflux-heroku/the_power_of_rss.png"
+width="500"
+height="610"
+srcset="https://yanbo92.site/miniflux-heroku/the_power_of_rss_hud420bf80fda3ee17d290808b9bec5d09_26692_480x0_resize_box_3.png 480w, https://yanbo92.site/miniflux-heroku/the_power_of_rss_hud420bf80fda3ee17d290808b9bec5d09_26692_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="the_power_of_rss"
+class="gallery-image"
+data-flex-grow="81"
+data-flex-basis="196px"
+>&lt;/p>
+&lt;p>在信息碎片化严重的今天，内容平台连网页版都想砍掉，强制用户安装APP。拥有一套自己的RSS方案能让你更轻松的获得关注的信息，逃离推荐算法带来的信息茧房。&lt;/p>
+&lt;h2 id="何为miniflux">何为Miniflux&lt;/h2>
+&lt;p>&lt;code>Miniflux&lt;/code>是一个极简、快速、轻便且易于安装的&lt;code>Feed&lt;/code>订阅器，有如下特性&lt;/p>
+&lt;ul>
+&lt;li>支持自定义刷新和拉取时间，避免打开 RSS 时浏览过时（半小时、几个小时前）的信息&lt;/li>
+&lt;li>极简&amp;amp;纯粹，FreshRSS 、Tiny Tiny RSS 无论从界面还是功能，都太重了。&lt;/li>
+&lt;li>支持图片代理，即服务器缓存图片，默认情况下，客户端是从 RSS 源头拉取的图片，这个有特殊的场景。&lt;/li>
+&lt;li>支持 Fever API ，可以跨平台。&lt;/li>
+&lt;li>使用 WatchTower 实现 Miniflux docker 自动更新。&lt;/li>
+&lt;li>Web 端支持快捷键。&lt;/li>
+&lt;/ul>
+&lt;h2 id="搭建教程">搭建教程&lt;/h2>
+&lt;ul>
+&lt;li>前往&lt;a class="link" href="https://www.heroku.com/" target="_blank" rel="noopener"
+>Heroku&lt;/a>注册一个账号&lt;/li>
+&lt;li>访问&lt;a class="link" href="https://github.com/anyuzu99/heroku-miniflux/tree/main" target="_blank" rel="noopener"
+>anyuzu99/heroku-miniflux at main&lt;/a>&lt;/li>
+&lt;li>注意确认切换到了&lt;code>main&lt;/code>分支，下拉到底，点击&lt;code>heroku button&lt;/code>超链接&lt;/li>
+&lt;li>填入&lt;code>APP_NAME&lt;/code>以及&lt;code>ADMIN_PASSWORD&lt;/code>等等环境变量，点击&lt;code>Deploy&lt;/code>&lt;/li>
+&lt;li>稍等几分钟，你的域名就可以访问啦&lt;/li>
+&lt;li>附一份Miniflux的&lt;a class="link" href="https://miniflux.app/docs/configuration.html" target="_blank" rel="noopener"
+>环境变量详解&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;p>&lt;a class="link" href="https://miniflux.app/" target="_blank" rel="noopener"
+>Miniflux - Minimalist and Opinionated Feed Reader&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.heroku.com/" target="_blank" rel="noopener"
+>Cloud Application Platform | Heroku&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/anyuzu99/heroku-miniflux" target="_blank" rel="noopener"
+>anyuzu99/heroku-miniflux: one click to deploy miniflux on heroku&lt;/a>&lt;/p></description></item></channel></rss>

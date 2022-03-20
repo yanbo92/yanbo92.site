@@ -1,32 +1,172 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>xcode on 茅测顿开</title>
-    <link>https://yanbo92.github.io/tags/xcode/</link>
-    <description>Recent content in xcode on 茅测顿开</description>
-    <image>
-      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 25 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/xcode/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>使用pbxproj添加fastbot-stub.framework并运行测试</title>
-      <link>https://yanbo92.github.io/fastbot-stub-pbxproj/</link>
-      <pubDate>Thu, 25 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/fastbot-stub-pbxproj/</guid>
-      <description>背景 Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具bytedance/Fastbot_iOS，效果非常好。但默认实现是基于纯图像识别的，有时候难免遇到一些靠图像不好处理的地方，陷入覆盖率较低的境地。但好在项目也提供了stub模式，只是上手有一定的技术门槛。之前的文章使用yololib注入fastbot-stub并重签名运行测试介绍了一种逆向手法使用fastbot-stub。本文将介绍一种从Xcode编译角度加入fastbot-stub的方法，当然，这需要app的完整代码。
-相关项目介绍 Fastbot_iOS  Jenkins是一个开源的、提供友好操作界面的持续集成(CI)工具，起源于Hudson（Hudson是商用的），主要用于持续、自动的构建/测试软件项目、监控外部任务的运行（这个比较抽象，暂且写上，不做解释）。Jenkins用Java语言编写，可在Tomcat等流行的servlet容器中运行，也可独立运行。通常与版本管理工具(SCM)、构建工具结合使用。常用的版本控制工具有SVN、GIT，构建工具有Maven、Ant、Gradle。
- mod-pbxproj  这是一个可以通过命令行修改Xcode项目依赖的python模块，便于在不使用界面的情况下增加或者删除库。
- Swift-30-Projects  这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。
- 实现原理 通过pbxproj工具向Xcode项目中添加fasbot-stub.framework动态库，并重新编译，达到让APP支持stub模式的效果。
-具体步骤 环境准备 此处需要准备好的东西：
- 一台Mac 测试APP的代码 开发者证书，以及可用的描述文件 Python环境 fastbot-stub.framework  Python环境安装pbxproj sudo pip install pbxproj fastbot-stub.framework 按照Fastbot-iOS项目的Readme打开Fastbot-iOS.xcworkspace，编译即可，完整命令：
-git clone git@github.com:bytedance/Fastbot_iOS.git cd Fastbot-iOS &amp;amp;&amp;amp; pod install --repo-update open Fastbot-iOS.xcworkspace 然后target选择fastbot-stub，连一台真机编译，得到产物fastbot-stub.framework
-添加动态库 同样的，我们用上一篇文章的todo项目，编写python文件如下：
-from pbxproj import XcodeProject from pbxproj.pbxextensions.ProjectFiles import FileOptions import time project = XcodeProject.load(&amp;#39;Swift-30-Projects/Project 04 - TodoTDD/ToDo.xcodeproj/project.pbxproj&amp;#39;) file_options = FileOptions(weak=True) project.add_file(&amp;#39;fastbot_stub.framework&amp;#39;, force=False, file_options=file_options) project.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>xcode on yanbo92.site</title><link>https://yanbo92.site/tags/xcode/</link><description>Recent content in xcode on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 25 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/tags/xcode/index.xml" rel="self" type="application/rss+xml"/><item><title>使用pbxproj添加fastbot-stub.framework并运行测试</title><link>https://yanbo92.site/fastbot-stub-pbxproj/</link><pubDate>Thu, 25 Nov 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/fastbot-stub-pbxproj/</guid><description>&lt;img src="https://yanbo92.site/fastbot-stub-pbxproj/cover.png" alt="Featured image of post 使用pbxproj添加fastbot-stub.framework并运行测试" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS" target="_blank" rel="noopener"
+>bytedance/Fastbot_iOS&lt;/a>，效果非常好。但默认实现是基于纯图像识别的，有时候难免遇到一些靠图像不好处理的地方，陷入覆盖率较低的境地。但好在项目也提供了&lt;code>stub模式&lt;/code>，只是上手有一定的技术门槛。之前的文章&lt;a class="link" href="https://yanbo92.site/fastbot-stub-inject/" target="_blank" rel="noopener"
+>使用yololib注入fastbot-stub并重签名运行测试&lt;/a>介绍了一种逆向手法使用fastbot-stub。本文将介绍一种从Xcode编译角度加入fastbot-stub的方法，当然，这需要app的完整代码。&lt;/p>
+&lt;h2 id="相关项目介绍">相关项目介绍&lt;/h2>
+&lt;h4 id="fastbot_ioshttpsgithubcombytedancefastbot_ios">&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS" target="_blank" rel="noopener"
+>Fastbot_iOS&lt;/a>&lt;/h4>
+&lt;blockquote>
+&lt;p>Jenkins是一个开源的、提供友好操作界面的持续集成(CI)工具，起源于Hudson（Hudson是商用的），主要用于持续、自动的构建/测试软件项目、监控外部任务的运行（这个比较抽象，暂且写上，不做解释）。Jenkins用Java语言编写，可在Tomcat等流行的servlet容器中运行，也可独立运行。通常与版本管理工具(SCM)、构建工具结合使用。常用的版本控制工具有SVN、GIT，构建工具有Maven、Ant、Gradle。&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="mod-pbxprojhttpsgithubcomkronenthalermod-pbxproj">&lt;a class="link" href="https://github.com/kronenthaler/mod-pbxproj" target="_blank" rel="noopener"
+>mod-pbxproj&lt;/a>&lt;/h4>
+&lt;blockquote>
+&lt;p>这是一个可以通过命令行修改Xcode项目依赖的python模块，便于在不使用界面的情况下增加或者删除库。&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="swift-30-projectshttpsgithubcomsoapyiguswift-30-projects">&lt;a class="link" href="https://github.com/soapyigu/Swift-30-Projects" target="_blank" rel="noopener"
+>Swift-30-Projects&lt;/a>&lt;/h4>
+&lt;blockquote>
+&lt;p>这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="实现原理">实现原理&lt;/h2>
+&lt;p>通过pbxproj工具向Xcode项目中添加fasbot-stub.framework动态库，并重新编译，达到让APP支持stub模式的效果。&lt;/p>
+&lt;h2 id="具体步骤">具体步骤&lt;/h2>
+&lt;h4 id="环境准备">环境准备&lt;/h4>
+&lt;p>此处需要准备好的东西：&lt;/p>
+&lt;ul>
+&lt;li>一台Mac&lt;/li>
+&lt;li>测试APP的代码&lt;/li>
+&lt;li>开发者证书，以及可用的描述文件&lt;/li>
+&lt;li>Python环境&lt;/li>
+&lt;li>fastbot-stub.framework&lt;/li>
+&lt;/ul>
+&lt;h5 id="python环境安装pbxproj">Python环境安装pbxproj&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo pip install pbxproj
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="fastbot-stubframework">fastbot-stub.framework&lt;/h5>
+&lt;p>按照&lt;code>Fastbot-iOS&lt;/code>项目的Readme打开&lt;code>Fastbot-iOS.xcworkspace&lt;/code>，编译即可，完整命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone git@github.com:bytedance/Fastbot_iOS.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd Fastbot-iOS &amp;amp;&amp;amp; pod install --repo-update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">open Fastbot-iOS.xcworkspace
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后target选择&lt;code>fastbot-stub&lt;/code>，连一台真机编译，得到产物&lt;code>fastbot-stub.framework&lt;/code>&lt;/p>
+&lt;h4 id="添加动态库">添加动态库&lt;/h4>
+&lt;p>同样的，我们用上一篇文章的todo项目，编写python文件如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pbxproj&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">XcodeProject&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pbxproj.pbxextensions.ProjectFiles&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">FileOptions&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">time&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">project&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">XcodeProject&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">load&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Swift-30-Projects/Project 04 - TodoTDD/ToDo.xcodeproj/project.pbxproj&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">file_options&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">FileOptions&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">weak&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">project&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">add_file&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;fastbot_stub.framework&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">force&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">file_options&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">file_options&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">project&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">save&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>修改代码中的路径，直接运行即可&lt;/p>
+&lt;p>若不想通过python脚本，也可以通过纯命令行的方式，具体可以参考&lt;a class="link" href="https://github.com/kronenthaler/mod-pbxproj/wiki/CLI" target="_blank" rel="noopener"
+>CLI · kronenthaler/mod-pbxproj Wiki (github.com)&lt;/a>&lt;/p>
+&lt;h4 id="构建打包">构建、打包&lt;/h4>
+&lt;p>若没有导出ipa需求，直接在Xcode中指定手机构建即可。需要导出ipa比较麻烦，建议自行搜索。&lt;/p>
+&lt;p>回到Fastbot-iOS工程，修改Fastbot-Runner的Scheme：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">dataport为9797
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">launchenv为stubPort=9797
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>再修改&lt;code>FastbotRunner/FastbotRunner.m&lt;/code>，将以下代码取消注释&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="n">fastbot_native&lt;/span> &lt;span class="n">addUIInterruptionMonitor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">CGRect&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span> &lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span>&lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">firstObject&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="n">allElementsBoundByIndex&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSInteger&lt;/span> &lt;span class="n">buttonCount&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="bp">count&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">CGRect&lt;/span> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">CGRectZero&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">buttonCount&lt;/span>&lt;span class="o">&amp;lt;=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">btnRect&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">buttonCount&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[[&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="n">objectAtIndex&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">frame&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">lastObject&lt;/span> &lt;span class="n">frame&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">btnRect&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}];&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>代码大意为处理系统弹窗&lt;/p>
+&lt;p>像之前运行Fastbot-iOS一样在命令行传参运行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">BUNDLEID=yigu.com.ToDo duration=240 throttle=300 xcodebuild test -workspace Fastbot-iOS.xcworkspace -scheme FastbotRunner -configuration Release -destination &amp;#39;platform=iOS,id=c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2&amp;#39; -only-testing:FastbotRunner/FastbotRunner/testFastbot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>截取一段命令行输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[fastbot] : visit ToDo.InputViewController,UIApplicationRotationFollowingController,UIApplicationRotationFollowingControllerNoTouches,UICompatibilityInputViewController,UIInputViewController,UIInputWindowController; visited ViewController count is: 2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state visited: 30
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : action first visited, get reward 2.336364
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state is saturated, get reward 0.295547
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : got reward: 9.3110
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>区别在哪？区别就在于有控件信息了，如果看到类似&lt;code>UIInputWindowController&lt;/code>这样的字样，恭喜你，你成功了。&lt;/p>
+&lt;h2 id="参考文章">参考文章&lt;/h2>
+&lt;p>&lt;a class="link" href="https://testerhome.com/topics/31113" target="_blank" rel="noopener"
+>字节跳动质量利器 &amp;ndash; 移动端智能化稳定性测试工具 Fastbot-Android/iOS 双端重磅发布上线&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://mp.weixin.qq.com/s/QhzqBFZygkIS6C69__smyQ" target="_blank" rel="noopener"
+>奔跑吧！智能Monkey之Fastbot跨平台 &lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS/issues/44" target="_blank" rel="noopener"
+>Issue #44 · bytedance/Fastbot_iOS&lt;/a>&lt;/p></description></item></channel></rss>

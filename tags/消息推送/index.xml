@@ -1,37 +1,198 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>消息推送 on 茅测顿开</title>
-    <link>https://yanbo92.github.io/tags/%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/</link>
-    <description>Recent content in 消息推送 on 茅测顿开</description>
-    <image>
-      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 31 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>调用接口推送消息到你iPhone——iOS开源项目Bark</title>
-      <link>https://yanbo92.github.io/bark/</link>
-      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/bark/</guid>
-      <description>最终效果  通过特定的接口直接往iPhone上发送通知 支持链接转跳 支持一键复制 支持自定义图标  项目介绍  传统通知方式例如邮件、聊天软件来做自动提醒还是略微麻烦。
-Bark提供http接口，简单调用即可给自己的iPhone发送推送。
-可以为你带来非常及时、稳定可靠、隐私安全的推送服务。
-Bark不会消耗设备的电量， 核心功能是基于系统推送服务与推送扩展，APP本体并不需要运行。
-Bark可以非常可靠的保证你的隐私安全。
-你可以手动或通过docker在自己的服务器上运行Bark服务端，或者自行实现服务端。
-数据将在 你的服务器-系统推送服务器-你的设备 之间传输，确保任何推送信息都不会被泄漏。
-APP 是通过 Github Action 编译上传，保证你使用的APP版本是由开源代码编译，未经任何人修改（验证方法请在 APP 内查看)。
-Bark保存在本地的通知消息历史也非常安全。
-通过 NotificationServiceExtension 扩展，在收到推送时将推送信息保存在本地，不会经过其他任何设备。
-历史记录仅由个人iCloud私有库进行同步，可以确保你产生的任何通知，将只留在你的设备与你的iCloud中
- 相关链接 项目主页
-作者博客
-App Store
-使用说明 内容推送  打开APP，复制测试URL  修改内容，请求这个URL  可以发 get 或者 post 请求 ，请求成功会立即收到推送 URL 组成: 第一个部分是 key , 之后有三个匹配 /:key/:body /:key/:title/:body /:key/:category/:title/:body title 推送标题 比 body 字号粗一点 body 推送内容 换行请使用换行符 &amp;#39;\n&amp;#39; category 另外的功能占用的字段，还没开放 忽略就行 post 请求 参数名也是上面这些 复制参数 收到推送时下拉推送（或在通知中心左滑查看推送）有一个复制按钮，点击即可复制推送内容。</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>消息推送 on yanbo92.site</title><link>https://yanbo92.site/tags/%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/</link><description>Recent content in 消息推送 on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 31 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/tags/%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/index.xml" rel="self" type="application/rss+xml"/><item><title>调用接口推送消息到你iPhone——iOS开源项目Bark</title><link>https://yanbo92.site/bark/</link><pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/bark/</guid><description>&lt;img src="https://yanbo92.site/bark/cover.png" alt="Featured image of post 调用接口推送消息到你iPhone——iOS开源项目Bark" />&lt;h2 id="最终效果">最终效果&lt;/h2>
+&lt;ul>
+&lt;li>通过特定的接口直接往iPhone上发送通知&lt;/li>
+&lt;li>支持链接转跳&lt;/li>
+&lt;li>支持一键复制&lt;/li>
+&lt;li>支持自定义图标&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="项目介绍">项目介绍&lt;/h2>
+&lt;blockquote>
+&lt;p>传统通知方式例如邮件、聊天软件来做自动提醒还是略微麻烦。&lt;/p>
+&lt;p>Bark提供http接口，简单调用即可给自己的iPhone发送推送。&lt;/p>
+&lt;p>可以为你带来非常及时、稳定可靠、隐私安全的推送服务。&lt;/p>
+&lt;p>Bark不会消耗设备的电量， 核心功能是基于系统推送服务与推送扩展，APP本体并不需要运行。&lt;/p>
+&lt;p>Bark可以非常可靠的保证你的隐私安全。&lt;/p>
+&lt;p>你可以手动或通过docker在自己的服务器上运行Bark服务端，或者自行实现服务端。&lt;/p>
+&lt;p>数据将在 你的服务器-系统推送服务器-你的设备 之间传输，确保任何推送信息都不会被泄漏。&lt;/p>
+&lt;p>APP 是通过 Github Action 编译上传，保证你使用的APP版本是由开源代码编译，未经任何人修改（验证方法请在 APP 内查看)。&lt;/p>
+&lt;p>Bark保存在本地的通知消息历史也非常安全。&lt;/p>
+&lt;p>通过 NotificationServiceExtension 扩展，在收到推送时将推送信息保存在本地，不会经过其他任何设备。&lt;/p>
+&lt;p>历史记录仅由个人iCloud私有库进行同步，可以确保你产生的任何通知，将只留在你的设备与你的iCloud中&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="相关链接">相关链接&lt;/h4>
+&lt;p>&lt;a class="link" href="https://github.com/Finb/Bark" target="_blank" rel="noopener"
+>项目主页&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://day.app/" target="_blank" rel="noopener"
+>作者博客&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://apps.apple.com/cn/app/bark-customed-notifications/id1403753865" target="_blank" rel="noopener"
+>App Store&lt;/a>&lt;/p>
+&lt;h2 id="使用说明">使用说明&lt;/h2>
+&lt;h3 id="内容推送">内容推送&lt;/h3>
+&lt;ol>
+&lt;li>打开APP，复制测试URL&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://yanbo92.site/bark/bark-cp.png"
+width="414"
+height="323"
+srcset="https://yanbo92.site/bark/bark-cp_hu26275521d1d62e95f8478faa01cbdf8d_24659_480x0_resize_box_3.png 480w, https://yanbo92.site/bark/bark-cp_hu26275521d1d62e95f8478faa01cbdf8d_24659_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="back-cp"
+class="gallery-image"
+data-flex-grow="128"
+data-flex-basis="307px"
+>&lt;/p>
+&lt;ol start="2">
+&lt;li>修改内容，请求这个URL&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">可以发 get 或者 post 请求 ，请求成功会立即收到推送
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">URL 组成: 第一个部分是 key , 之后有三个匹配
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/:key/:body
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/:key/:title/:body
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/:key/:category/:title/:body
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">title 推送标题 比 body 字号粗一点
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">body 推送内容 换行请使用换行符 &amp;#39;\n&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">category 另外的功能占用的字段，还没开放 忽略就行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">post 请求 参数名也是上面这些
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="复制参数">复制参数&lt;/h3>
+&lt;p>收到推送时下拉推送（或在通知中心左滑查看推送）有一个&lt;code>复制&lt;/code>按钮，点击即可复制推送内容。&lt;/p>
+&lt;p>&lt;img src="https://yanbo92.site/bark/bark-cp-btn.png"
+width="690"
+height="337"
+srcset="https://yanbo92.site/bark/bark-cp-btn_hue4c9704d184be3c35188f5c7a8a724f2_20824_480x0_resize_box_3.png 480w, https://yanbo92.site/bark/bark-cp-btn_hue4c9704d184be3c35188f5c7a8a724f2_20824_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="back-cp-btn"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-objc" data-lang="objc">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//将复制“验证码是9527”
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nl">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="c1">//api.day.app/yourkey/验证码是9527
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>携带参数 automaticallyCopy=1， 收到推送时，推送内容会自动复制到粘贴板（如发现不能自动复制，可尝试重启一下手机）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-objc" data-lang="objc">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//自动复制 “验证码是9527” 到粘贴板
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nl">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="c1">//api.day.app/yourkey/验证码是9527?automaticallyCopy=1
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>携带copy参数， 则上面两种复制操作，将只复制copy参数的值&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-objc" data-lang="objc">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//自动复制 “9527” 到粘贴板
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nl">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="c1">//api.day.app/yourkey/验证码是9527?automaticallyCopy=1&amp;amp;copy=9527
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="其他参数">其他参数&lt;/h4>
+&lt;ul>
+&lt;li>url&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 点击推送将跳转到url的地址（发送时，URL参数需要编码）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/百度网址?url=https://www.baidu.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>isArchive&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// 如果不指定这个参数，推送信息将按照APP内设置来决定是否保存。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/需要保存的推送?isArchive=1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>group&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 指定推送消息分组，可在历史记录中按分组查看推送。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/需要分组的推送?group=groupName
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>icon (仅 iOS15 或以上支持）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 指定推送消息图标
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/需要自定义图标的推送?icon=http://day.app/assets/images/avatar.jpg
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>时效性通知&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 设置时效性通知
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/时效性通知?level=timeSensitive
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// 可选参数值
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// active：不设置时的默认值，系统会立即亮屏显示通知。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// timeSensitive：时效性通知，可在专注状态下显示通知。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// passive：仅将通知添加到通知列表，不会亮屏提醒
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

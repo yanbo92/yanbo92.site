@@ -1,27 +1,125 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>sonar on 茅测顿开</title>
-    <link>https://yanbo92.github.io/tags/sonar/</link>
-    <description>Recent content in sonar on 茅测顿开</description>
-    <image>
-      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/sonar/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>使用Dockerfile和docker-compose搭建Sonar&#43;PostgreSQL代码扫描服务</title>
-      <link>https://yanbo92.github.io/sonar-docker/</link>
-      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/sonar-docker/</guid>
-      <description>项目背景  由于调试插件冲突需要，经常重装Sonar，但插件又要重新安装，于是自定义一个Dockerfile来预装我需要的插件，做成镜像 另外，Sonar自带的数据库较弱，官方只建议调试使用，并且会永远有一个Banner提示你更换数据库，所以使用docker-compose把Sonar和PostgreSQL数据库的镜像编排起来，一起搭建 默认环境：已安装docker和docker-compose  操作步骤 新建项目目录 mkdir sonar_postgres &amp;amp;&amp;amp; cd sonar_postgres 新建Dockerfile文件和docker-compose文件 touch Dockerfile &amp;amp;&amp;amp; touch docker-compose-yml 编辑Dockerfile，预装Sonar插件 Dockerfile文件内容：
-FROMsonarqube:8.9-communityRUN wget -P /opt/sonarqube/extensions/plugins/ https://github.com/xuhuisheng/sonar-l10n-zh/releases/download/sonar-l10n-zh-plugin-8.9/sonar-l10n-zh-plugin-8.9.jarRUN wget -P /opt/sonarqube/extensions/plugins/ https://github.com/tal-tech/sonar-swift/releases/download/1.5.1/tal-sonar-swift-plugin-1.5.1.jarRUN wget -P /opt/sonarqube/extensions/plugins/ https://github.com/detekt/sonar-kotlin/releases/download/2.3.0/sonar-detekt-2.3.0.jar使用最新版本的Sonar Community版，安装中文插件、swift插件以及kotlin插件。此处使用最粗暴的下载、拷贝jar文件的安装方法。通过挂载存储也可以实现相同的功能。
-根据Dockerfile构建镜像 docker build -t sonarqube_plugins:v1 . 此处-t后面的第一个参数为镜像名字以及版本，第二个参数.为Dockerfile所在目录，下面使用docker-compose时将会用到镜像名字以及版本
-使用docker-compose编排镜像 编辑文件docker-compose.yml：
-version: &amp;#34;3&amp;#34; services: sonarqube: image: sonarqube_plugins:v1 expose: - 9000 ports: - &amp;#34;9000:9000&amp;#34; networks: - sonarnet environment: - sonar.jdbc.url=jdbc:postgresql://db:5432/sonar - sonar.jdbc.username=sonar - sonar.jdbc.password=sonar db: image: postgres networks: - sonarnet environment: - POSTGRES_USER=sonar - POSTGRES_PASSWORD=sonar networks: sonarnet: 启动容器 docker-compose up -d 此时在浏览器访问localhost:9000就能看到Sonar了</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sonar on yanbo92.site</title><link>https://yanbo92.site/tags/sonar/</link><description>Recent content in sonar on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/tags/sonar/index.xml" rel="self" type="application/rss+xml"/><item><title>使用Dockerfile和docker-compose搭建Sonar+PostgreSQL代码扫描服务</title><link>https://yanbo92.site/sonar-docker/</link><pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/sonar-docker/</guid><description>&lt;img src="https://yanbo92.site/sonar-docker/cover.png" alt="Featured image of post 使用Dockerfile和docker-compose搭建Sonar+PostgreSQL代码扫描服务" />&lt;h2 id="项目背景">项目背景&lt;/h2>
+&lt;ul>
+&lt;li>由于调试插件冲突需要，经常重装Sonar，但插件又要重新安装，于是自定义一个Dockerfile来预装我需要的插件，做成镜像&lt;/li>
+&lt;li>另外，Sonar自带的数据库较弱，官方只建议调试使用，并且会永远有一个Banner提示你更换数据库，所以使用docker-compose把Sonar和PostgreSQL数据库的镜像编排起来，一起搭建&lt;/li>
+&lt;li>默认环境：已安装docker和docker-compose&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="操作步骤">操作步骤&lt;/h2>
+&lt;h4 id="新建项目目录">新建项目目录&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">mkdir sonar_postgres &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> sonar_postgres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="新建dockerfile文件和docker-compose文件">新建Dockerfile文件和docker-compose文件&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">touch Dockerfile &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> touch docker-compose-yml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="编辑dockerfile预装sonar插件">编辑Dockerfile，预装Sonar插件&lt;/h4>
+&lt;p>Dockerfile文件内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> sonarqube:8.9-community&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> wget -P /opt/sonarqube/extensions/plugins/ https://github.com/xuhuisheng/sonar-l10n-zh/releases/download/sonar-l10n-zh-plugin-8.9/sonar-l10n-zh-plugin-8.9.jar&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> wget -P /opt/sonarqube/extensions/plugins/ https://github.com/tal-tech/sonar-swift/releases/download/1.5.1/tal-sonar-swift-plugin-1.5.1.jar&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> wget -P /opt/sonarqube/extensions/plugins/ https://github.com/detekt/sonar-kotlin/releases/download/2.3.0/sonar-detekt-2.3.0.jar&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用最新版本的Sonar Community版，安装中文插件、swift插件以及kotlin插件。此处使用最粗暴的下载、拷贝jar文件的安装方法。通过挂载存储也可以实现相同的功能。&lt;/p>
+&lt;h4 id="根据dockerfile构建镜像">根据Dockerfile构建镜像&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">docker build -t sonarqube_plugins:v1 .
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此处&lt;code>-t&lt;/code>后面的第一个参数为镜像名字以及版本，第二个参数&lt;code>.&lt;/code>为Dockerfile所在目录，下面使用docker-compose时将会用到镜像名字以及版本&lt;/p>
+&lt;h4 id="使用docker-compose编排镜像">使用docker-compose编排镜像&lt;/h4>
+&lt;p>编辑文件docker-compose.yml：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">version: &amp;#34;3&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">services:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sonarqube:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: sonarqube_plugins:v1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> expose:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - 9000
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ports:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &amp;#34;9000:9000&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> networks:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - sonarnet
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> environment:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - sonar.jdbc.url=jdbc:postgresql://db:5432/sonar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - sonar.jdbc.username=sonar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - sonar.jdbc.password=sonar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> db:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: postgres
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> networks:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - sonarnet
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> environment:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - POSTGRES_USER=sonar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - POSTGRES_PASSWORD=sonar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">networks:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sonarnet:
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="启动容器">启动容器&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">docker-compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此时在浏览器访问localhost:9000就能看到Sonar了&lt;/p></description></item></channel></rss>

@@ -1,28 +1,158 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>破解 on 茅测顿开</title>
-    <link>https://yanbo92.github.io/tags/%E7%A0%B4%E8%A7%A3/</link>
-    <description>Recent content in 破解 on 茅测顿开</description>
-    <image>
-      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yanbo92.github.io/tags/%E7%A0%B4%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>重签名解决光环助手频繁掉签问题</title>
-      <link>https://yanbo92.github.io/halo-ipa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/halo-ipa/</guid>
-      <description>最终效果  付费证书只要仍在有效期内，账号内的设备都能不掉签使用游戏的ipa包 免费证书七天一次签名，可以用爱思助手之类的工具完成这个过程。  背景介绍  光环助手，隶属于广州加兔网络科技有限公司，是一款基于Android平台的多功能卡牌游戏助手，由光环团队制作，致力于为众手游玩家打造最优质的游戏氛围，成就最强卡牌管家。光环助手不但能节省手游玩家繁杂的游戏时间，带来更好更畅快的游戏体验；更会为玩家实时更新最新游戏资讯，搜罗大量游戏攻略以及“小编带你玩”等诸多精品栏目。
-光环修改版的游戏提供以下悬浮窗功能
- 内置攻略 内置15倍可调节加速 内置连点器，支持调节频率，次数以及保存脚本功能   操作教程 手动找出ipa地址   使用电脑或者将手机浏览器UA设置为PC进入iOS光环助手下载页
-  找到想要下载的游戏，点击下载
-  此时地址栏会暴露一个itms-services的url，这是一种无需经过App Store来分发ipa的服务
-  比如url为
-  itms-services://?action=download-manifest&amp;amp;url=https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist 取参数中的url部分，也就是这个plist文件的地址  https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist 直接用浏览器访问，将得到一个xml页面  This XML file does not appear to have any style information associated with it. The document tree is shown below. &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;items&amp;lt;/key&amp;gt; &amp;lt;array&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;assets&amp;lt;/key&amp;gt; &amp;lt;array&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;kind&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;software-package&amp;lt;/string&amp;gt; &amp;lt;key&amp;gt;url&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;https://ios-d.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>破解 on yanbo92.site</title><link>https://yanbo92.site/tags/%E7%A0%B4%E8%A7%A3/</link><description>Recent content in 破解 on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/tags/%E7%A0%B4%E8%A7%A3/index.xml" rel="self" type="application/rss+xml"/><item><title>重签名解决光环助手频繁掉签问题</title><link>https://yanbo92.site/halo-ipa/</link><pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate><guid>https://yanbo92.site/halo-ipa/</guid><description>&lt;img src="https://yanbo92.site/halo-ipa/cover.png" alt="Featured image of post 重签名解决光环助手频繁掉签问题" />&lt;h2 id="最终效果">最终效果&lt;/h2>
+&lt;ul>
+&lt;li>付费证书只要仍在有效期内，账号内的设备都能不掉签使用游戏的&lt;code>ipa&lt;/code>包&lt;/li>
+&lt;li>免费证书七天一次签名，可以用&lt;a class="link" href="i4.cn" >爱思助手&lt;/a>之类的工具完成这个过程。&lt;/li>
+&lt;/ul>
+&lt;h2 id="背景介绍">背景介绍&lt;/h2>
+&lt;blockquote>
+&lt;p>光环助手，隶属于广州加兔网络科技有限公司，是一款基于Android平台的多功能卡牌游戏助手，由光环团队制作，致力于为众手游玩家打造最优质的游戏氛围，成就最强卡牌管家。光环助手不但能节省手游玩家繁杂的游戏时间，带来更好更畅快的游戏体验；更会为玩家实时更新最新游戏资讯，搜罗大量游戏攻略以及“小编带你玩”等诸多精品栏目。&lt;/p>
+&lt;p>光环修改版的游戏提供以下悬浮窗功能&lt;/p>
+&lt;ul>
+&lt;li>内置攻略&lt;/li>
+&lt;li>内置15倍可调节加速&lt;/li>
+&lt;li>内置连点器，支持调节频率，次数以及保存脚本功能&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h2 id="操作教程">操作教程&lt;/h2>
+&lt;h3 id="手动找出ipa地址">手动找出ipa地址&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>使用电脑或者将手机浏览器&lt;code>UA&lt;/code>设置为&lt;code>PC&lt;/code>进入&lt;a class="link" href="https://www.ghzs6.com/web/ios_column_h5/index.html#/" target="_blank" rel="noopener"
+>iOS光环助手下载页&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>找到想要下载的游戏，点击下载&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>此时地址栏会暴露一个&lt;code>itms-services&lt;/code>的&lt;code>url&lt;/code>，这是一种无需经过&lt;code>App Store&lt;/code>来分发&lt;code>ipa&lt;/code>的服务&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>比如&lt;code>url&lt;/code>为&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">itms-services://?action=download-manifest&amp;amp;url=https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
+&lt;li>取&lt;strong>参数&lt;/strong>中的&lt;code>url&lt;/code>部分，也就是这个&lt;code>plist&lt;/code>文件的地址&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="6">
+&lt;li>直接用浏览器访问，将得到一个&lt;code>xml&lt;/code>页面&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">This XML file does not appear to have any style information associated with it. The document tree is shown below.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;plist&lt;/span> &lt;span class="na">version=&lt;/span>&lt;span class="s">&amp;#34;1.0&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>items&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;array&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>assets&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;array&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>kind&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>software-package&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>url&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>https://ios-d.ghzs.com/ipa/61f36ec83feb2f4224555b8a.ipa&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>kind&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>display-image&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>url&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>https://ios-image.ghzs.com/app-icon/61f36f7d3feb2f4224555b8e.png&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>kind&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>full-size-image&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>url&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>https://ios-image.ghzs.com/app-icon/61f36f7d3feb2f4224555b8e.png&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/array&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>metadata&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>bundle-identifier&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>com.gh.snsgz2appstore3&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>bundle-version&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>1.36.89&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>kind&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>software&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>title&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>少年三国志2（安装完成后，请到设置-&amp;gt;通用-&amp;gt;描述文件与设备管理，信任企业级应用）&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/array&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/plist&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="7">
+&lt;li>&lt;code>xml&lt;/code>中的&lt;code>url&lt;/code>即&lt;code>ipa&lt;/code>下载地址的值了，再贴回地址栏，即可下载到一个被光环助手注入的游戏&lt;/li>
+&lt;/ol>
+&lt;h3 id="重签名">重签名&lt;/h3>
+&lt;p>麻烦移步我写的另一篇文章，有详细步骤，这里就不重复写了。&lt;/p>
+&lt;p>&lt;a class="link" href="https://yanbo92.site/fastbot-stub-inject" target="_blank" rel="noopener"
+>重签名Fastbot-sub&lt;/a>&lt;/p>
+&lt;h2 id="参考链接">参考链接&lt;/h2>
+&lt;p>&lt;a class="link" href="https://www.ghzs.com/" target="_blank" rel="noopener"
+>光环助手官网&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.ghzs6.com/web/ios_column_h5/index.html#/" target="_blank" rel="noopener"
+>iOS光环助手下载页&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="i4.cn" >爱思助手官网&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="altstore.io" >签名工具Altstore&lt;/a>&lt;/p></description></item></channel></rss>

@@ -1,47 +1,493 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>iOS逆向 on 茅测顿开</title>
-    <link>https://yanbo92.github.io/tags/ios%E9%80%86%E5%90%91/</link>
-    <description>Recent content in iOS逆向 on 茅测顿开</description>
-    <image>
-      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 11 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/ios%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>使用yololib注入fastbot-stub并重签名运行测试</title>
-      <link>https://yanbo92.github.io/fastbot-stub-inject/</link>
-      <pubDate>Thu, 11 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/fastbot-stub-inject/</guid>
-      <description>背景 Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具bytedance/Fastbot_iOS，效果非常好。但默认实现是基于纯图像识别的，有时候难免遇到一些靠图像不好处理的地方，陷入覆盖率较低的境地。但好在项目也提供了stub模式，只是上手有一定的技术门槛。刷了一下Github的issue，在开发者geron-cn的启发下了解到了yololib，本文将提供一种通过yololib注入方式使用fastbot-stub的方案。
-相关项目介绍 Fastbot_iOS  2019 年字节跳动 Quality Lab 在自动测试生成方面进行了比较深入的探索，并研发了针对 Android、iOS 的稳定性测试工具 Fastbot。Fastbot 的核心技术主要包括：
-智能遍历：使用基于模型的测试生成（MBT），并提供多种算法策略，以获得较高的 Activity 覆盖率及问题发现能力； 多机协同：最高支持数百台长时间多机协同遍历，同一个目标彼此协作； 个性化的专家系统：业务方可以进行多种个性化配置，比如：限定测试在指定的 Activity 运行，屏蔽测试某些场景； 模型复用：基于强化学习利用历史测试经验数据学习改进当次测试策略； 复杂用例生成：对人工用例进行模仿学习，遍历过程中混合复杂用例的组合生成； 精准定向：根据代码调用链变更自动生成针对变更场景的定向测试。
- yololib  yololib是Kim Jong Cracks（Clutch 砸壳的作者）小组搞出来的一个dylib注入工具，利用这个工具，大大方便我们修改Mach-O 文件的 Load Command。以达到注入动态库的目的。用法如下
- yololib [binary] [dylib file]
-  LTResign  LTResign是一个用Python编写的重签名工具，这是iOS逆向绕不开的东西，但同类脚本有很多，作者通常用这个以及GQResign。
- Swift-30-Projects  这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。
- 实现原理 注入和重签名都是iOS逆向老生常谈的话题，基于这两个技术也产生了大量围绕iOS开发者证书的黑灰产，例如光环助手等。Fastbot-stub要求在App中加入fastbot-stub.framework，合入依赖重新编译打包，就是注入动态库重签名这样的方案了。
- 注入：逆向修改三方应用,让三方应用执行我们的代码，这就是代码注入，动态库注入是一种方式。其中动态库注入分为framework注入与dylib注入。此处fastbot-stub编译产物为.framework。 重签名：说白了重签名是一个偷天换日的过程，需要真机编译一个别的工程得到一份描述文件，再把需要重签名app的MachO以及frameworks都重新上一遍签名，当然，成熟的重签名脚本Github上有很多了，原理什么的有兴趣可以细看。  具体步骤 环境准备 此处需要准备好的东西：
- 一台Mac 一个砸壳后的ipa包 开发者证书，以及可用的描述文件 yololib可执行文件 LTResign可执行文件 fastbot-stub.framework  砸壳的ipa： 建议找你家开发直接打一个adhoc包，顺便要一份开发者证书，以及可用的描述文件。或者有代码权限的测试老哥们自己动手打一个，实在想用线上APP的需要砸壳，可以看看这个工具iOS App 自动砸壳平台，或者通过第三方平台下ipa包，比如爱思助手、PP助手，最折腾但能学到东西的方案：搞一台越狱的iPhone用clutch自己砸</description>
-    </item>
-    
-    <item>
-      <title>重签名解决光环助手频繁掉签问题</title>
-      <link>https://yanbo92.github.io/halo-ipa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/halo-ipa/</guid>
-      <description>最终效果  付费证书只要仍在有效期内，账号内的设备都能不掉签使用游戏的ipa包 免费证书七天一次签名，可以用爱思助手之类的工具完成这个过程。  背景介绍  光环助手，隶属于广州加兔网络科技有限公司，是一款基于Android平台的多功能卡牌游戏助手，由光环团队制作，致力于为众手游玩家打造最优质的游戏氛围，成就最强卡牌管家。光环助手不但能节省手游玩家繁杂的游戏时间，带来更好更畅快的游戏体验；更会为玩家实时更新最新游戏资讯，搜罗大量游戏攻略以及“小编带你玩”等诸多精品栏目。
-光环修改版的游戏提供以下悬浮窗功能
- 内置攻略 内置15倍可调节加速 内置连点器，支持调节频率，次数以及保存脚本功能   操作教程 手动找出ipa地址   使用电脑或者将手机浏览器UA设置为PC进入iOS光环助手下载页
-  找到想要下载的游戏，点击下载
-  此时地址栏会暴露一个itms-services的url，这是一种无需经过App Store来分发ipa的服务
-  比如url为
-  itms-services://?action=download-manifest&amp;amp;url=https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist 取参数中的url部分，也就是这个plist文件的地址  https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist 直接用浏览器访问，将得到一个xml页面  This XML file does not appear to have any style information associated with it. The document tree is shown below. &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;items&amp;lt;/key&amp;gt; &amp;lt;array&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;assets&amp;lt;/key&amp;gt; &amp;lt;array&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;kind&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;software-package&amp;lt;/string&amp;gt; &amp;lt;key&amp;gt;url&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;https://ios-d.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>iOS逆向 on yanbo92.site</title><link>https://yanbo92.site/tags/ios%E9%80%86%E5%90%91/</link><description>Recent content in iOS逆向 on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/tags/ios%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml"/><item><title>重签名解决光环助手频繁掉签问题</title><link>https://yanbo92.site/halo-ipa/</link><pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate><guid>https://yanbo92.site/halo-ipa/</guid><description>&lt;img src="https://yanbo92.site/halo-ipa/cover.png" alt="Featured image of post 重签名解决光环助手频繁掉签问题" />&lt;h2 id="最终效果">最终效果&lt;/h2>
+&lt;ul>
+&lt;li>付费证书只要仍在有效期内，账号内的设备都能不掉签使用游戏的&lt;code>ipa&lt;/code>包&lt;/li>
+&lt;li>免费证书七天一次签名，可以用&lt;a class="link" href="i4.cn" >爱思助手&lt;/a>之类的工具完成这个过程。&lt;/li>
+&lt;/ul>
+&lt;h2 id="背景介绍">背景介绍&lt;/h2>
+&lt;blockquote>
+&lt;p>光环助手，隶属于广州加兔网络科技有限公司，是一款基于Android平台的多功能卡牌游戏助手，由光环团队制作，致力于为众手游玩家打造最优质的游戏氛围，成就最强卡牌管家。光环助手不但能节省手游玩家繁杂的游戏时间，带来更好更畅快的游戏体验；更会为玩家实时更新最新游戏资讯，搜罗大量游戏攻略以及“小编带你玩”等诸多精品栏目。&lt;/p>
+&lt;p>光环修改版的游戏提供以下悬浮窗功能&lt;/p>
+&lt;ul>
+&lt;li>内置攻略&lt;/li>
+&lt;li>内置15倍可调节加速&lt;/li>
+&lt;li>内置连点器，支持调节频率，次数以及保存脚本功能&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h2 id="操作教程">操作教程&lt;/h2>
+&lt;h3 id="手动找出ipa地址">手动找出ipa地址&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>使用电脑或者将手机浏览器&lt;code>UA&lt;/code>设置为&lt;code>PC&lt;/code>进入&lt;a class="link" href="https://www.ghzs6.com/web/ios_column_h5/index.html#/" target="_blank" rel="noopener"
+>iOS光环助手下载页&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>找到想要下载的游戏，点击下载&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>此时地址栏会暴露一个&lt;code>itms-services&lt;/code>的&lt;code>url&lt;/code>，这是一种无需经过&lt;code>App Store&lt;/code>来分发&lt;code>ipa&lt;/code>的服务&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>比如&lt;code>url&lt;/code>为&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">itms-services://?action=download-manifest&amp;amp;url=https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
+&lt;li>取&lt;strong>参数&lt;/strong>中的&lt;code>url&lt;/code>部分，也就是这个&lt;code>plist&lt;/code>文件的地址&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="6">
+&lt;li>直接用浏览器访问，将得到一个&lt;code>xml&lt;/code>页面&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">This XML file does not appear to have any style information associated with it. The document tree is shown below.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;plist&lt;/span> &lt;span class="na">version=&lt;/span>&lt;span class="s">&amp;#34;1.0&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>items&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;array&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>assets&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;array&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>kind&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>software-package&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>url&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>https://ios-d.ghzs.com/ipa/61f36ec83feb2f4224555b8a.ipa&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>kind&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>display-image&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>url&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>https://ios-image.ghzs.com/app-icon/61f36f7d3feb2f4224555b8e.png&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>kind&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>full-size-image&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>url&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>https://ios-image.ghzs.com/app-icon/61f36f7d3feb2f4224555b8e.png&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/array&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>metadata&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>bundle-identifier&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>com.gh.snsgz2appstore3&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>bundle-version&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>1.36.89&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>kind&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>software&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>title&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>少年三国志2（安装完成后，请到设置-&amp;gt;通用-&amp;gt;描述文件与设备管理，信任企业级应用）&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/array&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/plist&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="7">
+&lt;li>&lt;code>xml&lt;/code>中的&lt;code>url&lt;/code>即&lt;code>ipa&lt;/code>下载地址的值了，再贴回地址栏，即可下载到一个被光环助手注入的游戏&lt;/li>
+&lt;/ol>
+&lt;h3 id="重签名">重签名&lt;/h3>
+&lt;p>麻烦移步我写的另一篇文章，有详细步骤，这里就不重复写了。&lt;/p>
+&lt;p>&lt;a class="link" href="https://yanbo92.site/fastbot-stub-inject" target="_blank" rel="noopener"
+>重签名Fastbot-sub&lt;/a>&lt;/p>
+&lt;h2 id="参考链接">参考链接&lt;/h2>
+&lt;p>&lt;a class="link" href="https://www.ghzs.com/" target="_blank" rel="noopener"
+>光环助手官网&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.ghzs6.com/web/ios_column_h5/index.html#/" target="_blank" rel="noopener"
+>iOS光环助手下载页&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="i4.cn" >爱思助手官网&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="altstore.io" >签名工具Altstore&lt;/a>&lt;/p></description></item><item><title>使用yololib注入fastbot-stub并重签名运行测试</title><link>https://yanbo92.site/fastbot-stub-inject/</link><pubDate>Thu, 11 Nov 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/fastbot-stub-inject/</guid><description>&lt;img src="https://yanbo92.site/fastbot-stub-inject/cover.png" alt="Featured image of post 使用yololib注入fastbot-stub并重签名运行测试" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS" target="_blank" rel="noopener"
+>bytedance/Fastbot_iOS&lt;/a>，效果非常好。但默认实现是基于纯图像识别的，有时候难免遇到一些靠图像不好处理的地方，陷入覆盖率较低的境地。但好在项目也提供了&lt;code>stub模式&lt;/code>，只是上手有一定的技术门槛。刷了一下Github的issue，在开发者&lt;a class="link" href="https://github.com/geron-cn" target="_blank" rel="noopener"
+>geron-cn&lt;/a>的启发下了解到了&lt;a class="link" href="https://github.com/KJCracks/yololib" target="_blank" rel="noopener"
+>yololib&lt;/a>，本文将提供一种通过&lt;code>yololib&lt;/code>注入方式使用&lt;code>fastbot-stub&lt;/code>的方案。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="相关项目介绍">相关项目介绍&lt;/h2>
+&lt;h4 id="fastbot_ioshttpsgithubcombytedancefastbot_ios">&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS" target="_blank" rel="noopener"
+>Fastbot_iOS&lt;/a>&lt;/h4>
+&lt;blockquote>
+&lt;p>2019 年字节跳动 Quality Lab 在自动测试生成方面进行了比较深入的探索，并研发了针对 Android、iOS 的稳定性测试工具 Fastbot。Fastbot 的核心技术主要包括：&lt;/p>
+&lt;p>智能遍历：使用基于模型的测试生成（MBT），并提供多种算法策略，以获得较高的 Activity 覆盖率及问题发现能力；
+多机协同：最高支持数百台长时间多机协同遍历，同一个目标彼此协作；
+个性化的专家系统：业务方可以进行多种个性化配置，比如：限定测试在指定的 Activity 运行，屏蔽测试某些场景；
+模型复用：基于强化学习利用历史测试经验数据学习改进当次测试策略；
+复杂用例生成：对人工用例进行模仿学习，遍历过程中混合复杂用例的组合生成；
+精准定向：根据代码调用链变更自动生成针对变更场景的定向测试。&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="yololibhttpsgithubcomkjcracksyololib">&lt;a class="link" href="https://github.com/KJCracks/yololib" target="_blank" rel="noopener"
+>yololib&lt;/a>&lt;/h4>
+&lt;blockquote>
+&lt;p>yololib是Kim Jong Cracks（Clutch 砸壳的作者）小组搞出来的一个dylib注入工具，利用这个工具，大大方便我们修改Mach-O 文件的 Load Command。以达到注入动态库的目的。用法如下&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;p>yololib [binary] [dylib file]&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;h4 id="ltresignhttpsgithubcomgltwyltresign">&lt;a class="link" href="https://github.com/gltwy/LTResign" target="_blank" rel="noopener"
+>LTResign&lt;/a>&lt;/h4>
+&lt;blockquote>
+&lt;p>LTResign是一个用Python编写的重签名工具，这是iOS逆向绕不开的东西，但同类脚本有很多，作者通常用这个以及&lt;a class="link" href="https://github.com/g763007297/GQResign" target="_blank" rel="noopener"
+>GQResign&lt;/a>。&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="swift-30-projectshttpsgithubcomsoapyiguswift-30-projects">&lt;a class="link" href="https://github.com/soapyigu/Swift-30-Projects" target="_blank" rel="noopener"
+>Swift-30-Projects&lt;/a>&lt;/h4>
+&lt;blockquote>
+&lt;p>这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="实现原理">实现原理&lt;/h2>
+&lt;p>注入和重签名都是iOS逆向老生常谈的话题，基于这两个技术也产生了大量围绕iOS开发者证书的黑灰产，例如光环助手等。&lt;code>Fastbot-stub&lt;/code>要求在App中加入&lt;code>fastbot-stub.framework&lt;/code>，合入依赖重新编译打包，就是注入动态库重签名这样的方案了。&lt;/p>
+&lt;ul>
+&lt;li>注入：逆向修改三方应用,让三方应用执行我们的代码，这就是代码注入，动态库注入是一种方式。其中动态库注入分为&lt;strong>framework注入&lt;/strong>与&lt;strong>dylib注入&lt;/strong>。此处&lt;code>fastbot-stub&lt;/code>编译产物为&lt;code>.framework&lt;/code>。&lt;/li>
+&lt;li>重签名：说白了重签名是一个偷天换日的过程，需要真机编译一个别的工程得到一份描述文件，再把需要重签名app的MachO以及frameworks都重新上一遍签名，当然，成熟的重签名脚本Github上有很多了，原理什么的有兴趣可以细看。&lt;/li>
+&lt;/ul>
+&lt;h2 id="具体步骤">具体步骤&lt;/h2>
+&lt;h4 id="环境准备">环境准备&lt;/h4>
+&lt;p>此处需要准备好的东西：&lt;/p>
+&lt;ul>
+&lt;li>一台Mac&lt;/li>
+&lt;li>一个砸壳后的ipa包&lt;/li>
+&lt;li>开发者证书，以及可用的描述文件&lt;/li>
+&lt;li>yololib可执行文件&lt;/li>
+&lt;li>LTResign可执行文件&lt;/li>
+&lt;li>fastbot-stub.framework&lt;/li>
+&lt;/ul>
+&lt;h5 id="砸壳的ipa">砸壳的ipa：&lt;/h5>
+&lt;p>建议找你家开发直接打一个adhoc包，顺便要一份开发者证书，以及可用的描述文件。或者有代码权限的测试老哥们自己动手打一个，实在想用线上APP的需要砸壳，可以看看这个工具&lt;a class="link" href="https://www.dumpapp.com/" target="_blank" rel="noopener"
+>iOS App 自动砸壳平台&lt;/a>，或者通过第三方平台下ipa包，比如爱思助手、PP助手，最折腾但能学到东西的方案：搞一台越狱的iPhone用&lt;code>clutch&lt;/code>自己砸&lt;/p>
+&lt;h5 id="yololib可执行文件">yololib可执行文件&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/KJCracks/yololib
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd yololib &amp;amp;&amp;amp; open yololib.xcodeproj
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>直接build即可，给构建产物可执行权限&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">chmod +x yololib
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>建议直接放入&lt;code>/usr/local/bin&lt;/code>，毕竟这个东西执行的路径有点讲究&lt;/p>
+&lt;p>懒人方案：直接下载别人编译好的&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;a class="link" href="https://github.com/niexiaobo/yololib" target="_blank" rel="noopener"
+>KJCracks/yololib: dylib injector for mach-o binaries (github.com)&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h5 id="ltresign可执行文件">LTResign可执行文件&lt;/h5>
+&lt;p>作者打包好了，可以直接下载，改权限&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/gltwy/LTResign
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd LTResign &amp;amp;&amp;amp; chmod +x LTResign
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="fastbot-stubframework">fastbot-stub.framework&lt;/h5>
+&lt;p>按照&lt;code>Fastbot-iOS&lt;/code>项目的Readme打开&lt;code>Fastbot-iOS.xcworkspace&lt;/code>，编译即可，完整命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone git@github.com:bytedance/Fastbot_iOS.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd Fastbot-iOS &amp;amp;&amp;amp; pod install --repo-update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">open Fastbot-iOS.xcworkspace
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后target选择&lt;code>fastbot-stub&lt;/code>，连一台真机编译，得到产物&lt;code>fastbot-stub.framework&lt;/code>&lt;/p>
+&lt;h4 id="动态库注入">动态库注入&lt;/h4>
+&lt;p>将ipa包改名为zip包，其实下面这些步骤都可以在界面操作，看个人习惯&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cp ToDo.ipa ToDo.zip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>解压zip，得到Payload文件夹&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">unzip ToDo.zip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>将&lt;code>fastbot-stub.framework&lt;/code>复制到Payload/Todo.app/Frameworks中&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cp -r fastbot_stub.framework Payload/ToDo.app/Frameworks
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>运行yololib注入&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd Payload/ToDo.app &amp;amp;&amp;amp; yololib Todo Frameworks/fastbot_stub.framework/fastbot-stub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这一步正常的输出是这样的：&lt;/p>
+&lt;blockquote>
+&lt;p>Reading binary: ToDo&lt;/p>
+&lt;p>2021-11-11 22:09:37.127 yololib[20629:7615745] Thin 64bit binary!&lt;/p>
+&lt;p>2021-11-11 22:09:37.128 yololib[20629:7615745] dylib size wow 88&lt;/p>
+&lt;p>2021-11-11 22:09:37.128 yololib[20629:7615745] mach.ncmds 40&lt;/p>
+&lt;p>2021-11-11 22:09:37.128 yololib[20629:7615745] mach.ncmds 41&lt;/p>
+&lt;p>2021-11-11 22:09:37.128 yololib[20629:7615745] Patching mach_header..&lt;/p>
+&lt;p>2021-11-11 22:09:37.128 yololib[20629:7615745] Attaching dylib..&lt;/p>
+&lt;p>2021-11-11 22:09:37.128 yololib[20629:7615745] size 87&lt;/p>
+&lt;p>2021-11-11 22:09:37.128 yololib[20629:7615745] complete!&lt;/p>
+&lt;/blockquote>
+&lt;p>这个作者打的日志十分的可爱，当你注入一个大点的库，第二行将会变成Fat Binary，胖的库&lt;/p>
+&lt;p>实际上yololib做的事情是让App运行的时候加载需要注入的动态库，只是写一条链接，而不会把这个库给带进&lt;code>Frameworks&lt;/code>里面，所以这两步都是必要的。&lt;/p>
+&lt;p>重新把&lt;code>Payload&lt;/code>打包为zip&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ../.. &amp;amp;&amp;amp; zip -r Payload.zip Payload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>改名ipa&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mv Payload.zip Payload.ipa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此时你拥有了一个被注入的ipa包，但他装不上去手机。&lt;/p>
+&lt;h4 id="重签名">重签名&lt;/h4>
+&lt;p>进到LTResign项目目录&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mv Payload.ipa LTResign &amp;amp;&amp;amp; cd LTResign
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>用&lt;code>-l&lt;/code>参数运行&lt;code>ltresign&lt;/code>获取证书id&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./ltresign -l
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出类似这样子&lt;/p>
+&lt;blockquote>
+&lt;p>\1) 24D0F12312312312312312312312300E2CC990355 &amp;ldquo;Apple Development:XXXXXXXXXXXX&amp;rdquo;&lt;/p>
+&lt;p>\2) 98D4E12312312312312312312312312312F9B013 &amp;ldquo;Apple Development: XXX XXX(XXXXXXXX)&lt;/p>
+&lt;/blockquote>
+&lt;p>这里面每一项的第一个字符串就是id了，比如&lt;code>24D0F12312312312312312312312300E2CC990355&lt;/code>&lt;/p>
+&lt;p>将描述文件改名为&lt;code>embedded.mobileprovision&lt;/code>，也放到这个目录&lt;/p>
+&lt;p>运行重签名脚本&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ltresign -s /Payload.ipa -d 24D0F12312312312312312312312300E2CC990355 -m embedded.mobileprovision
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>正常的输出会是这样结尾：&lt;/p>
+&lt;blockquote>
+&lt;p>&amp;hellip;&amp;hellip;&amp;hellip;..&lt;/p>
+&lt;p>glt_tmp/glt_test/Payload/ToDo.app: replacing existing signature&lt;/p>
+&lt;p>重新签名完成，可以去安装了！（2021-11-11 22:26:54）&lt;/p>
+&lt;/blockquote>
+&lt;p>此时这个目录将会生成一个重签名过的ipa &lt;code>glt_output.ipa&lt;/code>&lt;/p>
+&lt;h4 id="装包测试">装包测试&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ideviceinstaller -i glt_output.ipa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>回到Fastbot-iOS工程，修改Fastbot-Runner的Scheme：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">dataport为9797
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">launchenv为stubPort=9797
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>再修改&lt;code>FastbotRunner/FastbotRunner.m&lt;/code>，将以下代码取消注释&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="n">fastbot_native&lt;/span> &lt;span class="n">addUIInterruptionMonitor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">CGRect&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span> &lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span>&lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">firstObject&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="n">allElementsBoundByIndex&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSInteger&lt;/span> &lt;span class="n">buttonCount&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="bp">count&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">CGRect&lt;/span> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">CGRectZero&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">buttonCount&lt;/span>&lt;span class="o">&amp;lt;=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">btnRect&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">buttonCount&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[[&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="n">objectAtIndex&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">frame&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">lastObject&lt;/span> &lt;span class="n">frame&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">btnRect&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}];&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>代码大意为处理系统弹窗&lt;/p>
+&lt;p>像之前运行Fastbot-iOS一样在命令行传参运行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">BUNDLEID=yigu.com.ToDo duration=240 throttle=300 xcodebuild test -workspace Fastbot-iOS.xcworkspace -scheme FastbotRunner -configuration Release -destination &amp;#39;platform=iOS,id=c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2&amp;#39; -only-testing:FastbotRunner/FastbotRunner/testFastbot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>截取一段命令行输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[fastbot] : visit ToDo.InputViewController,UIApplicationRotationFollowingController,UIApplicationRotationFollowingControllerNoTouches,UICompatibilityInputViewController,UIInputViewController,UIInputWindowController; visited ViewController count is: 2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state visited: 30
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : action first visited, get reward 2.336364
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state is saturated, get reward 0.295547
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : got reward: 9.3110
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>区别在哪？区别就在于有控件信息了，如果看到类似&lt;code>UIInputWindowController&lt;/code>这样的字样，恭喜你，你成功了。&lt;/p>
+&lt;h2 id="心得">心得&lt;/h2>
+&lt;p>注入搞fastbot其实就是个玩，有完整代码权限正儿八经打包进去才是正道。当然很多时候这套逆向方案也够用了，文中的命令也能很好的持续集成起来。&lt;/p>
+&lt;h2 id="参考文章">参考文章&lt;/h2>
+&lt;p>&lt;a class="link" href="https://testerhome.com/topics/31113" target="_blank" rel="noopener"
+>字节跳动质量利器 &amp;ndash; 移动端智能化稳定性测试工具 Fastbot-Android/iOS 双端重磅发布上线&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://mp.weixin.qq.com/s/QhzqBFZygkIS6C69__smyQ" target="_blank" rel="noopener"
+>奔跑吧！智能Monkey之Fastbot跨平台 &lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS/issues/44" target="_blank" rel="noopener"
+>Issue #44 · bytedance/Fastbot_iOS&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.jianshu.com/p/0e80958eb1d8" target="_blank" rel="noopener"
+>iOS逆向工具09-yololib注入framework&lt;/a>&lt;/p></description></item></channel></rss>

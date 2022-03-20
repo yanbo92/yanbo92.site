@@ -1,44 +1,140 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>auto.js on 茅测顿开</title>
-    <link>https://yanbo92.github.io/tags/auto.js/</link>
-    <description>Recent content in auto.js on 茅测顿开</description>
-    <image>
-      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/auto.js/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Auto.JS中杀死其他脚本的方法</title>
-      <link>https://yanbo92.github.io/autojs-kill-scripts/</link>
-      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/autojs-kill-scripts/</guid>
-      <description>Auto.JS介绍  Auto.js Pro是什么 一个在Android、鸿蒙平台编写、运行JavaScript代码的集成开发环境，包括代码补全的编辑器、单步调试、图形化设计，可构建为独立apk应用，也可连接电脑开发。
-Auto.js Pro能做什么 创建自动化工具、效率工具、优美界面、小应用，诸如早晨自动签到、处理文件为excel、图片批量处理、机器人、自动化测试、搭建服务器等，或解放双手，或学习编程，或制作应用。
-为什么选择Auto.js Pro 完善的文档和示例、丰富的API、增强的加密、活跃的更新，用JavaScript连接Java、Android、Node.js的生态。
- 注：Auto.JS与Auto.JS Pro的区别在于，前者是免费、开源的，但是已经停更多年，后者需要付费，但仍在持续更新，提供更多的功能。Auto.js 开源版本已不再维护(原因参见Auto.js Pro FAQ)，后续将只维护Auto.js Pro专业版。
-官网链接 Auto.JS
-Auto.JS Pro
-杀死APP具体实现 实现原理  调用engines.all()方法获取当前正在运行的所有引擎对象（返回对象数组） 再调用engines.myEngine()方法获取当前正在前台运行这个方法的对象（返回单个对象） 进行对象比对后再调用engine.forceStop()方法杀死非当前引擎对象 该方法能避免用户反复运行脚本，导致脚本互相干扰、资源占用等情况  完整代码 function kill_scripts() { allNgs = engines.all() myNg = engines.myEngine() for (var i = 0; i &amp;lt; allNgs.length; ++i) { if (!(allNgs[i] === myNg)) { allNgs[i].forceStop() } } } kill_scripts() </description>
-    </item>
-    
-    <item>
-      <title>Auto.JS中免Root杀死APP的巧妙方法</title>
-      <link>https://yanbo92.github.io/autojs-kill-app/</link>
-      <pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/autojs-kill-app/</guid>
-      <description>Auto.JS介绍  Auto.js Pro是什么 一个在Android、鸿蒙平台编写、运行JavaScript代码的集成开发环境，包括代码补全的编辑器、单步调试、图形化设计，可构建为独立apk应用，也可连接电脑开发。
-Auto.js Pro能做什么 创建自动化工具、效率工具、优美界面、小应用，诸如早晨自动签到、处理文件为excel、图片批量处理、机器人、自动化测试、搭建服务器等，或解放双手，或学习编程，或制作应用。
-为什么选择Auto.js Pro 完善的文档和示例、丰富的API、增强的加密、活跃的更新，用JavaScript连接Java、Android、Node.js的生态。
- 注：Auto.JS与Auto.JS Pro的区别在于，前者是免费、开源的，但是已经停更多年，后者需要付费，但仍在持续更新，提供更多的功能。Auto.js 开源版本已不再维护(原因参见Auto.js Pro FAQ)，后续将只维护Auto.js Pro专业版。
-官网链接 Auto.JS
-Auto.JS Pro
-杀死APP具体实现 实现原理  调用openAppSetting(packageName)方法打开系统设置中对应APP的设置页 通过控件操作点击强制停止，确认等按钮，达到杀死APP的目的 该方法巧妙的规避了通过adb shell kill或者 adb shell am force-stop方法带来的权限问题  完整代码 function kill_app(packageName) { var name = getPackageName(packageName); if (!name) { if (getAppName(packageName)) { name = packageName; } else { return false; } } app.openAppSetting(name); text(app.getAppName(name)).waitFor(); let is_sure = textMatches(/(.*强.*|.*停.*|.*结.*|.*行.*)/).findOne(); if (is_sure.enabled()) { textMatches(/(.*强.*|.*停.*|.*结.*|.*行.*)/).findOne().click(); textMatches(/(.*确.*|.*定.*)/).findOne().click(); log(app.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>auto.js on yanbo92.site</title><link>https://yanbo92.site/tags/auto.js/</link><description>Recent content in auto.js on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/tags/auto.js/index.xml" rel="self" type="application/rss+xml"/><item><title>Auto.JS中杀死其他脚本的方法</title><link>https://yanbo92.site/autojs-kill-scripts/</link><pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/autojs-kill-scripts/</guid><description>&lt;img src="https://yanbo92.site/autojs-kill-scripts/cover.png" alt="Featured image of post Auto.JS中杀死其他脚本的方法" />&lt;h2 id="autojs介绍">Auto.JS介绍&lt;/h2>
+&lt;blockquote>
+&lt;h4 id="autojs-pro是什么">Auto.js Pro是什么&lt;/h4>
+&lt;p>一个在Android、鸿蒙平台编写、运行JavaScript代码的集成开发环境，包括代码补全的编辑器、单步调试、图形化设计，可构建为独立apk应用，也可连接电脑开发。&lt;/p>
+&lt;h4 id="autojs-pro能做什么">Auto.js Pro能做什么&lt;/h4>
+&lt;p>创建自动化工具、效率工具、优美界面、小应用，诸如早晨自动签到、处理文件为excel、图片批量处理、机器人、自动化测试、搭建服务器等，或解放双手，或学习编程，或制作应用。&lt;/p>
+&lt;h4 id="为什么选择autojs-pro">为什么选择Auto.js Pro&lt;/h4>
+&lt;p>完善的文档和示例、丰富的API、增强的加密、活跃的更新，用JavaScript连接Java、Android、Node.js的生态。&lt;/p>
+&lt;/blockquote>
+&lt;p>注：Auto.JS与Auto.JS Pro的区别在于，前者是免费、开源的，但是已经停更多年，后者需要付费，但仍在持续更新，提供更多的功能。Auto.js 开源版本已不再维护(原因参见Auto.js Pro FAQ)，后续将只维护Auto.js Pro专业版。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h4 id="官网链接">官网链接&lt;/h4>
+&lt;p>&lt;a class="link" href="https://hyb1996.github.io/AutoJs-Docs/#/" target="_blank" rel="noopener"
+>Auto.JS&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://pro.autojs.org/" target="_blank" rel="noopener"
+>Auto.JS Pro&lt;/a>&lt;/p>
+&lt;h2 id="杀死app具体实现">杀死APP具体实现&lt;/h2>
+&lt;h4 id="实现原理">实现原理&lt;/h4>
+&lt;ul>
+&lt;li>调用&lt;code>engines.all()&lt;/code>方法获取当前正在运行的所有引擎对象（返回对象数组）&lt;/li>
+&lt;li>再调用&lt;code>engines.myEngine()&lt;/code>方法获取当前正在前台运行这个方法的对象（返回单个对象）&lt;/li>
+&lt;li>进行对象比对后再调用&lt;code>engine.forceStop()&lt;/code>方法杀死非当前引擎对象&lt;/li>
+&lt;li>该方法能避免用户反复运行脚本，导致脚本互相干扰、资源占用等情况&lt;/li>
+&lt;/ul>
+&lt;h4 id="完整代码">完整代码&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">kill_scripts&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">allNgs&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">engines&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">all&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">myNg&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">engines&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">myEngine&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kd">var&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="nx">allNgs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">length&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="nx">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">allNgs&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nx">i&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="nx">myNg&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">allNgs&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nx">i&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">forceStop&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">kill_scripts&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Auto.JS中免Root杀死APP的巧妙方法</title><link>https://yanbo92.site/autojs-kill-app/</link><pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/autojs-kill-app/</guid><description>&lt;img src="https://yanbo92.site/autojs-kill-app/cover.png" alt="Featured image of post Auto.JS中免Root杀死APP的巧妙方法" />&lt;h2 id="autojs介绍">Auto.JS介绍&lt;/h2>
+&lt;blockquote>
+&lt;h4 id="autojs-pro是什么">Auto.js Pro是什么&lt;/h4>
+&lt;p>一个在Android、鸿蒙平台编写、运行JavaScript代码的集成开发环境，包括代码补全的编辑器、单步调试、图形化设计，可构建为独立apk应用，也可连接电脑开发。&lt;/p>
+&lt;h4 id="autojs-pro能做什么">Auto.js Pro能做什么&lt;/h4>
+&lt;p>创建自动化工具、效率工具、优美界面、小应用，诸如早晨自动签到、处理文件为excel、图片批量处理、机器人、自动化测试、搭建服务器等，或解放双手，或学习编程，或制作应用。&lt;/p>
+&lt;h4 id="为什么选择autojs-pro">为什么选择Auto.js Pro&lt;/h4>
+&lt;p>完善的文档和示例、丰富的API、增强的加密、活跃的更新，用JavaScript连接Java、Android、Node.js的生态。&lt;/p>
+&lt;/blockquote>
+&lt;p>注：Auto.JS与Auto.JS Pro的区别在于，前者是免费、开源的，但是已经停更多年，后者需要付费，但仍在持续更新，提供更多的功能。Auto.js 开源版本已不再维护(原因参见Auto.js Pro FAQ)，后续将只维护Auto.js Pro专业版。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h4 id="官网链接">官网链接&lt;/h4>
+&lt;p>&lt;a class="link" href="https://hyb1996.github.io/AutoJs-Docs/#/" target="_blank" rel="noopener"
+>Auto.JS&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://pro.autojs.org/" target="_blank" rel="noopener"
+>Auto.JS Pro&lt;/a>&lt;/p>
+&lt;h2 id="杀死app具体实现">杀死APP具体实现&lt;/h2>
+&lt;h4 id="实现原理">实现原理&lt;/h4>
+&lt;ul>
+&lt;li>调用&lt;code>openAppSetting(packageName)&lt;/code>方法打开系统设置中对应APP的设置页&lt;/li>
+&lt;li>通过控件操作点击&lt;em>强制停止&lt;/em>，&lt;em>确认&lt;/em>等按钮，达到杀死APP的目的&lt;/li>
+&lt;li>该方法巧妙的规避了通过&lt;code>adb shell kill&lt;/code>或者 &lt;code>adb shell am force-stop&lt;/code>方法带来的权限问题&lt;/li>
+&lt;/ul>
+&lt;h4 id="完整代码">完整代码&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">kill_app&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">getPackageName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">getAppName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">packageName&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">openAppSetting&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">text&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getAppName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">)).&lt;/span>&lt;span class="nx">waitFor&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">let&lt;/span> &lt;span class="nx">is_sure&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">textMatches&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sr">/(.*强.*|.*停.*|.*结.*|.*行.*)/&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">findOne&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">is_sure&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">enabled&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">textMatches&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sr">/(.*强.*|.*停.*|.*结.*|.*行.*)/&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">findOne&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="nx">click&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">textMatches&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sr">/(.*确.*|.*定.*)/&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">findOne&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="nx">click&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getAppName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s2">&amp;#34;应用已被关闭&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">sleep&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">back&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getAppName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s2">&amp;#34;应用不能被正常关闭或不在后台运行&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">back&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">kill_app&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;微信&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

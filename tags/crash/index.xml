@@ -1,23 +1,80 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>crash on 茅测顿开</title>
-    <link>https://yanbo92.github.io/tags/crash/</link>
-    <description>Recent content in crash on 茅测顿开</description>
-    <image>
-      <url>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://yanbo92.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.github.io/tags/crash/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>使用crash2json库将iOS崩溃日志解析成json文件</title>
-      <link>https://yanbo92.github.io/crash2json/</link>
-      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://yanbo92.github.io/crash2json/</guid>
-      <description>项目背景  为了对iOS崩溃日志进行进一步的分析，需要将崩溃日志中的信息拆分成不同的部分，取其中的一部分或者多个部分进行存储、对比，于是我写了一个python库将.crash文件转换成.json文件。 鉴于Apple在iOS15上已经将崩溃文件存储成类似json的格式，本库仅在iOS15以下的版本发挥作用。  操作步骤 安装crash2json pip install crash2json 命令行直接运行 crash2json yourcrashreport.crash 其他参数 positional arguments: crash_fileoptional arguments: -h, --help show this help message and exit --binary_image_list_only parse binary_image_list to json only --crashed_thread_state_only parse crashed_thread_state to json only --diagnostic_messages_only parse diagnostic_messages to json only --exception_backtrace_only parse exception_backtrace to json only --exception_information_only parse exception_information to json only --header_only parse header to json only --other_threads_backtrace_only parse other_threads_backtrace to json only --thread0_backtrace_only parse thread0_backtrace to json only -s, --simple output a simple json with only header, exceptionInfo, diagnositcMsg, Thread0Backtrace -o OUTPUT_NAME, --output_name OUTPUT_NAME the .</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crash on yanbo92.site</title><link>https://yanbo92.site/tags/crash/</link><description>Recent content in crash on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/tags/crash/index.xml" rel="self" type="application/rss+xml"/><item><title>使用crash2json库将iOS崩溃日志解析成json文件</title><link>https://yanbo92.site/crash2json/</link><pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/crash2json/</guid><description>&lt;img src="https://yanbo92.site/crash2json/cover.png" alt="Featured image of post 使用crash2json库将iOS崩溃日志解析成json文件" />&lt;h2 id="项目背景">项目背景&lt;/h2>
+&lt;ul>
+&lt;li>为了对iOS崩溃日志进行进一步的分析，需要将崩溃日志中的信息拆分成不同的部分，取其中的一部分或者多个部分进行存储、对比，于是我写了一个python库将&lt;code>.crash&lt;/code>文件转换成&lt;code>.json&lt;/code>文件。&lt;/li>
+&lt;li>鉴于Apple在iOS15上已经将崩溃文件存储成类似json的格式，本库仅在iOS15以下的版本发挥作用。&lt;/li>
+&lt;/ul>
+&lt;h2 id="操作步骤">操作步骤&lt;/h2>
+&lt;h4 id="安装crash2json">安装crash2json&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip install crash2json
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="命令行直接运行">命令行直接运行&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">crash2json yourcrashreport.crash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="其他参数">其他参数&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">positional arguments:&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> crash_file&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>optional arguments:&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> -h, --help show this &lt;span class="nb">help&lt;/span> message and exit&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> --binary_image_list_only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> parse binary_image_list to json only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> --crashed_thread_state_only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> parse crashed_thread_state to json only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> --diagnostic_messages_only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> parse diagnostic_messages to json only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> --exception_backtrace_only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> parse exception_backtrace to json only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> --exception_information_only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> parse exception_information to json only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> --header_only parse header to json only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> --other_threads_backtrace_only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> parse other_threads_backtrace to json only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> --thread0_backtrace_only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> parse thread0_backtrace to json only&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> -s, --simple output a simple json with only header, exceptionInfo, diagnositcMsg, Thread0Backtrace&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> -o OUTPUT_NAME, --output_name OUTPUT_NAME&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> the .json file you want to save result to, no need .json suffix&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="源码地址">源码地址&lt;/h2>
+&lt;p>&lt;a class="link" href="https://github.com/yanbo92/crash2json" target="_blank" rel="noopener"
+>yanbo92/crash2json&lt;/a>&lt;/p></description></item></channel></rss>

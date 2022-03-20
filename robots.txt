@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://yanbo92.github.io/sitemap.xml
