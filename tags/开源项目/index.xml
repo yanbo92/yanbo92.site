@@ -534,24 +534,18 @@ data-flex-basis="413px"
 &lt;p>&lt;a class="link" href="https://github.com/KJCracks/yololib" target="_blank" rel="noopener"
 >项目链接&lt;/a>&lt;/p>
 &lt;blockquote>
-&lt;p>yololib是Kim Jong Cracks（Clutch 砸壳的作者）小组搞出来的一个dylib注入工具，利用这个工具，大大方便我们修改Mach-O 文件的 Load Command。以达到注入动态库的目的。用法如下&lt;/p>
+&lt;p>yololib是Kim Jong Cracks（Clutch 砸壳的作者）小组搞出来的一个dylib注入工具，利用这个工具，大大方便我们修改Mach-O 文件的 Load Command。以达到注入动态库的目的。&lt;/p>
+&lt;/blockquote>
+&lt;p>用法如下&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;/code>&lt;/pre>&lt;/td>
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">yololib [binary] [dylib file]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;/blockquote>
-&lt;p>yololib [binary] [dylib file]&lt;/p>
-&lt;blockquote>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;/blockquote>
-&lt;h4 id="ltresign">LTResign&lt;/h4>
+&lt;/div>&lt;h4 id="ltresign">LTResign&lt;/h4>
 &lt;p>&lt;a class="link" href="https://github.com/gltwy/LTResign" target="_blank" rel="noopener"
 >项目链接&lt;/a>&lt;/p>
 &lt;blockquote>
