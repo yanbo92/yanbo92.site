@@ -5,8 +5,9 @@
 >yololib&lt;/a>，本文将提供一种通过&lt;code>yololib&lt;/code>注入方式使用&lt;code>fastbot-stub&lt;/code>的方案。&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;h2 id="相关项目介绍">相关项目介绍&lt;/h2>
-&lt;h4 id="fastbot_ioshttpsgithubcombytedancefastbot_ios">&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS" target="_blank" rel="noopener"
->Fastbot_iOS&lt;/a>&lt;/h4>
+&lt;h3 id="fastbot_ios">Fastbot_iOS&lt;/h3>
+&lt;p>&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS" target="_blank" rel="noopener"
+>项目链接&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>2019 年字节跳动 Quality Lab 在自动测试生成方面进行了比较深入的探索，并研发了针对 Android、iOS 的稳定性测试工具 Fastbot。Fastbot 的核心技术主要包括：&lt;/p>
 &lt;p>智能遍历：使用基于模型的测试生成（MBT），并提供多种算法策略，以获得较高的 Activity 覆盖率及问题发现能力；
@@ -16,8 +17,9 @@
 复杂用例生成：对人工用例进行模仿学习，遍历过程中混合复杂用例的组合生成；
 精准定向：根据代码调用链变更自动生成针对变更场景的定向测试。&lt;/p>
 &lt;/blockquote>
-&lt;h4 id="yololibhttpsgithubcomkjcracksyololib">&lt;a class="link" href="https://github.com/KJCracks/yololib" target="_blank" rel="noopener"
->yololib&lt;/a>&lt;/h4>
+&lt;h4 id="yololib">yololib&lt;/h4>
+&lt;p>&lt;a class="link" href="https://github.com/KJCracks/yololib" target="_blank" rel="noopener"
+>项目链接&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>yololib是Kim Jong Cracks（Clutch 砸壳的作者）小组搞出来的一个dylib注入工具，利用这个工具，大大方便我们修改Mach-O 文件的 Load Command。以达到注入动态库的目的。用法如下&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -36,14 +38,16 @@
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/blockquote>
-&lt;h4 id="ltresignhttpsgithubcomgltwyltresign">&lt;a class="link" href="https://github.com/gltwy/LTResign" target="_blank" rel="noopener"
->LTResign&lt;/a>&lt;/h4>
+&lt;h4 id="ltresign">LTResign&lt;/h4>
+&lt;p>&lt;a class="link" href="https://github.com/gltwy/LTResign" target="_blank" rel="noopener"
+>项目链接&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>LTResign是一个用Python编写的重签名工具，这是iOS逆向绕不开的东西，但同类脚本有很多，作者通常用这个以及&lt;a class="link" href="https://github.com/g763007297/GQResign" target="_blank" rel="noopener"
 >GQResign&lt;/a>。&lt;/p>
 &lt;/blockquote>
-&lt;h4 id="swift-30-projectshttpsgithubcomsoapyiguswift-30-projects">&lt;a class="link" href="https://github.com/soapyigu/Swift-30-Projects" target="_blank" rel="noopener"
->Swift-30-Projects&lt;/a>&lt;/h4>
+&lt;h4 id="swift-30-projects">Swift-30-Projects&lt;/h4>
+&lt;p>&lt;a class="link" href="https://github.com/soapyigu/Swift-30-Projects" target="_blank" rel="noopener"
+>项目链接&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。&lt;/p>
 &lt;/blockquote>
@@ -128,7 +132,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>然后target选择&lt;code>fastbot-stub&lt;/code>，连一台真机编译，得到产物&lt;code>fastbot-stub.framework&lt;/code>&lt;/p>
-&lt;h4 id="动态库注入">动态库注入&lt;/h4>
+&lt;h3 id="动态库注入">动态库注入&lt;/h3>
 &lt;p>将ipa包改名为zip包，其实下面这些步骤都可以在界面操作，看个人习惯&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -198,7 +202,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>此时你拥有了一个被注入的ipa包，但他装不上去手机。&lt;/p>
-&lt;h4 id="重签名">重签名&lt;/h4>
+&lt;h3 id="重签名">重签名&lt;/h3>
 &lt;p>进到LTResign项目目录&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -240,7 +244,7 @@
 &lt;p>重新签名完成，可以去安装了！（2021-11-11 22:26:54）&lt;/p>
 &lt;/blockquote>
 &lt;p>此时这个目录将会生成一个重签名过的ipa &lt;code>glt_output.ipa&lt;/code>&lt;/p>
-&lt;h4 id="装包测试">装包测试&lt;/h4>
+&lt;h3 id="装包测试">装包测试&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
