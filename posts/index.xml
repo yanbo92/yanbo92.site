@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on yanbo92.site</title><link>https://yanbo92.site/posts/</link><description>Recent content in Posts on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 11 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>腾讯性能狗收费之后，我写了一款iOS性能测试工具</title><link>https://yanbo92.site/ios-perf/</link><pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate><guid>https://yanbo92.site/ios-perf/</guid><description>&lt;img src="https://yanbo92.site/ios-perf/iOS-perf-1.png" alt="Featured image of post 腾讯性能狗收费之后，我写了一款iOS性能测试工具" />&lt;h2 id="运行效果">运行效果&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on yanbo92.site</title><link>https://yanbo92.site/posts/</link><description>Recent content in Posts on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>腾讯性能狗收费之后，我写了一款iOS性能测试工具</title><link>https://yanbo92.site/ios-perf/</link><pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate><guid>https://yanbo92.site/ios-perf/</guid><description>&lt;img src="https://yanbo92.site/ios-perf/iOS-perf-1.png" alt="Featured image of post 腾讯性能狗收费之后，我写了一款iOS性能测试工具" />&lt;h2 id="运行效果">运行效果&lt;/h2>
 &lt;p>&lt;img src="https://yanbo92.site/ios-perf/iOS-perf-1.png"
 width="3426"
 height="1990"
@@ -180,7 +180,50 @@ data-flex-basis="413px"
 &lt;p>&lt;a class="link" href="https://tech.taobao.org/news/lxhg5l" target="_blank" rel="noopener"
 >新工具开源！一款iOS自动化利器（附地址）&lt;/a>&lt;/p>
 &lt;p>&lt;a class="link" href="http://testerhome.com/topics/31066" target="_blank" rel="noopener"
->实时可视化 iOS 性能数据 tidevice+pyiosdevice+mysql+grafana · TesterHome&lt;/a>&lt;/p></description></item><item><title>使用Heroku免费搭建的Miniflux RSS服务</title><link>https://yanbo92.site/miniflux-heroku/</link><pubDate>Fri, 11 Mar 2022 00:00:00 +0000</pubDate><guid>https://yanbo92.site/miniflux-heroku/</guid><description>&lt;img src="https://yanbo92.site/miniflux-heroku/cover.png" alt="Featured image of post 使用Heroku免费搭建的Miniflux RSS服务" />&lt;h2 id="何为rss">何为RSS&lt;/h2>
+>实时可视化 iOS 性能数据 tidevice+pyiosdevice+mysql+grafana · TesterHome&lt;/a>&lt;/p></description></item><item><title>Go语言入门教程索引</title><link>https://yanbo92.site/learn-golang/</link><pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate><guid>https://yanbo92.site/learn-golang/</guid><description>&lt;img src="https://yanbo92.site/learn-golang/cover.png" alt="Featured image of post Go语言入门教程索引" />&lt;blockquote>
+&lt;p>列表内容中文在上&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="视频">视频&lt;/h2>
+&lt;p>&lt;a class="link" href="https://www.bilibili.com/video/BV1ZJ411W7jG" target="_blank" rel="noopener"
+>最新Go语言急速入门视频教程（七米出品）&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.bilibili.com/video/BV1wb411p7DX/" target="_blank" rel="noopener"
+>【Golang】无闻Golang教程&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.youtube.com/watch?v=YS4e4q9oBaU" target="_blank" rel="noopener"
+>Golang Tutorial for Beginners&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.youtube.com/playlist?list=PLSak_q1UXfPp2VwUQ4ZdUVJdMO6pfi5v_" target="_blank" rel="noopener"
+>Build Web Apps with Golang&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://golangresources.com/" target="_blank" rel="noopener"
+>Golang Resources&lt;/a>&lt;/p>
+&lt;h2 id="文档网站">文档&amp;amp;网站&lt;/h2>
+&lt;p>&lt;a class="link" href="http://c.biancheng.net/golang/intro/" target="_blank" rel="noopener"
+>Go语言简介&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.microsoft.com/zh-cn/learn/paths/go-first-steps/" target="_blank" rel="noopener"
+>开始使用 Go&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://studygolang.gitbook.io/learn-go-with-tests" target="_blank" rel="noopener"
+>通过编写测试学习 Go 语言&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://eddycjy.com/go-categories/" target="_blank" rel="noopener"
+>《跟煎鱼学 Go》&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://gobyexample-cn.github.io/" target="_blank" rel="noopener"
+>Go by Example 中文版&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://talkgo.org/" target="_blank" rel="noopener"
+>Go 夜读&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://go.dev/tour/" target="_blank" rel="noopener"
+>A Tour of Go&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://golangbot.com/learn-golang-series/" target="_blank" rel="noopener"
+>Golang tutorial&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://go.dev/doc/effective_go" target="_blank" rel="noopener"
+>Effective Go&lt;/a>&lt;/p>
+&lt;h2 id="书籍">书籍&lt;/h2>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/27015617/" target="_blank" rel="noopener"
+>Go语言实战&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/26832468/" target="_blank" rel="noopener"
+>Go语言学习笔记&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/34442131/" target="_blank" rel="noopener"
+>Go语言高级编程&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/10558892/" target="_blank" rel="noopener"
+>The Way To Go&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/26337545/" target="_blank" rel="noopener"
+>The Go Programming Language&lt;/a>&lt;/p></description></item><item><title>使用Heroku免费搭建的Miniflux RSS服务</title><link>https://yanbo92.site/miniflux-heroku/</link><pubDate>Fri, 11 Mar 2022 00:00:00 +0000</pubDate><guid>https://yanbo92.site/miniflux-heroku/</guid><description>&lt;img src="https://yanbo92.site/miniflux-heroku/cover.png" alt="Featured image of post 使用Heroku免费搭建的Miniflux RSS服务" />&lt;h2 id="何为rss">何为RSS&lt;/h2>
 &lt;blockquote>
 &lt;p>RSS（简易信息聚合，也叫Really Simple Syndication、聚合RSS、聚合内容），是一种消息来源格式规范，用以聚合经常发布更新数据的网站，例如博客文章、新闻、音频或视频的网摘。RSS文件（或称做摘要、网络摘要、或频更新，提供到频道）包含了全文或是节录的文字，再加上发用者所订阅之网摘布数据和授权的元数据。通常在时效性比较强的内容上使用RSS订阅能更快速获取信息，网站提供RSS输出，有利于让用户获取网站内容的最新更新。网络用户可以在客户端借助于支持RSS的聚合工具软件（例如SharpReader、NewzCrawler、FeedDemon），在不打开网站内容页面的情况下阅读支持RSS输出的网站内容。&lt;/p>
 &lt;/blockquote>
