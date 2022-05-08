@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming on yanbo92.site</title><link>https://yanbo92.site/categories/programming/</link><description>Recent content in Programming on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/categories/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>Go语言入门教程索引</title><link>https://yanbo92.site/learn-golang/</link><pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate><guid>https://yanbo92.site/learn-golang/</guid><description>&lt;img src="https://yanbo92.site/learn-golang/cover.png" alt="Featured image of post Go语言入门教程索引" />&lt;blockquote>
+&lt;p>列表内容中文在上&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="视频">视频&lt;/h2>
+&lt;p>&lt;a class="link" href="https://www.bilibili.com/video/BV1ZJ411W7jG" target="_blank" rel="noopener"
+>最新Go语言急速入门视频教程（七米出品）&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.bilibili.com/video/BV1wb411p7DX/" target="_blank" rel="noopener"
+>【Golang】无闻Golang教程&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.youtube.com/watch?v=YS4e4q9oBaU" target="_blank" rel="noopener"
+>Golang Tutorial for Beginners&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.youtube.com/playlist?list=PLSak_q1UXfPp2VwUQ4ZdUVJdMO6pfi5v_" target="_blank" rel="noopener"
+>Build Web Apps with Golang&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://golangresources.com/" target="_blank" rel="noopener"
+>Golang Resources&lt;/a>&lt;/p>
+&lt;h2 id="文档网站">文档&amp;amp;网站&lt;/h2>
+&lt;p>&lt;a class="link" href="http://c.biancheng.net/golang/intro/" target="_blank" rel="noopener"
+>Go语言简介&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.microsoft.com/zh-cn/learn/paths/go-first-steps/" target="_blank" rel="noopener"
+>开始使用 Go&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://studygolang.gitbook.io/learn-go-with-tests" target="_blank" rel="noopener"
+>通过编写测试学习 Go 语言&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://eddycjy.com/go-categories/" target="_blank" rel="noopener"
+>《跟煎鱼学 Go》&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://gobyexample-cn.github.io/" target="_blank" rel="noopener"
+>Go by Example 中文版&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://talkgo.org/" target="_blank" rel="noopener"
+>Go 夜读&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://go.dev/tour/" target="_blank" rel="noopener"
+>A Tour of Go&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://golangbot.com/learn-golang-series/" target="_blank" rel="noopener"
+>Golang tutorial&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://go.dev/doc/effective_go" target="_blank" rel="noopener"
+>Effective Go&lt;/a>&lt;/p>
+&lt;h2 id="书籍">书籍&lt;/h2>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/27015617/" target="_blank" rel="noopener"
+>Go语言实战&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/26832468/" target="_blank" rel="noopener"
+>Go语言学习笔记&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/34442131/" target="_blank" rel="noopener"
+>Go语言高级编程&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/10558892/" target="_blank" rel="noopener"
+>The Way To Go&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://book.douban.com/subject/26337545/" target="_blank" rel="noopener"
+>The Go Programming Language&lt;/a>&lt;/p></description></item></channel></rss>

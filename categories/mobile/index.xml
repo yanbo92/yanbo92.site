@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mobile on yanbo92.site</title><link>https://yanbo92.site/categories/mobile/</link><description>Recent content in Mobile on yanbo92.site</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 25 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yanbo92.site/categories/mobile/index.xml" rel="self" type="application/rss+xml"/><item><title>使用pbxproj添加fastbot-stub.framework并运行测试</title><link>https://yanbo92.site/fastbot-stub-pbxproj/</link><pubDate>Thu, 25 Nov 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/fastbot-stub-pbxproj/</guid><description>&lt;img src="https://yanbo92.site/fastbot-stub-pbxproj/cover.png" alt="Featured image of post 使用pbxproj添加fastbot-stub.framework并运行测试" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS" target="_blank" rel="noopener"
+>bytedance/Fastbot_iOS&lt;/a>，效果非常好。但默认实现是基于纯图像识别的，有时候难免遇到一些靠图像不好处理的地方，陷入覆盖率较低的境地。但好在项目也提供了&lt;code>stub模式&lt;/code>，只是上手有一定的技术门槛。之前的文章&lt;a class="link" href="https://yanbo92.site/fastbot-stub-inject/" target="_blank" rel="noopener"
+>使用yololib注入fastbot-stub并重签名运行测试&lt;/a>介绍了一种逆向手法使用fastbot-stub。本文将介绍一种从Xcode编译角度加入fastbot-stub的方法，当然，这需要app的完整代码。&lt;/p>
+&lt;h2 id="相关项目介绍">相关项目介绍&lt;/h2>
+&lt;h3 id="fastbot_ios">Fastbot_iOS&lt;/h3>
+&lt;p>&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS" target="_blank" rel="noopener"
+>项目地址&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Jenkins是一个开源的、提供友好操作界面的持续集成(CI)工具，起源于Hudson（Hudson是商用的），主要用于持续、自动的构建/测试软件项目、监控外部任务的运行（这个比较抽象，暂且写上，不做解释）。Jenkins用Java语言编写，可在Tomcat等流行的servlet容器中运行，也可独立运行。通常与版本管理工具(SCM)、构建工具结合使用。常用的版本控制工具有SVN、GIT，构建工具有Maven、Ant、Gradle。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="mod-pbxproj">mod-pbxproj&lt;/h3>
+&lt;p>&lt;a class="link" href="https://github.com/kronenthaler/mod-pbxproj" target="_blank" rel="noopener"
+>项目地址&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>这是一个可以通过命令行修改Xcode项目依赖的python模块，便于在不使用界面的情况下增加或者删除库。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="swift-30-projects">Swift-30-Projects&lt;/h3>
+&lt;p>&lt;a class="link" href="https://github.com/soapyigu/Swift-30-Projects" target="_blank" rel="noopener"
+>项目地址&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>这个项目是一个由30个iOS小项目组成的合集，本文使用的调试app就是项目中的04 ToDo，clone下来打包一个ipa即可。当然也可以换成其他脱了壳或者没上架Appstore的ipa包，我用这个只是因为体积比较小，打包和重签名都比较快。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="实现原理">实现原理&lt;/h2>
+&lt;p>通过pbxproj工具向Xcode项目中添加fasbot-stub.framework动态库，并重新编译，达到让APP支持stub模式的效果。&lt;/p>
+&lt;h2 id="具体步骤">具体步骤&lt;/h2>
+&lt;h3 id="环境准备">环境准备&lt;/h3>
+&lt;p>此处需要准备好的东西：&lt;/p>
+&lt;ul>
+&lt;li>一台Mac&lt;/li>
+&lt;li>测试APP的代码&lt;/li>
+&lt;li>开发者证书，以及可用的描述文件&lt;/li>
+&lt;li>Python环境&lt;/li>
+&lt;li>fastbot-stub.framework&lt;/li>
+&lt;/ul>
+&lt;h3 id="python环境安装pbxproj">Python环境安装pbxproj&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo pip install pbxproj
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="fastbot-stubframework">fastbot-stub.framework&lt;/h3>
+&lt;p>按照&lt;code>Fastbot-iOS&lt;/code>项目的Readme打开&lt;code>Fastbot-iOS.xcworkspace&lt;/code>，编译即可，完整命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone git@github.com:bytedance/Fastbot_iOS.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd Fastbot-iOS &amp;amp;&amp;amp; pod install --repo-update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">open Fastbot-iOS.xcworkspace
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后target选择&lt;code>fastbot-stub&lt;/code>，连一台真机编译，得到产物&lt;code>fastbot-stub.framework&lt;/code>&lt;/p>
+&lt;h3 id="添加动态库">添加动态库&lt;/h3>
+&lt;p>同样的，我们用上一篇文章的todo项目，编写python文件如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pbxproj&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">XcodeProject&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pbxproj.pbxextensions.ProjectFiles&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">FileOptions&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">time&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">project&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">XcodeProject&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">load&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Swift-30-Projects/Project 04 - TodoTDD/ToDo.xcodeproj/project.pbxproj&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">file_options&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">FileOptions&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">weak&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">project&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">add_file&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;fastbot_stub.framework&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">force&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">file_options&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">file_options&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">project&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">save&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>修改代码中的路径，直接运行即可&lt;/p>
+&lt;p>若不想通过python脚本，也可以通过纯命令行的方式，具体可以参考&lt;a class="link" href="https://github.com/kronenthaler/mod-pbxproj/wiki/CLI" target="_blank" rel="noopener"
+>CLI · kronenthaler/mod-pbxproj Wiki (github.com)&lt;/a>&lt;/p>
+&lt;h3 id="构建打包">构建、打包&lt;/h3>
+&lt;p>若没有导出ipa需求，直接在Xcode中指定手机构建即可。需要导出ipa比较麻烦，建议自行搜索。&lt;/p>
+&lt;p>回到Fastbot-iOS工程，修改Fastbot-Runner的Scheme：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">dataport为9797
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">launchenv为stubPort=9797
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>再修改&lt;code>FastbotRunner/FastbotRunner.m&lt;/code>，将以下代码取消注释&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="n">fastbot_native&lt;/span> &lt;span class="n">addUIInterruptionMonitor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">CGRect&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span> &lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span>&lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">firstObject&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="n">allElementsBoundByIndex&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSInteger&lt;/span> &lt;span class="n">buttonCount&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="bp">count&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">CGRect&lt;/span> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">CGRectZero&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">buttonCount&lt;/span>&lt;span class="o">&amp;lt;=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">btnRect&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">buttonCount&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[[&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="n">objectAtIndex&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">frame&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">lastObject&lt;/span> &lt;span class="n">frame&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">btnRect&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}];&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>代码大意为处理系统弹窗&lt;/p>
+&lt;p>像之前运行Fastbot-iOS一样在命令行传参运行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">BUNDLEID=yigu.com.ToDo duration=240 throttle=300 xcodebuild test -workspace Fastbot-iOS.xcworkspace -scheme FastbotRunner -configuration Release -destination &amp;#39;platform=iOS,id=c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2&amp;#39; -only-testing:FastbotRunner/FastbotRunner/testFastbot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>截取一段命令行输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[fastbot] : visit ToDo.InputViewController,UIApplicationRotationFollowingController,UIApplicationRotationFollowingControllerNoTouches,UICompatibilityInputViewController,UIInputViewController,UIInputWindowController; visited ViewController count is: 2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state visited: 30
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : action first visited, get reward 2.336364
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state is saturated, get reward 0.295547
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : got reward: 9.3110
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>区别在哪？区别就在于有控件信息了，如果看到类似&lt;code>UIInputWindowController&lt;/code>这样的字样，恭喜你，你成功了。&lt;/p>
+&lt;h2 id="参考文章">参考文章&lt;/h2>
+&lt;p>&lt;a class="link" href="https://testerhome.com/topics/31113" target="_blank" rel="noopener"
+>字节跳动质量利器 &amp;ndash; 移动端智能化稳定性测试工具 Fastbot-Android/iOS 双端重磅发布上线&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://mp.weixin.qq.com/s/QhzqBFZygkIS6C69__smyQ" target="_blank" rel="noopener"
+>奔跑吧！智能Monkey之Fastbot跨平台 &lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS/issues/44" target="_blank" rel="noopener"
+>Issue #44 · bytedance/Fastbot_iOS&lt;/a>&lt;/p></description></item><item><title>通过ifuse/tidevice库读写iPhone手机硬盘</title><link>https://yanbo92.site/read-write-iphone-disk/</link><pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/read-write-iphone-disk/</guid><description>&lt;img src="https://yanbo92.site/read-write-iphone-disk/cover.png" alt="Featured image of post 通过ifuse/tidevice库读写iPhone手机硬盘" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>在自动化测试的交付、执行过程中，偶尔需要对iPhone手机的硬盘进行读写操作，比如删除相册，拷贝素材等等。本文介绍两个通过命令行操作iPhone手机硬盘的工具，分别是&lt;code>ifuse&lt;/code>和&lt;code>tidevice&lt;/code>。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="工具介绍">工具介绍&lt;/h2>
+&lt;h4 id="macfuse">MacFuse&lt;/h4>
+&lt;blockquote>
+&lt;h2 id="what-is-macfuse">What is macFUSE?&lt;/h2>
+&lt;p>macFUSE allows you to extend macOS&amp;rsquo;s native file handling capabilities via third-party file systems.&lt;/p>
+&lt;p>macFUSE允许你通过第三方文件系统扩展macOS的本地文件处理能力。&lt;/p>
+&lt;h3 id="features">Features&lt;/h3>
+&lt;p>As a user, installing the macFUSE software package will let you use any third-party FUSE file system. Legacy MacFUSE file systems are supported through the optional MacFUSE compatibility layer.&lt;/p>
+&lt;p>As a developer, you can use the FUSE SDK to write numerous types of new file systems as regular user space programs. The content of these file systems can come from anywhere: from the local disk, from across the network, from memory, or any other combination of sources. Writing a file system using FUSE is orders of magnitude easier and quicker than the traditional approach of writing in-kernel file systems. Since FUSE file systems are regular applications (as opposed to kernel extensions), you have just as much flexibility and choice in programming tools, debuggers, and libraries as you have if you were developing standard macOS applications.&lt;/p>
+&lt;p>作为一个用户，安装macFUSE软件包可以让你使用任何第三方FUSE文件系统。传统的MacFUSE文件系统通过可选的MacFUSE兼容层得到支持。&lt;/p>
+&lt;p>作为开发者，你可以使用 FUSE SDK 来编写众多类型的新文件系统，作为常规的用户空间程序。这些文件系统的内容可以来自任何地方：来自本地磁盘，来自整个网络，来自内存，或任何其他来源的组合。使用FUSE编写文件系统比编写内核内文件系统的传统方法要容易得多，也快得多。由于 FUSE 文件系统是普通的应用程序（而不是内核扩展），你在编程工具、调试器和库方面的灵活性和选择与开发标准的 macOS 应用程序一样多。&lt;/p>
+&lt;p>项目主页：&lt;a class="link" href="https://osxfuse.github.io/" target="_blank" rel="noopener"
+>osxfuse.github.io&lt;/a>&lt;/p>
+&lt;p>安装：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install osxfuse --cask
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;h4 id="ifuse">ifuse&lt;/h4>
+&lt;blockquote>
+&lt;p>&lt;em>A fuse filesystem implementation to access the contents of iOS devices.&lt;/em>&lt;/p>
+&lt;p>一个Fuse文件系统的实现，用于访问iOS设备的内容。&lt;/p>
+&lt;h2 id="features-1">Features&lt;/h2>
+&lt;p>This project allows mounting various directories of an iOS device locally using the &lt;a class="link" href="https://github.com/libfuse/libfuse" target="_blank" rel="noopener"
+>FUSE file system interface&lt;/a>.&lt;/p>
+&lt;p>这个项目允许使用[FUSE文件系统接口]在本地挂载iOS设备的各种目录。&lt;/p>
+&lt;p>Some key features are:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Media&lt;/strong>: Mount media directory of an iOS device locally&lt;/li>
+&lt;li>&lt;strong>Apps&lt;/strong>: Mount sandbox container or document directory of an app&lt;/li>
+&lt;li>&lt;strong>Jailbreak&lt;/strong>: Mount root filesystem on jailbroken devices &lt;em>(requires AFC2 service)&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Browse&lt;/strong>: Allows to retrieve a list of installed file-sharing enabled apps&lt;/li>
+&lt;li>&lt;strong>Implementation&lt;/strong>: Uses &lt;a class="link" href="https://github.com/libimobiledevice/libimobiledevice" target="_blank" rel="noopener"
+>libimobiledevice&lt;/a> for communication with the device&lt;/li>
+&lt;/ul>
+&lt;p>主要特性如下&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>媒体&lt;/strong>。在本地安装iOS设备的媒体目录&lt;/li>
+&lt;li>&lt;strong>Apps&lt;/strong>。挂载一个应用程序的沙盒容器或文档目录。&lt;/li>
+&lt;li>&lt;strong>越狱&lt;/strong>。在已越狱的设备上挂载根文件系统 &lt;em>（需要AFC2服务）&lt;/em>。&lt;/li>
+&lt;li>&lt;strong>浏览&lt;/strong>。允许检索已安装的支持文件共享的应用程序的列表&lt;/li>
+&lt;li>&lt;strong>实施&lt;/strong>。使用[libimobiledevice]与设备进行通信&lt;/li>
+&lt;/ul>
+&lt;p>项目主页：&lt;/p>
+&lt;p>安装：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install ifuse
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果装不上，把系统时间改到2021年4月6日之前即可。但时间改了之后又会出现443:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">curl: (35) LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to ghcr.io:443
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>所以正确的操作流程是要在通过了brew校验这个包可以装之后再改回正常的时间，以通过下载包所需要的SSL校验，毫秒级操作，不过多试几次就能装上去。&lt;/p>
+&lt;p>此项目依赖osxfuse，请先安装上面的osxfuse。&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="tidevice">tidevice&lt;/h4>
+&lt;blockquote>
+&lt;p>该工具能够用于与iOS设备进行通信, 提供以下功能&lt;/p>
+&lt;ul>
+&lt;li>截图&lt;/li>
+&lt;li>获取手机信息&lt;/li>
+&lt;li>ipa包的安装和卸载&lt;/li>
+&lt;li>根据bundleID 启动和停止应用&lt;/li>
+&lt;li>列出安装应用信息&lt;/li>
+&lt;li>模拟Xcode运行XCTest，常用的如启动WebDriverAgent测试（此方法不依赖xcodebuild)&lt;/li>
+&lt;li>获取指定应用性能(CPU,MEM,FPS)&lt;/li>
+&lt;li>文件操作&lt;/li>
+&lt;li>其他&lt;/li>
+&lt;/ul>
+&lt;p>支持运行在Mac，Linux，Windows上&lt;/p>
+&lt;p>项目主页：&lt;a class="link" href="https://github.com/alibaba/taobao-iphone-device" target="_blank" rel="noopener"
+>alibaba/taobao-iphone-device&lt;/a>&lt;/p>
+&lt;p>安装：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip3 install -U &lt;span class="s2">&amp;#34;tidevice[openssl]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;h2 id="实现原理">实现原理&lt;/h2>
+&lt;ul>
+&lt;li>通过阅读源码可以得知，&lt;code>ifuse&lt;/code>依赖&lt;code>libimobiledevice&lt;/code>，同时是基于&lt;code>usbmux&lt;/code>实现的，换言之，该库只支持通过电脑usb连接手机来通信。ifuse将手机硬盘的某一部分挂载到电脑硬盘上，再通过正常的文件读写操作去控制。&lt;/li>
+&lt;li>而&lt;code>tidevice&lt;/code>则是把&lt;code>instruments&lt;/code>协议整个用python实现了一遍，这是支持&lt;strong>无线&lt;/strong>连接手机的。并且开发者将常用文件操作封装了一层，支持&lt;code> rm cat pull push stat tree rmtree mkdir ls&lt;/code> 等操作，有点adb的味道。&lt;/li>
+&lt;/ul>
+&lt;h2 id="具体实现代码">具体实现代码&lt;/h2>
+&lt;h4 id="ifuse读写手机内存">ifuse读写手机内存&lt;/h4>
+&lt;p>首先新建一个mount_point目录用于挂载手机硬盘：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mkdir mount_point
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后用默认参数挂载，这样将会挂载整个&lt;code>Media&lt;/code>目录，可以拿到&lt;code>DCIM&lt;/code>以及&lt;code>Downloads&lt;/code>之类的目录内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ls mount_point
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">AirFair MediaAnalysis Purchases afk(1).zip rd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Books PhotoData Radio afk_screenshots
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">DCIM Photos Recordings general_storage
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Downloads PublicStaging afk iTunes_Control
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以像自己电脑上的目录一样去读写，比如&lt;code>rm&lt;/code>，&lt;code>mkdir&lt;/code>之类的都没问题。&lt;/p>
+&lt;p>卸载掉：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">umount mount_point
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>还有另一种更强力的卸载，毕竟这个库经常会卸载不掉：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">diskutil unmount force mount_point
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>再试试指定APP包名的挂载方式，此处用的是Alook浏览器&lt;code>com.ld.TakeBrowser&lt;/code>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse --documents com.ld.TakeBrowser -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ls mount_point
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Audios Images Videos
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Documents Others Zipped
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这里挂载了APP的Documents目录，同样可以使用的参数还有&lt;code>--container&lt;/code>&lt;/p>
+&lt;h4 id="tidevice读写手机内存">tidevice读写手机内存&lt;/h4>
+&lt;p>首先新建一个txt用于调试&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">touch file.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>类似的，查看&lt;code>Media&lt;/code>下的目录：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync ls /DCIM/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[&amp;#39;.DS_Store&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;104APPLE&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;._.DS_Store&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;103APPLE&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;102APPLE&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;.MISC&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;101APPLE&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;100APPLE&amp;#39;]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>删除一张照片：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync rm /DCIM/104APPLE/IMG_4334.JPG
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;AFCStatus.SUCCESS: 0&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>操作特定的APP目录，需要使用&lt;code>-B&lt;/code>参数：&lt;/p>
+&lt;p>ls操作：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser ls /Documents
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[&amp;#39;Zipped&amp;#39;, &amp;#39;Documents&amp;#39;, &amp;#39;Videos&amp;#39;, &amp;#39;Others&amp;#39;, &amp;#39;Images&amp;#39;, &amp;#39;Audios&amp;#39;]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>push操作：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser push file.txt /Documents/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pushed to /Documents/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>类似的支持的操作还有如下几个：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">{rm,cat,pull,stat,tree,rmtree,mkdir
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="使用建议">使用建议&lt;/h4>
+&lt;p>个人认为在功能没有差异的情况下，使用&lt;code>tidevice&lt;/code>要比&lt;code>ifuse&lt;/code>方便得多，有如下原因&lt;/p>
+&lt;ul>
+&lt;li>基于Python实现，相对于ifuse使用C的实现更适合脚本集成，可以直接用python的&lt;code>import&lt;/code>使用，无需使用类似&lt;code>os.system()&lt;/code>这种粗暴的方式&lt;/li>
+&lt;li>&lt;code>tidevice&lt;/code>无需挂载到本机，实际使用起来&lt;code>ifuse&lt;/code>经常出现某个目录卸载失败，需要重启电脑这样的情况，会出现&lt;code>Input/Output Error&lt;/code>，也就是规避掉了关闭通道异常这种风险&lt;/li>
+&lt;li>&lt;code>tidevice&lt;/code>基于&lt;code>instruments&lt;/code>实现，支持无线连接手机，当你的测试手机USB口被占用时，&lt;code>tidevice&lt;/code>是唯一的选择。&lt;/li>
+&lt;/ul></description></item><item><title>Auto.JS中杀死其他脚本的方法</title><link>https://yanbo92.site/autojs-kill-scripts/</link><pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/autojs-kill-scripts/</guid><description>&lt;img src="https://yanbo92.site/autojs-kill-scripts/cover.png" alt="Featured image of post Auto.JS中杀死其他脚本的方法" />&lt;h2 id="autojs介绍">Auto.JS介绍&lt;/h2>
+&lt;blockquote>
+&lt;h4 id="autojs-pro是什么">Auto.js Pro是什么&lt;/h4>
+&lt;p>一个在Android、鸿蒙平台编写、运行JavaScript代码的集成开发环境，包括代码补全的编辑器、单步调试、图形化设计，可构建为独立apk应用，也可连接电脑开发。&lt;/p>
+&lt;h4 id="autojs-pro能做什么">Auto.js Pro能做什么&lt;/h4>
+&lt;p>创建自动化工具、效率工具、优美界面、小应用，诸如早晨自动签到、处理文件为excel、图片批量处理、机器人、自动化测试、搭建服务器等，或解放双手，或学习编程，或制作应用。&lt;/p>
+&lt;h4 id="为什么选择autojs-pro">为什么选择Auto.js Pro&lt;/h4>
+&lt;p>完善的文档和示例、丰富的API、增强的加密、活跃的更新，用JavaScript连接Java、Android、Node.js的生态。&lt;/p>
+&lt;/blockquote>
+&lt;p>注：Auto.JS与Auto.JS Pro的区别在于，前者是免费、开源的，但是已经停更多年，后者需要付费，但仍在持续更新，提供更多的功能。Auto.js 开源版本已不再维护(原因参见Auto.js Pro FAQ)，后续将只维护Auto.js Pro专业版。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h4 id="官网链接">官网链接&lt;/h4>
+&lt;p>&lt;a class="link" href="https://hyb1996.github.io/AutoJs-Docs/#/" target="_blank" rel="noopener"
+>Auto.JS&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://pro.autojs.org/" target="_blank" rel="noopener"
+>Auto.JS Pro&lt;/a>&lt;/p>
+&lt;h2 id="杀死app具体实现">杀死APP具体实现&lt;/h2>
+&lt;h4 id="实现原理">实现原理&lt;/h4>
+&lt;ul>
+&lt;li>调用&lt;code>engines.all()&lt;/code>方法获取当前正在运行的所有引擎对象（返回对象数组）&lt;/li>
+&lt;li>再调用&lt;code>engines.myEngine()&lt;/code>方法获取当前正在前台运行这个方法的对象（返回单个对象）&lt;/li>
+&lt;li>进行对象比对后再调用&lt;code>engine.forceStop()&lt;/code>方法杀死非当前引擎对象&lt;/li>
+&lt;li>该方法能避免用户反复运行脚本，导致脚本互相干扰、资源占用等情况&lt;/li>
+&lt;/ul>
+&lt;h4 id="完整代码">完整代码&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">kill_scripts&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">allNgs&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">engines&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">all&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">myNg&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">engines&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">myEngine&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kd">var&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="nx">allNgs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">length&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="nx">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">allNgs&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nx">i&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="nx">myNg&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">allNgs&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nx">i&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">forceStop&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">kill_scripts&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Auto.JS中免Root杀死APP的巧妙方法</title><link>https://yanbo92.site/autojs-kill-app/</link><pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/autojs-kill-app/</guid><description>&lt;img src="https://yanbo92.site/autojs-kill-app/cover.png" alt="Featured image of post Auto.JS中免Root杀死APP的巧妙方法" />&lt;h2 id="autojs介绍">Auto.JS介绍&lt;/h2>
+&lt;blockquote>
+&lt;h4 id="autojs-pro是什么">Auto.js Pro是什么&lt;/h4>
+&lt;p>一个在Android、鸿蒙平台编写、运行JavaScript代码的集成开发环境，包括代码补全的编辑器、单步调试、图形化设计，可构建为独立apk应用，也可连接电脑开发。&lt;/p>
+&lt;h4 id="autojs-pro能做什么">Auto.js Pro能做什么&lt;/h4>
+&lt;p>创建自动化工具、效率工具、优美界面、小应用，诸如早晨自动签到、处理文件为excel、图片批量处理、机器人、自动化测试、搭建服务器等，或解放双手，或学习编程，或制作应用。&lt;/p>
+&lt;h4 id="为什么选择autojs-pro">为什么选择Auto.js Pro&lt;/h4>
+&lt;p>完善的文档和示例、丰富的API、增强的加密、活跃的更新，用JavaScript连接Java、Android、Node.js的生态。&lt;/p>
+&lt;/blockquote>
+&lt;p>注：Auto.JS与Auto.JS Pro的区别在于，前者是免费、开源的，但是已经停更多年，后者需要付费，但仍在持续更新，提供更多的功能。Auto.js 开源版本已不再维护(原因参见Auto.js Pro FAQ)，后续将只维护Auto.js Pro专业版。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h4 id="官网链接">官网链接&lt;/h4>
+&lt;p>&lt;a class="link" href="https://hyb1996.github.io/AutoJs-Docs/#/" target="_blank" rel="noopener"
+>Auto.JS&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://pro.autojs.org/" target="_blank" rel="noopener"
+>Auto.JS Pro&lt;/a>&lt;/p>
+&lt;h2 id="杀死app具体实现">杀死APP具体实现&lt;/h2>
+&lt;h4 id="实现原理">实现原理&lt;/h4>
+&lt;ul>
+&lt;li>调用&lt;code>openAppSetting(packageName)&lt;/code>方法打开系统设置中对应APP的设置页&lt;/li>
+&lt;li>通过控件操作点击&lt;em>强制停止&lt;/em>，&lt;em>确认&lt;/em>等按钮，达到杀死APP的目的&lt;/li>
+&lt;li>该方法巧妙的规避了通过&lt;code>adb shell kill&lt;/code>或者 &lt;code>adb shell am force-stop&lt;/code>方法带来的权限问题&lt;/li>
+&lt;/ul>
+&lt;h4 id="完整代码">完整代码&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">kill_app&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">getPackageName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">getAppName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">packageName&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">openAppSetting&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">text&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getAppName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">)).&lt;/span>&lt;span class="nx">waitFor&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">let&lt;/span> &lt;span class="nx">is_sure&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">textMatches&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sr">/(.*强.*|.*停.*|.*结.*|.*行.*)/&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">findOne&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">is_sure&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">enabled&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">textMatches&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sr">/(.*强.*|.*停.*|.*结.*|.*行.*)/&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">findOne&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="nx">click&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">textMatches&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sr">/(.*确.*|.*定.*)/&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">findOne&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="nx">click&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getAppName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s2">&amp;#34;应用已被关闭&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">sleep&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">back&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getAppName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s2">&amp;#34;应用不能被正常关闭或不在后台运行&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">back&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">kill_app&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;微信&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>
