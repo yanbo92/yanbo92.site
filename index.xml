@@ -60,21 +60,57 @@ data-flex-basis="413px"
 &lt;/blockquote>
 &lt;h4 id="服务端搭建">服务端搭建&lt;/h4>
 &lt;p>命令行运行&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">docker -v &amp;amp;&amp;amp; docker-compose -v
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果能正常输出版本，如下，则表示docker环境正常，可以继续&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">docker -v &amp;amp;&amp;amp; docker-compose -v
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果能正常输出版本，如下，则表示docker环境正常，可以继续&lt;/p>
 &lt;blockquote>
 &lt;p>Docker version 20.10.8, build 3967b7d&lt;/p>
 &lt;p>docker-compose version 1.29.2, build 5becea4c&lt;/p>
 &lt;/blockquote>
 &lt;p>拉取镜像并启动服务：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">docker-compose up -d
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>提示：初次打开&lt;code>Grafana&lt;/code>时，系统会提示你修改密码，为了方便建议不修改，即保持账号密码均为&lt;code>admin&lt;/code>，否则在python运行指令中将要进行对应的传参。&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">docker-compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>提示：初次打开&lt;code>Grafana&lt;/code>时，系统会提示你修改密码，为了方便建议不修改，即保持账号密码均为&lt;code>admin&lt;/code>，否则在python运行指令中将要进行对应的传参。&lt;/strong>&lt;/p>
 &lt;h4 id="本地环境搭建">本地环境搭建&lt;/h4>
 &lt;p>命令行执行&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">pip install -r requirements.txt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="运行命令">运行命令&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">pip install -r requirements.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="运行命令">运行命令&lt;/h3>
 &lt;p>命令行执行：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">python run.py --udid&lt;span class="o">=&lt;/span>00008110-001A4D483CF2801E &lt;span class="se">\
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">python run.py --udid&lt;span class="o">=&lt;/span>00008110-001A4D483CF2801E &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--bundleid&lt;span class="o">=&lt;/span>com.apple.Preferences &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--grafana_host&lt;span class="o">=&lt;/span>localhost &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--grafana_port&lt;span class="o">=&lt;/span>&lt;span class="m">30000&lt;/span> &lt;span class="se">\
@@ -85,7 +121,9 @@ data-flex-basis="413px"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--mysql_username&lt;span class="o">=&lt;/span>root &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--mysql_password&lt;span class="o">=&lt;/span>admin &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--mysql_db&lt;span class="o">=&lt;/span>iOSPerformance
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="运行参数说明">运行参数说明&lt;/h4>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="运行参数说明">运行参数说明&lt;/h4>
 &lt;h5 id="建议修改参数">建议修改参数&lt;/h5>
 &lt;blockquote>
 &lt;ul>
@@ -113,13 +151,25 @@ data-flex-basis="413px"
 &lt;/blockquote>
 &lt;h3 id="数据导出">数据导出&lt;/h3>
 &lt;p>命令行执行：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">python mysql.py --runid&lt;span class="o">=&lt;/span>iphone6_1008_1532 &lt;span class="se">\
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">python mysql.py --runid&lt;span class="o">=&lt;/span>iphone6_1008_1532 &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--mysql_host&lt;span class="o">=&lt;/span>localhost &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--mysql_port&lt;span class="o">=&lt;/span>&lt;span class="m">33306&lt;/span> &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--mysql_username&lt;span class="o">=&lt;/span>root &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--mysql_password&lt;span class="o">=&lt;/span>admin &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>--mysql_db&lt;span class="o">=&lt;/span>iOSPerformance
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>其中，&lt;code>--runid&lt;/code>为必须参数，可以从显示测试数据的Grafana页面的左上角找到，通常为手机名称+月日+时分。其余Mysql参数均为可选参数，默认值与上方&lt;a class="link" href="#MySQL%e5%8f%af%e9%80%89%e5%8f%82%e6%95%b0" >MySQL可选参数&lt;/a>相同。&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>其中，&lt;code>--runid&lt;/code>为必须参数，可以从显示测试数据的Grafana页面的左上角找到，通常为手机名称+月日+时分。其余Mysql参数均为可选参数，默认值与上方&lt;a class="link" href="#MySQL%e5%8f%af%e9%80%89%e5%8f%82%e6%95%b0" >MySQL可选参数&lt;/a>相同。&lt;/p>
 &lt;h2 id="心得">心得&lt;/h2>
 &lt;p>Docker起服务实在是太方便了，grafana做可视化也很香。也很感慨现在测试开发方面的开源环境发展起来了，有很多现成的代码可以参考。&lt;/p>
 &lt;h2 id="参考文章">参考文章&lt;/h2>
@@ -248,15 +298,75 @@ data-flex-basis="196px"
 &lt;p>比如&lt;code>url&lt;/code>为&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">itms-services://?action=download-manifest&amp;amp;url=https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">itms-services://?action=download-manifest&amp;amp;url=https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
 &lt;li>取&lt;strong>参数&lt;/strong>中的&lt;code>url&lt;/code>部分，也就是这个&lt;code>plist&lt;/code>文件的地址&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="6">
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">https://ios-api.ghzs.com/install-plist/61f36f94ef0f37e259a8be73.plist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="6">
 &lt;li>直接用浏览器访问，将得到一个&lt;code>xml&lt;/code>页面&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">This XML file does not appear to have any style information associated with it. The document tree is shown below.
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">This XML file does not appear to have any style information associated with it. The document tree is shown below.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;plist&lt;/span> &lt;span class="na">version=&lt;/span>&lt;span class="s">&amp;#34;1.0&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>items&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
@@ -298,7 +408,9 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/array&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/plist&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="7">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="7">
 &lt;li>&lt;code>xml&lt;/code>中的&lt;code>url&lt;/code>即&lt;code>ipa&lt;/code>下载地址的值了，再贴回地址栏，即可下载到一个被光环助手注入的游戏&lt;/li>
 &lt;/ol>
 &lt;h3 id="重签名">重签名&lt;/h3>
@@ -318,11 +430,52 @@ data-flex-basis="196px"
 &lt;/ul>
 &lt;h2 id="操作步骤">操作步骤&lt;/h2>
 &lt;h3 id="安装crash2json">安装crash2json&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip install crash2json
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="命令行直接运行">命令行直接运行&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">crash2json yourcrashreport.crash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="其他参数">其他参数&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">positional arguments:&lt;span class="err">
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip install crash2json
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="命令行直接运行">命令行直接运行&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">crash2json yourcrashreport.crash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="其他参数">其他参数&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">positional arguments:&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> crash_file&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>optional arguments:&lt;span class="err">
@@ -345,7 +498,9 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> -s, --simple output a simple json with only header, exceptionInfo, diagnositcMsg, Thread0Backtrace&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> -o OUTPUT_NAME, --output_name OUTPUT_NAME&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> the .json file you want to save result to, no need .json suffix&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="源码地址">源码地址&lt;/h2>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="源码地址">源码地址&lt;/h2>
 &lt;p>&lt;a class="link" href="https://github.com/yanbo92/crash2json" target="_blank" rel="noopener"
 >yanbo92/crash2json&lt;/a>&lt;/p></description></item><item><title>使用pbxproj添加fastbot-stub.framework并运行测试</title><link>https://yanbo92.site/fastbot-stub-pbxproj/</link><pubDate>Thu, 25 Nov 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/fastbot-stub-pbxproj/</guid><description>&lt;img src="https://yanbo92.site/fastbot-stub-pbxproj/cover.png" alt="Featured image of post 使用pbxproj添加fastbot-stub.framework并运行测试" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>Monkey测试一直是一种强度较高，性价比较高的测试手段，但在iOS平台上，工具用起来总有各种各样的苦难。今年字节跳动开源了一款自动化测试工具&lt;a class="link" href="https://github.com/bytedance/Fastbot_iOS" target="_blank" rel="noopener"
@@ -383,18 +538,49 @@ data-flex-basis="196px"
 &lt;li>fastbot-stub.framework&lt;/li>
 &lt;/ul>
 &lt;h3 id="python环境安装pbxproj">Python环境安装pbxproj&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo pip install pbxproj
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fastbot-stubframework">fastbot-stub.framework&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo pip install pbxproj
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="fastbot-stubframework">fastbot-stub.framework&lt;/h3>
 &lt;p>按照&lt;code>Fastbot-iOS&lt;/code>项目的Readme打开&lt;code>Fastbot-iOS.xcworkspace&lt;/code>，编译即可，完整命令：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone git@github.com:bytedance/Fastbot_iOS.git
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone git@github.com:bytedance/Fastbot_iOS.git
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd Fastbot-iOS &amp;amp;&amp;amp; pod install --repo-update
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">open Fastbot-iOS.xcworkspace
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后target选择&lt;code>fastbot-stub&lt;/code>，连一台真机编译，得到产物&lt;code>fastbot-stub.framework&lt;/code>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后target选择&lt;code>fastbot-stub&lt;/code>，连一台真机编译，得到产物&lt;code>fastbot-stub.framework&lt;/code>&lt;/p>
 &lt;h3 id="添加动态库">添加动态库&lt;/h3>
 &lt;p>同样的，我们用上一篇文章的todo项目，编写python文件如下：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pbxproj&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">XcodeProject&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pbxproj&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">XcodeProject&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pbxproj.pbxextensions.ProjectFiles&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">FileOptions&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">time&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
@@ -403,16 +589,44 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">project&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">add_file&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;fastbot_stub.framework&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">force&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">file_options&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">file_options&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">project&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">save&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改代码中的路径，直接运行即可&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>修改代码中的路径，直接运行即可&lt;/p>
 &lt;p>若不想通过python脚本，也可以通过纯命令行的方式，具体可以参考&lt;a class="link" href="https://github.com/kronenthaler/mod-pbxproj/wiki/CLI" target="_blank" rel="noopener"
 >CLI · kronenthaler/mod-pbxproj Wiki (github.com)&lt;/a>&lt;/p>
 &lt;h3 id="构建打包">构建、打包&lt;/h3>
 &lt;p>若没有导出ipa需求，直接在Xcode中指定手机构建即可。需要导出ipa比较麻烦，建议自行搜索。&lt;/p>
 &lt;p>回到Fastbot-iOS工程，修改Fastbot-Runner的Scheme：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">dataport为9797
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">dataport为9797
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">launchenv为stubPort=9797
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>再修改&lt;code>FastbotRunner/FastbotRunner.m&lt;/code>，将以下代码取消注释&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="n">fastbot_native&lt;/span> &lt;span class="n">addUIInterruptionMonitor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">CGRect&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span> &lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>再修改&lt;code>FastbotRunner/FastbotRunner.m&lt;/code>，将以下代码取消注释&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="n">fastbot_native&lt;/span> &lt;span class="n">addUIInterruptionMonitor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">CGRect&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span> &lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span>&lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">firstObject&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="n">allElementsBoundByIndex&lt;/span>&lt;span class="p">];&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSInteger&lt;/span> &lt;span class="n">buttonCount&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="bp">count&lt;/span>&lt;span class="p">];&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">CGRect&lt;/span> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">CGRectZero&lt;/span>&lt;span class="p">;&lt;/span>
@@ -426,16 +640,36 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">lastObject&lt;/span> &lt;span class="n">frame&lt;/span>&lt;span class="p">];&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">btnRect&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}];&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>代码大意为处理系统弹窗&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>代码大意为处理系统弹窗&lt;/p>
 &lt;p>像之前运行Fastbot-iOS一样在命令行传参运行&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">BUNDLEID=yigu.com.ToDo duration=240 throttle=300 xcodebuild test -workspace Fastbot-iOS.xcworkspace -scheme FastbotRunner -configuration Release -destination &amp;#39;platform=iOS,id=c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2&amp;#39; -only-testing:FastbotRunner/FastbotRunner/testFastbot
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>截取一段命令行输出：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[fastbot] : visit ToDo.InputViewController,UIApplicationRotationFollowingController,UIApplicationRotationFollowingControllerNoTouches,UICompatibilityInputViewController,UIInputViewController,UIInputWindowController; visited ViewController count is: 2
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">BUNDLEID=yigu.com.ToDo duration=240 throttle=300 xcodebuild test -workspace Fastbot-iOS.xcworkspace -scheme FastbotRunner -configuration Release -destination &amp;#39;platform=iOS,id=c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2&amp;#39; -only-testing:FastbotRunner/FastbotRunner/testFastbot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>截取一段命令行输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[fastbot] : visit ToDo.InputViewController,UIApplicationRotationFollowingController,UIApplicationRotationFollowingControllerNoTouches,UICompatibilityInputViewController,UIInputViewController,UIInputWindowController; visited ViewController count is: 2
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state visited: 30
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : action first visited, get reward 2.336364
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state is saturated, get reward 0.295547
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : got reward: 9.3110
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>区别在哪？区别就在于有控件信息了，如果看到类似&lt;code>UIInputWindowController&lt;/code>这样的字样，恭喜你，你成功了。&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>区别在哪？区别就在于有控件信息了，如果看到类似&lt;code>UIInputWindowController&lt;/code>这样的字样，恭喜你，你成功了。&lt;/p>
 &lt;h2 id="参考文章">参考文章&lt;/h2>
 &lt;p>&lt;a class="link" href="https://testerhome.com/topics/31113" target="_blank" rel="noopener"
 >字节跳动质量利器 &amp;ndash; 移动端智能化稳定性测试工具 Fastbot-Android/iOS 双端重磅发布上线&lt;/a>&lt;/p>
@@ -468,8 +702,15 @@ data-flex-basis="196px"
 &lt;p>yololib是Kim Jong Cracks（Clutch 砸壳的作者）小组搞出来的一个dylib注入工具，利用这个工具，大大方便我们修改Mach-O 文件的 Load Command。以达到注入动态库的目的。&lt;/p>
 &lt;/blockquote>
 &lt;p>用法如下&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">yololib [binary] [dylib file]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="ltresign">LTResign&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">yololib [binary] [dylib file]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="ltresign">LTResign&lt;/h4>
 &lt;p>&lt;a class="link" href="https://github.com/gltwy/LTResign" target="_blank" rel="noopener"
 >项目链接&lt;/a>&lt;/p>
 &lt;blockquote>
@@ -503,12 +744,28 @@ data-flex-basis="196px"
 &lt;p>建议找你家开发直接打一个adhoc包，顺便要一份开发者证书，以及可用的描述文件。或者有代码权限的测试老哥们自己动手打一个，实在想用线上APP的需要砸壳，可以看看这个工具&lt;a class="link" href="https://www.dumpapp.com/" target="_blank" rel="noopener"
 >iOS App 自动砸壳平台&lt;/a>，或者通过第三方平台下ipa包，比如爱思助手、PP助手，最折腾但能学到东西的方案：搞一台越狱的iPhone用&lt;code>clutch&lt;/code>自己砸&lt;/p>
 &lt;h5 id="yololib可执行文件">yololib可执行文件&lt;/h5>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/KJCracks/yololib
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/KJCracks/yololib
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd yololib &amp;amp;&amp;amp; open yololib.xcodeproj
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>直接build即可，给构建产物可执行权限&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">chmod +x yololib
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>建议直接放入&lt;code>/usr/local/bin&lt;/code>，毕竟这个东西执行的路径有点讲究&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>直接build即可，给构建产物可执行权限&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">chmod +x yololib
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>建议直接放入&lt;code>/usr/local/bin&lt;/code>，毕竟这个东西执行的路径有点讲究&lt;/p>
 &lt;p>懒人方案：直接下载别人编译好的&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;a class="link" href="https://github.com/niexiaobo/yololib" target="_blank" rel="noopener"
@@ -516,27 +773,75 @@ data-flex-basis="196px"
 &lt;/blockquote>
 &lt;h5 id="ltresign可执行文件">LTResign可执行文件&lt;/h5>
 &lt;p>作者打包好了，可以直接下载，改权限&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/gltwy/LTResign
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/gltwy/LTResign
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd LTResign &amp;amp;&amp;amp; chmod +x LTResign
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="fastbot-stubframework">fastbot-stub.framework&lt;/h5>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="fastbot-stubframework">fastbot-stub.framework&lt;/h5>
 &lt;p>按照&lt;code>Fastbot-iOS&lt;/code>项目的Readme打开&lt;code>Fastbot-iOS.xcworkspace&lt;/code>，编译即可，完整命令：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone git@github.com:bytedance/Fastbot_iOS.git
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone git@github.com:bytedance/Fastbot_iOS.git
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd Fastbot-iOS &amp;amp;&amp;amp; pod install --repo-update
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">open Fastbot-iOS.xcworkspace
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后target选择&lt;code>fastbot-stub&lt;/code>，连一台真机编译，得到产物&lt;code>fastbot-stub.framework&lt;/code>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后target选择&lt;code>fastbot-stub&lt;/code>，连一台真机编译，得到产物&lt;code>fastbot-stub.framework&lt;/code>&lt;/p>
 &lt;h3 id="动态库注入">动态库注入&lt;/h3>
 &lt;p>将ipa包改名为zip包，其实下面这些步骤都可以在界面操作，看个人习惯&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cp ToDo.ipa ToDo.zip
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>解压zip，得到Payload文件夹&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">unzip ToDo.zip
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>将&lt;code>fastbot-stub.framework&lt;/code>复制到Payload/Todo.app/Frameworks中&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cp -r fastbot_stub.framework Payload/ToDo.app/Frameworks
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>运行yololib注入&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd Payload/ToDo.app &amp;amp;&amp;amp; yololib Todo Frameworks/fastbot_stub.framework/fastbot-stub
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这一步正常的输出是这样的：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cp ToDo.ipa ToDo.zip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>解压zip，得到Payload文件夹&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">unzip ToDo.zip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>将&lt;code>fastbot-stub.framework&lt;/code>复制到Payload/Todo.app/Frameworks中&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cp -r fastbot_stub.framework Payload/ToDo.app/Frameworks
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>运行yololib注入&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd Payload/ToDo.app &amp;amp;&amp;amp; yololib Todo Frameworks/fastbot_stub.framework/fastbot-stub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这一步正常的输出是这样的：&lt;/p>
 &lt;blockquote>
 &lt;p>Reading binary: ToDo&lt;/p>
 &lt;p>2021-11-11 22:09:37.127 yololib[20629:7615745] Thin 64bit binary!&lt;/p>
@@ -551,16 +856,44 @@ data-flex-basis="196px"
 &lt;p>这个作者打的日志十分的可爱，当你注入一个大点的库，第二行将会变成Fat Binary，胖的库&lt;/p>
 &lt;p>实际上yololib做的事情是让App运行的时候加载需要注入的动态库，只是写一条链接，而不会把这个库给带进&lt;code>Frameworks&lt;/code>里面，所以这两步都是必要的。&lt;/p>
 &lt;p>重新把&lt;code>Payload&lt;/code>打包为zip&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ../.. &amp;amp;&amp;amp; zip -r Payload.zip Payload
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>改名ipa&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mv Payload.zip Payload.ipa
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>此时你拥有了一个被注入的ipa包，但他装不上去手机。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ../.. &amp;amp;&amp;amp; zip -r Payload.zip Payload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>改名ipa&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mv Payload.zip Payload.ipa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此时你拥有了一个被注入的ipa包，但他装不上去手机。&lt;/p>
 &lt;h3 id="重签名">重签名&lt;/h3>
 &lt;p>进到LTResign项目目录&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mv Payload.ipa LTResign &amp;amp;&amp;amp; cd LTResign
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>用&lt;code>-l&lt;/code>参数运行&lt;code>ltresign&lt;/code>获取证书id&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./ltresign -l
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>输出类似这样子&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mv Payload.ipa LTResign &amp;amp;&amp;amp; cd LTResign
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>用&lt;code>-l&lt;/code>参数运行&lt;code>ltresign&lt;/code>获取证书id&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./ltresign -l
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出类似这样子&lt;/p>
 &lt;blockquote>
 &lt;p>\1) 24D0F12312312312312312312312300E2CC990355 &amp;ldquo;Apple Development:XXXXXXXXXXXX&amp;rdquo;&lt;/p>
 &lt;p>\2) 98D4E12312312312312312312312312312F9B013 &amp;ldquo;Apple Development: XXX XXX(XXXXXXXX)&lt;/p>
@@ -568,8 +901,15 @@ data-flex-basis="196px"
 &lt;p>这里面每一项的第一个字符串就是id了，比如&lt;code>24D0F12312312312312312312312300E2CC990355&lt;/code>&lt;/p>
 &lt;p>将描述文件改名为&lt;code>embedded.mobileprovision&lt;/code>，也放到这个目录&lt;/p>
 &lt;p>运行重签名脚本&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ltresign -s /Payload.ipa -d 24D0F12312312312312312312312300E2CC990355 -m embedded.mobileprovision
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>正常的输出会是这样结尾：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ltresign -s /Payload.ipa -d 24D0F12312312312312312312312300E2CC990355 -m embedded.mobileprovision
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>正常的输出会是这样结尾：&lt;/p>
 &lt;blockquote>
 &lt;p>&amp;hellip;&amp;hellip;&amp;hellip;..&lt;/p>
 &lt;p>glt_tmp/glt_test/Payload/ToDo.app: replacing existing signature&lt;/p>
@@ -577,12 +917,45 @@ data-flex-basis="196px"
 &lt;/blockquote>
 &lt;p>此时这个目录将会生成一个重签名过的ipa &lt;code>glt_output.ipa&lt;/code>&lt;/p>
 &lt;h3 id="装包测试">装包测试&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ideviceinstaller -i glt_output.ipa
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>回到Fastbot-iOS工程，修改Fastbot-Runner的Scheme：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">dataport为9797
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ideviceinstaller -i glt_output.ipa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>回到Fastbot-iOS工程，修改Fastbot-Runner的Scheme：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">dataport为9797
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">launchenv为stubPort=9797
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>再修改&lt;code>FastbotRunner/FastbotRunner.m&lt;/code>，将以下代码取消注释&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="n">fastbot_native&lt;/span> &lt;span class="n">addUIInterruptionMonitor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">CGRect&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span> &lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>再修改&lt;code>FastbotRunner/FastbotRunner.m&lt;/code>，将以下代码取消注释&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="n">fastbot_native&lt;/span> &lt;span class="n">addUIInterruptionMonitor&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">CGRect&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span> &lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSArray&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">XCUIElement&lt;/span>&lt;span class="o">*&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">systemAlerts&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">firstObject&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="n">allElementsBoundByIndex&lt;/span>&lt;span class="p">];&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">NSInteger&lt;/span> &lt;span class="n">buttonCount&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span> &lt;span class="bp">count&lt;/span>&lt;span class="p">];&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">CGRect&lt;/span> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">CGRectZero&lt;/span>&lt;span class="p">;&lt;/span>
@@ -596,16 +969,36 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">btnRect&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">buttons&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">lastObject&lt;/span> &lt;span class="n">frame&lt;/span>&lt;span class="p">];&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">btnRect&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}];&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>代码大意为处理系统弹窗&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>代码大意为处理系统弹窗&lt;/p>
 &lt;p>像之前运行Fastbot-iOS一样在命令行传参运行&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">BUNDLEID=yigu.com.ToDo duration=240 throttle=300 xcodebuild test -workspace Fastbot-iOS.xcworkspace -scheme FastbotRunner -configuration Release -destination &amp;#39;platform=iOS,id=c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2&amp;#39; -only-testing:FastbotRunner/FastbotRunner/testFastbot
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>截取一段命令行输出：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[fastbot] : visit ToDo.InputViewController,UIApplicationRotationFollowingController,UIApplicationRotationFollowingControllerNoTouches,UICompatibilityInputViewController,UIInputViewController,UIInputWindowController; visited ViewController count is: 2
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">BUNDLEID=yigu.com.ToDo duration=240 throttle=300 xcodebuild test -workspace Fastbot-iOS.xcworkspace -scheme FastbotRunner -configuration Release -destination &amp;#39;platform=iOS,id=c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2&amp;#39; -only-testing:FastbotRunner/FastbotRunner/testFastbot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>截取一段命令行输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[fastbot] : visit ToDo.InputViewController,UIApplicationRotationFollowingController,UIApplicationRotationFollowingControllerNoTouches,UICompatibilityInputViewController,UIInputViewController,UIInputWindowController; visited ViewController count is: 2
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state visited: 30
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : action first visited, get reward 2.336364
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : state is saturated, get reward 0.295547
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[fastbot] : got reward: 9.3110
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>区别在哪？区别就在于有控件信息了，如果看到类似&lt;code>UIInputWindowController&lt;/code>这样的字样，恭喜你，你成功了。&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>区别在哪？区别就在于有控件信息了，如果看到类似&lt;code>UIInputWindowController&lt;/code>这样的字样，恭喜你，你成功了。&lt;/p>
 &lt;h2 id="心得">心得&lt;/h2>
 &lt;p>注入搞fastbot其实就是个玩，有完整代码权限正儿八经打包进去才是正道。当然很多时候这套逆向方案也够用了，文中的命令也能很好的持续集成起来。&lt;/p>
 &lt;h2 id="参考文章">参考文章&lt;/h2>
@@ -642,8 +1035,15 @@ data-flex-basis="196px"
 &lt;/ul>
 &lt;p>支持运行在Mac，Linux，Windows上&lt;/p>
 &lt;p>安装：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip3 install -U &lt;span class="s2">&amp;#34;tidevice[openssl]&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip3 install -U &lt;span class="s2">&amp;#34;tidevice[openssl]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
 &lt;h2 id="实现原理">实现原理&lt;/h2>
 &lt;ul>
 &lt;li>Jenkins有许多插件支持动态参数列表，比如&lt;code>Extended-Choice-Parameter&lt;/code>，又比如&lt;code>Active Choice&lt;/code>，综合试用了一下选择了前者。&lt;/li>
@@ -654,7 +1054,21 @@ data-flex-basis="196px"
 &lt;h2 id="具体实现代码">具体实现代码&lt;/h2>
 &lt;h4 id="android">Android&lt;/h4>
 &lt;p>如果你的手机都插在主节点&lt;code>master&lt;/code>上，可以用以下代码，填入&lt;code>Choose Source for Value Description - Groovy Script&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">content&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;adb devices -l&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">text&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">content&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;adb devices -l&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">text&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">str&lt;/span>&lt;span class="o">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">str&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">content&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">split&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;\n&amp;#39;&lt;/span>&lt;span class="o">);&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">def&lt;/span> &lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">[];&lt;/span>
@@ -664,8 +1078,35 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>但如果你的主节点和执行节点并不是同一个，需要在执行节点上去做动态获取，那么代码是这样的&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">hudson.util.RemotingDiagnostics&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>但如果你的主节点和执行节点并不是同一个，需要在执行节点上去做动态获取，那么代码是这样的&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">hudson.util.RemotingDiagnostics&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">jenkins.model.Jenkins&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">agent_name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;节点名&amp;#39;&lt;/span>
@@ -686,9 +1127,23 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="ios">iOS&lt;/h4>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="ios">iOS&lt;/h4>
 &lt;p>类似的，把&lt;code>adb device&lt;/code>替换为&lt;code>idevice_id -l&lt;/code>，当然也可以用&lt;code>tidevice list&lt;/code>，只是要对参数做截断处理&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">content&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;tidevice list&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">text&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">content&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;tidevice list&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">text&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">str&lt;/span>&lt;span class="o">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">str&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">content&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">split&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;\n&amp;#39;&lt;/span>&lt;span class="o">);&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">def&lt;/span> &lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">[];&lt;/span>
@@ -696,8 +1151,33 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">values&lt;/span>&lt;span class="o">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>master-slave模式代码：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">hudson.util.RemotingDiagnostics&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>master-slave模式代码：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">hudson.util.RemotingDiagnostics&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">jenkins.model.Jenkins&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">agent_name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;节点名&amp;#39;&lt;/span>
@@ -716,7 +1196,9 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文章">参考文章&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="参考文章">参考文章&lt;/h2>
 &lt;p>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/148957030" target="_blank" rel="noopener"
 >Jenkins 动态获取安卓设备作为参数 - 知乎 (zhihu.com)&lt;/a>&lt;/p>
 &lt;p>&lt;a class="link" href="https://yanbo92.site/jenkins-extended-choice-parameter/" target="_blank" rel="noopener"
@@ -737,8 +1219,15 @@ data-flex-basis="196px"
 &lt;p>项目主页：&lt;a class="link" href="https://osxfuse.github.io/" target="_blank" rel="noopener"
 >osxfuse.github.io&lt;/a>&lt;/p>
 &lt;p>安装：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install osxfuse --cask
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install osxfuse --cask
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
 &lt;h4 id="ifuse">ifuse&lt;/h4>
 &lt;blockquote>
 &lt;p>&lt;em>A fuse filesystem implementation to access the contents of iOS devices.&lt;/em>&lt;/p>
@@ -766,10 +1255,24 @@ data-flex-basis="196px"
 &lt;/ul>
 &lt;p>项目主页：&lt;/p>
 &lt;p>安装：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install ifuse
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果装不上，把系统时间改到2021年4月6日之前即可。但时间改了之后又会出现443:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">curl: (35) LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to ghcr.io:443
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以正确的操作流程是要在通过了brew校验这个包可以装之后再改回正常的时间，以通过下载包所需要的SSL校验，毫秒级操作，不过多试几次就能装上去。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install ifuse
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果装不上，把系统时间改到2021年4月6日之前即可。但时间改了之后又会出现443:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">curl: (35) LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to ghcr.io:443
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>所以正确的操作流程是要在通过了brew校验这个包可以装之后再改回正常的时间，以通过下载包所需要的SSL校验，毫秒级操作，不过多试几次就能装上去。&lt;/p>
 &lt;p>此项目依赖osxfuse，请先安装上面的osxfuse。&lt;/p>
 &lt;/blockquote>
 &lt;h4 id="tidevice">tidevice&lt;/h4>
@@ -790,8 +1293,15 @@ data-flex-basis="196px"
 &lt;p>项目主页：&lt;a class="link" href="https://github.com/alibaba/taobao-iphone-device" target="_blank" rel="noopener"
 >alibaba/taobao-iphone-device&lt;/a>&lt;/p>
 &lt;p>安装：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip3 install -U &lt;span class="s2">&amp;#34;tidevice[openssl]&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip3 install -U &lt;span class="s2">&amp;#34;tidevice[openssl]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
 &lt;h2 id="实现原理">实现原理&lt;/h2>
 &lt;ul>
 &lt;li>通过阅读源码可以得知，&lt;code>ifuse&lt;/code>依赖&lt;code>libimobiledevice&lt;/code>，同时是基于&lt;code>usbmux&lt;/code>实现的，换言之，该库只支持通过电脑usb连接手机来通信。ifuse将手机硬盘的某一部分挂载到电脑硬盘上，再通过正常的文件读写操作去控制。&lt;/li>
@@ -800,30 +1310,93 @@ data-flex-basis="196px"
 &lt;h2 id="具体实现代码">具体实现代码&lt;/h2>
 &lt;h4 id="ifuse读写手机内存">ifuse读写手机内存&lt;/h4>
 &lt;p>首先新建一个mount_point目录用于挂载手机硬盘：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mkdir mount_point
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后用默认参数挂载，这样将会挂载整个&lt;code>Media&lt;/code>目录，可以拿到&lt;code>DCIM&lt;/code>以及&lt;code>Downloads&lt;/code>之类的目录内容：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mkdir mount_point
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后用默认参数挂载，这样将会挂载整个&lt;code>Media&lt;/code>目录，可以拿到&lt;code>DCIM&lt;/code>以及&lt;code>Downloads&lt;/code>之类的目录内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ls mount_point
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">AirFair MediaAnalysis Purchases afk(1).zip rd
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Books PhotoData Radio afk_screenshots
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">DCIM Photos Recordings general_storage
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Downloads PublicStaging afk iTunes_Control
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>可以像自己电脑上的目录一样去读写，比如&lt;code>rm&lt;/code>，&lt;code>mkdir&lt;/code>之类的都没问题。&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以像自己电脑上的目录一样去读写，比如&lt;code>rm&lt;/code>，&lt;code>mkdir&lt;/code>之类的都没问题。&lt;/p>
 &lt;p>卸载掉：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">umount mount_point
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>还有另一种更强力的卸载，毕竟这个库经常会卸载不掉：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">diskutil unmount force mount_point
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>再试试指定APP包名的挂载方式，此处用的是Alook浏览器&lt;code>com.ld.TakeBrowser&lt;/code>：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse --documents com.ld.TakeBrowser -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">umount mount_point
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>还有另一种更强力的卸载，毕竟这个库经常会卸载不掉：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">diskutil unmount force mount_point
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>再试试指定APP包名的挂载方式，此处用的是Alook浏览器&lt;code>com.ld.TakeBrowser&lt;/code>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse --documents com.ld.TakeBrowser -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ls mount_point
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Audios Images Videos
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Documents Others Zipped
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里挂载了APP的Documents目录，同样可以使用的参数还有&lt;code>--container&lt;/code>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这里挂载了APP的Documents目录，同样可以使用的参数还有&lt;code>--container&lt;/code>&lt;/p>
 &lt;h4 id="tidevice读写手机内存">tidevice读写手机内存&lt;/h4>
 &lt;p>首先新建一个txt用于调试&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">touch file.txt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>类似的，查看&lt;code>Media&lt;/code>下的目录：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync ls /DCIM/
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">touch file.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>类似的，查看&lt;code>Media&lt;/code>下的目录：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync ls /DCIM/
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[&amp;#39;.DS_Store&amp;#39;,
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;104APPLE&amp;#39;,
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;._.DS_Store&amp;#39;,
@@ -832,19 +1405,52 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;.MISC&amp;#39;,
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;101APPLE&amp;#39;,
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;100APPLE&amp;#39;]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>删除一张照片：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync rm /DCIM/104APPLE/IMG_4334.JPG
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>删除一张照片：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync rm /DCIM/104APPLE/IMG_4334.JPG
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;AFCStatus.SUCCESS: 0&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>操作特定的APP目录，需要使用&lt;code>-B&lt;/code>参数：&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>操作特定的APP目录，需要使用&lt;code>-B&lt;/code>参数：&lt;/p>
 &lt;p>ls操作：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser ls /Documents
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser ls /Documents
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[&amp;#39;Zipped&amp;#39;, &amp;#39;Documents&amp;#39;, &amp;#39;Videos&amp;#39;, &amp;#39;Others&amp;#39;, &amp;#39;Images&amp;#39;, &amp;#39;Audios&amp;#39;]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>push操作：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser push file.txt /Documents/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>push操作：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser push file.txt /Documents/
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pushed to /Documents/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>类似的支持的操作还有如下几个：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">{rm,cat,pull,stat,tree,rmtree,mkdir
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用建议">使用建议&lt;/h4>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>类似的支持的操作还有如下几个：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">{rm,cat,pull,stat,tree,rmtree,mkdir
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="使用建议">使用建议&lt;/h4>
 &lt;p>个人认为在功能没有差异的情况下，使用&lt;code>tidevice&lt;/code>要比&lt;code>ifuse&lt;/code>方便得多，有如下原因&lt;/p>
 &lt;ul>
 &lt;li>基于Python实现，相对于ifuse使用C的实现更适合脚本集成，可以直接用python的&lt;code>import&lt;/code>使用，无需使用类似&lt;code>os.system()&lt;/code>这种粗暴的方式&lt;/li>
@@ -886,7 +1492,21 @@ data-flex-basis="196px"
 &lt;h2 id="具体实现代码">具体实现代码&lt;/h2>
 &lt;h4 id="android">Android&lt;/h4>
 &lt;p>如果你的手机都插在主节点&lt;code>master&lt;/code>上，可以用以下代码，填入&lt;code>Choose Source for Value - Groovy Script&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">content&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;adb devices&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">text&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">content&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;adb devices&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">text&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">str&lt;/span>&lt;span class="o">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">str&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">content&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">split&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;\n&amp;#39;&lt;/span>&lt;span class="o">);&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">def&lt;/span> &lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">[];&lt;/span>
@@ -896,8 +1516,35 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>但如果你的主节点和执行节点并不是同一个，需要在执行节点上去做动态获取，那么代码是这样的&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">hudson.util.RemotingDiagnostics&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>但如果你的主节点和执行节点并不是同一个，需要在执行节点上去做动态获取，那么代码是这样的&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">hudson.util.RemotingDiagnostics&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">jenkins.model.Jenkins&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">agent_name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;节点名&amp;#39;&lt;/span>
@@ -918,9 +1565,23 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="ios">iOS&lt;/h4>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="ios">iOS&lt;/h4>
 &lt;p>类似的，把&lt;code>adb device&lt;/code>替换为&lt;code>idevice_id -l&lt;/code>，当然也可以用&lt;code>tidevice list&lt;/code>，只是要对参数做截断处理&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">content&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;idevice_id -l&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">text&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span> &lt;span class="n">content&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;idevice_id -l&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">text&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">str&lt;/span>&lt;span class="o">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">str&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">content&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">split&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;\n&amp;#39;&lt;/span>&lt;span class="o">);&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">def&lt;/span> &lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">[];&lt;/span>
@@ -928,7 +1589,9 @@ data-flex-basis="196px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">values&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">replaceAll&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s2">&amp;#34;\tdevice&amp;#34;&lt;/span>&lt;span class="o">,&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="o">))&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文章">参考文章&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="参考文章">参考文章&lt;/h2>
 &lt;p>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/148957030" target="_blank" rel="noopener"
 >Jenkins 动态获取安卓设备作为参数 - 知乎 (zhihu.com)&lt;/a>&lt;/p></description></item><item><title>调用接口推送消息到你iPhone——iOS开源项目Bark</title><link>https://yanbo92.site/bark/</link><pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/bark/</guid><description>&lt;img src="https://yanbo92.site/bark/cover.png" alt="Featured image of post 调用接口推送消息到你iPhone——iOS开源项目Bark" />&lt;h2 id="最终效果">最终效果&lt;/h2>
 &lt;ul>
@@ -977,7 +1640,22 @@ data-flex-basis="307px"
 &lt;ol start="2">
 &lt;li>修改内容，请求这个URL&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">可以发 get 或者 post 请求 ，请求成功会立即收到推送
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">可以发 get 或者 post 请求 ，请求成功会立即收到推送
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">URL 组成: 第一个部分是 key , 之后有三个匹配
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/:key/:body
@@ -988,7 +1666,9 @@ data-flex-basis="307px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">body 推送内容 换行请使用换行符 &amp;#39;\n&amp;#39;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">category 另外的功能占用的字段，还没开放 忽略就行
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">post 请求 参数名也是上面这些
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="复制参数">复制参数&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="复制参数">复制参数&lt;/h3>
 &lt;p>收到推送时下拉推送（或在通知中心左滑查看推送）有一个&lt;code>复制&lt;/code>按钮，点击即可复制推送内容。&lt;/p>
 &lt;p>&lt;img src="https://yanbo92.site/bark/bark-cp-btn.png"
 width="690"
@@ -1000,47 +1680,117 @@ class="gallery-image"
 data-flex-grow="204"
 data-flex-basis="491px"
 >&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-objc" data-lang="objc">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//将复制“验证码是9527”
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-objc" data-lang="objc">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//将复制“验证码是9527”
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nl">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="c1">//api.day.app/yourkey/验证码是9527
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>携带参数 automaticallyCopy=1， 收到推送时，推送内容会自动复制到粘贴板（如发现不能自动复制，可尝试重启一下手机）&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-objc" data-lang="objc">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//自动复制 “验证码是9527” 到粘贴板
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>携带参数 automaticallyCopy=1， 收到推送时，推送内容会自动复制到粘贴板（如发现不能自动复制，可尝试重启一下手机）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-objc" data-lang="objc">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//自动复制 “验证码是9527” 到粘贴板
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nl">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="c1">//api.day.app/yourkey/验证码是9527?automaticallyCopy=1
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>携带copy参数， 则上面两种复制操作，将只复制copy参数的值&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-objc" data-lang="objc">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//自动复制 “9527” 到粘贴板
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>携带copy参数， 则上面两种复制操作，将只复制copy参数的值&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-objc" data-lang="objc">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//自动复制 “9527” 到粘贴板
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nl">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="c1">//api.day.app/yourkey/验证码是9527?automaticallyCopy=1&amp;amp;copy=9527
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="其他参数">其他参数&lt;/h4>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="其他参数">其他参数&lt;/h4>
 &lt;ul>
 &lt;li>url&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 点击推送将跳转到url的地址（发送时，URL参数需要编码）
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 点击推送将跳转到url的地址（发送时，URL参数需要编码）
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/百度网址?url=https://www.baidu.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>isArchive&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// 如果不指定这个参数，推送信息将按照APP内设置来决定是否保存。
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/需要保存的推送?isArchive=1
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>group&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 指定推送消息分组，可在历史记录中按分组查看推送。
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 指定推送消息分组，可在历史记录中按分组查看推送。
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/需要分组的推送?group=groupName
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>icon (仅 iOS15 或以上支持）&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 指定推送消息图标
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 指定推送消息图标
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/需要自定义图标的推送?icon=http://day.app/assets/images/avatar.jpg
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>时效性通知&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 设置时效性通知
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">// 设置时效性通知
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://api.day.app/yourkey/时效性通知?level=timeSensitive
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// 可选参数值
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// active：不设置时的默认值，系统会立即亮屏显示通知。
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// timeSensitive：时效性通知，可在专注状态下显示通知。
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">// passive：仅将通知添加到通知列表，不会亮屏提醒
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Auto.JS中杀死其他脚本的方法</title><link>https://yanbo92.site/autojs-kill-scripts/</link><pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/autojs-kill-scripts/</guid><description>&lt;img src="https://yanbo92.site/autojs-kill-scripts/cover.png" alt="Featured image of post Auto.JS中杀死其他脚本的方法" />&lt;h2 id="autojs介绍">Auto.JS介绍&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Auto.JS中杀死其他脚本的方法</title><link>https://yanbo92.site/autojs-kill-scripts/</link><pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/autojs-kill-scripts/</guid><description>&lt;img src="https://yanbo92.site/autojs-kill-scripts/cover.png" alt="Featured image of post Auto.JS中杀死其他脚本的方法" />&lt;h2 id="autojs介绍">Auto.JS介绍&lt;/h2>
 &lt;blockquote>
 &lt;h4 id="autojs-pro是什么">Auto.js Pro是什么&lt;/h4>
 &lt;p>一个在Android、鸿蒙平台编写、运行JavaScript代码的集成开发环境，包括代码补全的编辑器、单步调试、图形化设计，可构建为独立apk应用，也可连接电脑开发。&lt;/p>
@@ -1065,7 +1815,25 @@ data-flex-basis="491px"
 &lt;li>该方法能避免用户反复运行脚本，导致脚本互相干扰、资源占用等情况&lt;/li>
 &lt;/ul>
 &lt;h4 id="完整代码">完整代码&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">kill_scripts&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">kill_scripts&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">allNgs&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">engines&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">all&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">myNg&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">engines&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">myEngine&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kd">var&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="nx">allNgs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">length&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="nx">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
@@ -1079,7 +1847,9 @@ data-flex-basis="491px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">kill_scripts&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Auto.JS中免Root杀死APP的巧妙方法</title><link>https://yanbo92.site/autojs-kill-app/</link><pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/autojs-kill-app/</guid><description>&lt;img src="https://yanbo92.site/autojs-kill-app/cover.png" alt="Featured image of post Auto.JS中免Root杀死APP的巧妙方法" />&lt;h2 id="autojs介绍">Auto.JS介绍&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Auto.JS中免Root杀死APP的巧妙方法</title><link>https://yanbo92.site/autojs-kill-app/</link><pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/autojs-kill-app/</guid><description>&lt;img src="https://yanbo92.site/autojs-kill-app/cover.png" alt="Featured image of post Auto.JS中免Root杀死APP的巧妙方法" />&lt;h2 id="autojs介绍">Auto.JS介绍&lt;/h2>
 &lt;blockquote>
 &lt;h4 id="autojs-pro是什么">Auto.js Pro是什么&lt;/h4>
 &lt;p>一个在Android、鸿蒙平台编写、运行JavaScript代码的集成开发环境，包括代码补全的编辑器、单步调试、图形化设计，可构建为独立apk应用，也可连接电脑开发。&lt;/p>
@@ -1103,7 +1873,36 @@ data-flex-basis="491px"
 &lt;li>该方法巧妙的规避了通过&lt;code>adb shell kill&lt;/code>或者 &lt;code>adb shell am force-stop&lt;/code>方法带来的权限问题&lt;/li>
 &lt;/ul>
 &lt;h4 id="完整代码">完整代码&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">kill_app&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">kill_app&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">getPackageName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">);&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">getAppName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">packageName&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
@@ -1128,7 +1927,9 @@ data-flex-basis="491px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">kill_app&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;微信&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Mac电脑使用FastGithub加速并配置命令行代理、开机自动启动</title><link>https://yanbo92.site/fastgithub/</link><pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/fastgithub/</guid><description>&lt;img src="https://yanbo92.site/fastgithub/cover.png" alt="Featured image of post Mac电脑使用FastGithub加速并配置命令行代理、开机自动启动" />&lt;h2 id="最终效果">最终效果&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Mac电脑使用FastGithub加速并配置命令行代理、开机自动启动</title><link>https://yanbo92.site/fastgithub/</link><pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/fastgithub/</guid><description>&lt;img src="https://yanbo92.site/fastgithub/cover.png" alt="Featured image of post Mac电脑使用FastGithub加速并配置命令行代理、开机自动启动" />&lt;h2 id="最终效果">最终效果&lt;/h2>
 &lt;p>浏览器、命令行低延迟访问github，刷项目、拉依赖访问正常&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;h2 id="项目介绍">项目介绍&lt;/h2>
@@ -1215,8 +2016,15 @@ data-flex-basis="309px"
 &lt;li>编辑&lt;code>~/.zshrc&lt;/code>或者&lt;code>~/.bashrc&lt;/code>，这取决于你的shell用哪种&lt;/li>
 &lt;li>加入一行：&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">export https_proxy=http://127.0.0.1:38457 http_proxy=http://127.0.0.1:38457
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">export https_proxy=http://127.0.0.1:38457 http_proxy=http://127.0.0.1:38457
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>保存，并运行&lt;code>source ~/.zshrc&lt;/code>或者&lt;code>source ~/.bashrc&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h4 id="配置开机自启">配置开机自启&lt;/h4>
@@ -1242,22 +2050,84 @@ data-flex-basis="316px"
 &lt;!-- raw HTML omitted -->
 &lt;h2 id="操作步骤">操作步骤&lt;/h2>
 &lt;h4 id="新建项目目录">新建项目目录&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">mkdir sonar_postgres &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> sonar_postgres
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="新建dockerfile文件和docker-compose文件">新建Dockerfile文件和docker-compose文件&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">touch Dockerfile &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> touch docker-compose-yml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="编辑dockerfile预装sonar插件">编辑Dockerfile，预装Sonar插件&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">mkdir sonar_postgres &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> sonar_postgres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="新建dockerfile文件和docker-compose文件">新建Dockerfile文件和docker-compose文件&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">touch Dockerfile &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> touch docker-compose-yml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="编辑dockerfile预装sonar插件">编辑Dockerfile，预装Sonar插件&lt;/h4>
 &lt;p>Dockerfile文件内容：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> sonarqube:8.9-community&lt;/span>&lt;span class="err">
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> sonarqube:8.9-community&lt;/span>&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> wget -P /opt/sonarqube/extensions/plugins/ https://github.com/xuhuisheng/sonar-l10n-zh/releases/download/sonar-l10n-zh-plugin-8.9/sonar-l10n-zh-plugin-8.9.jar&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> wget -P /opt/sonarqube/extensions/plugins/ https://github.com/tal-tech/sonar-swift/releases/download/1.5.1/tal-sonar-swift-plugin-1.5.1.jar&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> wget -P /opt/sonarqube/extensions/plugins/ https://github.com/detekt/sonar-kotlin/releases/download/2.3.0/sonar-detekt-2.3.0.jar&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>使用最新版本的Sonar Community版，安装中文插件、swift插件以及kotlin插件。此处使用最粗暴的下载、拷贝jar文件的安装方法。通过挂载存储也可以实现相同的功能。&lt;/p>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用最新版本的Sonar Community版，安装中文插件、swift插件以及kotlin插件。此处使用最粗暴的下载、拷贝jar文件的安装方法。通过挂载存储也可以实现相同的功能。&lt;/p>
 &lt;h4 id="根据dockerfile构建镜像">根据Dockerfile构建镜像&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">docker build -t sonarqube_plugins:v1 .
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>此处&lt;code>-t&lt;/code>后面的第一个参数为镜像名字以及版本，第二个参数&lt;code>.&lt;/code>为Dockerfile所在目录，下面使用docker-compose时将会用到镜像名字以及版本&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">docker build -t sonarqube_plugins:v1 .
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此处&lt;code>-t&lt;/code>后面的第一个参数为镜像名字以及版本，第二个参数&lt;code>.&lt;/code>为Dockerfile所在目录，下面使用docker-compose时将会用到镜像名字以及版本&lt;/p>
 &lt;h4 id="使用docker-compose编排镜像">使用docker-compose编排镜像&lt;/h4>
 &lt;p>编辑文件docker-compose.yml：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">version: &amp;#34;3&amp;#34;
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">version: &amp;#34;3&amp;#34;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">services:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sonarqube:
@@ -1284,9 +2154,18 @@ data-flex-basis="316px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">networks:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sonarnet:
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="启动容器">启动容器&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">docker-compose up -d
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>此时在浏览器访问localhost:9000就能看到Sonar了&lt;/p></description></item><item><title>关于</title><link>https://yanbo92.site/page/about/</link><pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/page/about/</guid><description>&lt;ul>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="启动容器">启动容器&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">docker-compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此时在浏览器访问localhost:9000就能看到Sonar了&lt;/p></description></item><item><title>关于</title><link>https://yanbo92.site/page/about/</link><pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/page/about/</guid><description>&lt;ul>
 &lt;li>编程：Python/Java&lt;/li>
 &lt;li>技能：UI自动化 / 持续集成 / 性能测试&lt;/li>
 &lt;li>爱好：排球 / 游戏 / 手工&lt;/li>
