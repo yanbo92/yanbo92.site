@@ -22,28 +22,28 @@ As a developer, you can use the FUSE SDK to write numerous types of new file sys
 </span></span></code></pre></td></tr></table></div></div><p>所以正确的操作流程是要在通过了brew校验这个包可以装之后再改回正常的时间，以通过下载包所需要的SSL校验，毫秒级操作，不过多试几次就能装上去。</p><p>此项目依赖osxfuse，请先安装上面的osxfuse。</p></blockquote><h4 id=tidevice>tidevice</h4><blockquote><p>该工具能够用于与iOS设备进行通信, 提供以下功能</p><ul><li>截图</li><li>获取手机信息</li><li>ipa包的安装和卸载</li><li>根据bundleID 启动和停止应用</li><li>列出安装应用信息</li><li>模拟Xcode运行XCTest，常用的如启动WebDriverAgent测试（此方法不依赖xcodebuild)</li><li>获取指定应用性能(CPU,MEM,FPS)</li><li>文件操作</li><li>其他</li></ul><p>支持运行在Mac，Linux，Windows上</p><p>项目主页：<a class=link href=https://github.com/alibaba/taobao-iphone-device target=_blank rel=noopener>alibaba/taobao-iphone-device</a></p><p>安装：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>pip3 install -U <span class=s2>&#34;tidevice[openssl]&#34;</span>
 </span></span></code></pre></td></tr></table></div></div></blockquote><h2 id=实现原理>实现原理</h2><ul><li>通过阅读源码可以得知，<code>ifuse</code>依赖<code>libimobiledevice</code>，同时是基于<code>usbmux</code>实现的，换言之，该库只支持通过电脑usb连接手机来通信。ifuse将手机硬盘的某一部分挂载到电脑硬盘上，再通过正常的文件读写操作去控制。</li><li>而<code>tidevice</code>则是把<code>instruments</code>协议整个用python实现了一遍，这是支持<strong>无线</strong>连接手机的。并且开发者将常用文件操作封装了一层，支持<code> rm cat pull push stat tree rmtree mkdir ls</code> 等操作，有点adb的味道。</li></ul><h2 id=具体实现代码>具体实现代码</h2><h4 id=ifuse读写手机内存>ifuse读写手机内存</h4><p>首先新建一个mount_point目录用于挂载手机硬盘：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>mkdir mount_point
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>mkdir mount_point
 </span></span></code></pre></td></tr></table></div></div><p>然后用默认参数挂载，这样将会挂载整个<code>Media</code>目录，可以拿到<code>DCIM</code>以及<code>Downloads</code>之类的目录内容：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>MacBook-Pro ~ % ifuse -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>MacBook-Pro ~ % ifuse -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
 </span></span><span class=line><span class=cl>MacBook-Pro ~ % ls mount_point
-</span></span><span class=line><span class=cl>AirFair		MediaAnalysis	Purchases	afk(1).zip	rd
+</span></span><span class=line><span class=cl>AirFair		MediaAnalysis	Purchases	afk<span class=o>(</span>1<span class=o>)</span>.zip	rd
 </span></span><span class=line><span class=cl>Books		PhotoData	Radio		afk_screenshots
 </span></span><span class=line><span class=cl>DCIM		Photos		Recordings	general_storage
 </span></span><span class=line><span class=cl>Downloads	PublicStaging	afk		iTunes_Control
 </span></span></code></pre></td></tr></table></div></div><p>可以像自己电脑上的目录一样去读写，比如<code>rm</code>，<code>mkdir</code>之类的都没问题。</p><p>卸载掉：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>umount mount_point
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>umount mount_point
 </span></span></code></pre></td></tr></table></div></div><p>还有另一种更强力的卸载，毕竟这个库经常会卸载不掉：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>diskutil unmount force mount_point
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>diskutil unmount force mount_point
 </span></span></code></pre></td></tr></table></div></div><p>再试试指定APP包名的挂载方式，此处用的是Alook浏览器<code>com.ld.TakeBrowser</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>MacBook-Pro ~ % ifuse --documents com.ld.TakeBrowser -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>MacBook-Pro ~ % ifuse --documents com.ld.TakeBrowser -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
 </span></span><span class=line><span class=cl>MacBook-Pro ~ % ls mount_point
 </span></span><span class=line><span class=cl>Audios		Images		Videos
 </span></span><span class=line><span class=cl>Documents	Others		Zipped
