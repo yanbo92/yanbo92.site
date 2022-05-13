@@ -5,11 +5,52 @@
 &lt;/ul>
 &lt;h2 id="操作步骤">操作步骤&lt;/h2>
 &lt;h3 id="安装crash2json">安装crash2json&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip install crash2json
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="命令行直接运行">命令行直接运行&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">crash2json yourcrashreport.crash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="其他参数">其他参数&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">positional arguments:&lt;span class="err">
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip install crash2json
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="命令行直接运行">命令行直接运行&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">crash2json yourcrashreport.crash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="其他参数">其他参数&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">positional arguments:&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> crash_file&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>optional arguments:&lt;span class="err">
@@ -32,7 +73,9 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> -s, --simple output a simple json with only header, exceptionInfo, diagnositcMsg, Thread0Backtrace&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> -o OUTPUT_NAME, --output_name OUTPUT_NAME&lt;span class="err">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> the .json file you want to save result to, no need .json suffix&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="源码地址">源码地址&lt;/h2>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="源码地址">源码地址&lt;/h2>
 &lt;p>&lt;a class="link" href="https://github.com/yanbo92/crash2json" target="_blank" rel="noopener"
 >yanbo92/crash2json&lt;/a>&lt;/p></description></item><item><title>通过ifuse/tidevice库读写iPhone手机硬盘</title><link>https://yanbo92.site/read-write-iphone-disk/</link><pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate><guid>https://yanbo92.site/read-write-iphone-disk/</guid><description>&lt;img src="https://yanbo92.site/read-write-iphone-disk/cover.png" alt="Featured image of post 通过ifuse/tidevice库读写iPhone手机硬盘" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>在自动化测试的交付、执行过程中，偶尔需要对iPhone手机的硬盘进行读写操作，比如删除相册，拷贝素材等等。本文介绍两个通过命令行操作iPhone手机硬盘的工具，分别是&lt;code>ifuse&lt;/code>和&lt;code>tidevice&lt;/code>。&lt;/p>
@@ -51,8 +94,15 @@
 &lt;p>项目主页：&lt;a class="link" href="https://osxfuse.github.io/" target="_blank" rel="noopener"
 >osxfuse.github.io&lt;/a>&lt;/p>
 &lt;p>安装：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install osxfuse --cask
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install osxfuse --cask
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
 &lt;h4 id="ifuse">ifuse&lt;/h4>
 &lt;blockquote>
 &lt;p>&lt;em>A fuse filesystem implementation to access the contents of iOS devices.&lt;/em>&lt;/p>
@@ -80,10 +130,24 @@
 &lt;/ul>
 &lt;p>项目主页：&lt;/p>
 &lt;p>安装：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install ifuse
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果装不上，把系统时间改到2021年4月6日之前即可。但时间改了之后又会出现443:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">curl: (35) LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to ghcr.io:443
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以正确的操作流程是要在通过了brew校验这个包可以装之后再改回正常的时间，以通过下载包所需要的SSL校验，毫秒级操作，不过多试几次就能装上去。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install ifuse
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果装不上，把系统时间改到2021年4月6日之前即可。但时间改了之后又会出现443:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">curl: (35) LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to ghcr.io:443
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>所以正确的操作流程是要在通过了brew校验这个包可以装之后再改回正常的时间，以通过下载包所需要的SSL校验，毫秒级操作，不过多试几次就能装上去。&lt;/p>
 &lt;p>此项目依赖osxfuse，请先安装上面的osxfuse。&lt;/p>
 &lt;/blockquote>
 &lt;h4 id="tidevice">tidevice&lt;/h4>
@@ -104,8 +168,15 @@
 &lt;p>项目主页：&lt;a class="link" href="https://github.com/alibaba/taobao-iphone-device" target="_blank" rel="noopener"
 >alibaba/taobao-iphone-device&lt;/a>&lt;/p>
 &lt;p>安装：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip3 install -U &lt;span class="s2">&amp;#34;tidevice[openssl]&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">pip3 install -U &lt;span class="s2">&amp;#34;tidevice[openssl]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
 &lt;h2 id="实现原理">实现原理&lt;/h2>
 &lt;ul>
 &lt;li>通过阅读源码可以得知，&lt;code>ifuse&lt;/code>依赖&lt;code>libimobiledevice&lt;/code>，同时是基于&lt;code>usbmux&lt;/code>实现的，换言之，该库只支持通过电脑usb连接手机来通信。ifuse将手机硬盘的某一部分挂载到电脑硬盘上，再通过正常的文件读写操作去控制。&lt;/li>
@@ -114,30 +185,93 @@
 &lt;h2 id="具体实现代码">具体实现代码&lt;/h2>
 &lt;h4 id="ifuse读写手机内存">ifuse读写手机内存&lt;/h4>
 &lt;p>首先新建一个mount_point目录用于挂载手机硬盘：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">mkdir mount_point
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后用默认参数挂载，这样将会挂载整个&lt;code>Media&lt;/code>目录，可以拿到&lt;code>DCIM&lt;/code>以及&lt;code>Downloads&lt;/code>之类的目录内容：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">mkdir mount_point
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后用默认参数挂载，这样将会挂载整个&lt;code>Media&lt;/code>目录，可以拿到&lt;code>DCIM&lt;/code>以及&lt;code>Downloads&lt;/code>之类的目录内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ls mount_point
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">AirFair MediaAnalysis Purchases afk&lt;span class="o">(&lt;/span>1&lt;span class="o">)&lt;/span>.zip rd
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Books PhotoData Radio afk_screenshots
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">DCIM Photos Recordings general_storage
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Downloads PublicStaging afk iTunes_Control
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>可以像自己电脑上的目录一样去读写，比如&lt;code>rm&lt;/code>，&lt;code>mkdir&lt;/code>之类的都没问题。&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以像自己电脑上的目录一样去读写，比如&lt;code>rm&lt;/code>，&lt;code>mkdir&lt;/code>之类的都没问题。&lt;/p>
 &lt;p>卸载掉：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">umount mount_point
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>还有另一种更强力的卸载，毕竟这个库经常会卸载不掉：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">diskutil unmount force mount_point
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>再试试指定APP包名的挂载方式，此处用的是Alook浏览器&lt;code>com.ld.TakeBrowser&lt;/code>：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse --documents com.ld.TakeBrowser -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">umount mount_point
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>还有另一种更强力的卸载，毕竟这个库经常会卸载不掉：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">diskutil unmount force mount_point
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>再试试指定APP包名的挂载方式，此处用的是Alook浏览器&lt;code>com.ld.TakeBrowser&lt;/code>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ifuse --documents com.ld.TakeBrowser -u c6b0ab4fa8867c51cf1c5b6d8cd076d3957192b2 mount_point
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % ls mount_point
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Audios Images Videos
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Documents Others Zipped
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里挂载了APP的Documents目录，同样可以使用的参数还有&lt;code>--container&lt;/code>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这里挂载了APP的Documents目录，同样可以使用的参数还有&lt;code>--container&lt;/code>&lt;/p>
 &lt;h4 id="tidevice读写手机内存">tidevice读写手机内存&lt;/h4>
 &lt;p>首先新建一个txt用于调试&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">touch file.txt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>类似的，查看&lt;code>Media&lt;/code>下的目录：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync ls /DCIM/
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">touch file.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>类似的，查看&lt;code>Media&lt;/code>下的目录：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync ls /DCIM/
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[&amp;#39;.DS_Store&amp;#39;,
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;104APPLE&amp;#39;,
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;._.DS_Store&amp;#39;,
@@ -146,19 +280,52 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;.MISC&amp;#39;,
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;101APPLE&amp;#39;,
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;100APPLE&amp;#39;]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>删除一张照片：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync rm /DCIM/104APPLE/IMG_4334.JPG
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>删除一张照片：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync rm /DCIM/104APPLE/IMG_4334.JPG
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;AFCStatus.SUCCESS: 0&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>操作特定的APP目录，需要使用&lt;code>-B&lt;/code>参数：&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>操作特定的APP目录，需要使用&lt;code>-B&lt;/code>参数：&lt;/p>
 &lt;p>ls操作：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser ls /Documents
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser ls /Documents
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[&amp;#39;Zipped&amp;#39;, &amp;#39;Documents&amp;#39;, &amp;#39;Videos&amp;#39;, &amp;#39;Others&amp;#39;, &amp;#39;Images&amp;#39;, &amp;#39;Audios&amp;#39;]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>push操作：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser push file.txt /Documents/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>push操作：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">MacBook-Pro ~ % tidevice fsync -B com.ld.TakeBrowser push file.txt /Documents/
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pushed to /Documents/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>类似的支持的操作还有如下几个：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">{rm,cat,pull,stat,tree,rmtree,mkdir
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用建议">使用建议&lt;/h4>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>类似的支持的操作还有如下几个：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">{rm,cat,pull,stat,tree,rmtree,mkdir
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="使用建议">使用建议&lt;/h4>
 &lt;p>个人认为在功能没有差异的情况下，使用&lt;code>tidevice&lt;/code>要比&lt;code>ifuse&lt;/code>方便得多，有如下原因&lt;/p>
 &lt;ul>
 &lt;li>基于Python实现，相对于ifuse使用C的实现更适合脚本集成，可以直接用python的&lt;code>import&lt;/code>使用，无需使用类似&lt;code>os.system()&lt;/code>这种粗暴的方式&lt;/li>
